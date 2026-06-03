@@ -1,0 +1,16 @@
+@import '../global/variables.css';
+
+/* セクション内コンテンツの器。本体は SP 幅(--layout-main-width)の固定列。 */
+.l-container {
+  width: min(100%, var(--layout-main-width));
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+}
+
+/* 縦向きスマホでは画面幅に追従 */
+@media (max-width: 767px) and (orientation: portrait) {
+  .l-container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,72 @@
+/* -------------------
+   Project Editable Tokens
+   Edit this section for each project
+------------------- */
+:root {
+  /* Base Colors */
+  --base-main: #6a3c0a;
+  --base-accent: #c2584a;
+  --base-sub: #bf9c35;
+  --base-text: #333;
+  --base-bg: #efe5d1;
+  --base-surface: #f6f5f2;
+
+  /* Project Font Sources */
+  --font-source-jp-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-source-jp-sans: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --font-source-en: 'Metal', 'Georgia', serif;
+  --font-source-en-decor: 'Alex Brush', 'Times New Roman', cursive;
+
+  /* Layout */
+  --layout-max-width: 1440px;
+  --layout-max-width-inner: 1100px;
+  /* SP 本体（中央固定列）の幅。カンプ幅に合わせる。既定 375px */
+  --layout-main-width: 375px;
+  --layout-padding-sp: 20px;
+  --layout-padding-pc: 50px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  --spacing-5xl: 96px;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 50%;
+
+  /* Typography */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --font-size-base: clamp(16px, 1.6vw, 18px);
+  --line-height-base: 1.62;
+}
+
+/* -------------------
+   Semantic Tokens
+   Use this small set in implementation
+------------------- */
+:root {
+  --color-text: var(--base-text);
+  --color-bg: var(--base-bg);
+  --color-surface: var(--base-surface);
+  --color-main: var(--base-main);
+  --color-accent: var(--base-accent);
+  --color-sub: var(--base-sub);
+
+  /* Font Aliases */
+  --font-jp--serif: var(--font-source-jp-serif);
+  --font-jp--sanserif: var(--font-source-jp-sans);
+  --font-en: var(--font-source-en);
+  --font-en--decor: var(--font-source-en-decor);
+}
