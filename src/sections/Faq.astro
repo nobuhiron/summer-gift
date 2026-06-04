@@ -1,0 +1,44 @@
+---
+/**
+ * よくある質問（FAQ）
+ * royal-blue 背景に白の Q&A パネル。details/summary のアコーディオン（既定は開）。
+ */
+import { FAQ_ITEMS } from '../data/faq';
+import { LINK_BASE } from '../data/links';
+
+// 「こちら」をリンク化する簡易ヘルパ
+const wrappingHref = `${LINK_BASE}`;
+---
+
+<section id="faq" class="l-section p-faq" aria-labelledby="heading-faq">
+  <div class="l-container">
+    <h2 id="heading-faq" class="p-faq__title">よくある質問</h2>
+    <div class="p-faq__list">
+      {FAQ_ITEMS.map((item) => (
+        <details class="p-faq__item" open>
+          <summary class="p-faq__summary">
+            <span class="p-faq__q" aria-hidden="true">Q</span>
+            <span class="p-faq__question">{item.question}</span>
+            <span class="p-faq__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="p-faq__answer">
+            {item.answer.map((para) =>
+              para === 'ギフト包装、熨斗についてはこちら' ? (
+                <p class="p-faq__para">
+                  ギフト包装、熨斗については
+                  <a class="p-faq__link" href={wrappingHref}>こちら</a>
+                </p>
+              ) : (
+                <p class="p-faq__para">{para}</p>
+              )
+            )}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

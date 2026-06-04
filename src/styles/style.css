@@ -3,3 +3,8 @@
 @import './layout/index.css';
 @import './products/index.css';
 @import './components/index.css';
+
+html,
+body {
+  background-color: var(--color-bg);
+}

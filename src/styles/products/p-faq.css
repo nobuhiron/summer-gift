@@ -1,0 +1,101 @@
+/* よくある質問（よくある質問.jpg / カード=Q1.jpg）:
+   royal-blue 背景。カードは「淡い青のQヘッダー（明朝・ネイビー）＋白の本文」。 */
+
+.p-faq {
+  background-color: var(--palette-blue-royal);
+  padding-block: 48px;
+}
+
+.p-faq__title {
+  color: var(--base-text-on-dark);
+  font-family: var(--font-jp--serif);
+  font-size: var(--font-size-title-ja-lg);
+  font-weight: var(--fw-medium);
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-block-end: 28px;
+}
+
+.p-faq__list {
+  display: grid;
+  gap: 20px;
+}
+
+.p-faq__item {
+  background: var(--base-bg);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Q ヘッダー：淡い青背景・明朝・ネイビー */
+.p-faq__summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+  background: var(--palette-blue-pale);
+  font-family: var(--font-jp--serif);
+  color: var(--color-main);
+}
+
+.p-faq__summary::-webkit-details-marker {
+  display: none;
+}
+
+.p-faq__q {
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: var(--fw-medium);
+  align-self: flex-start;
+}
+
+.p-faq__question {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.p-faq__chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-main);
+  transition: transform 0.2s ease;
+}
+
+.p-faq__chevron svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.p-faq__item[open] .p-faq__chevron {
+  transform: rotate(180deg);
+}
+
+/* 本文：白背景 */
+.p-faq__answer {
+  padding: 18px;
+}
+
+.p-faq__para {
+  font-family: var(--font-jp--serif);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text);
+  white-space: pre-line; /* 【必須記入事項】の改行を保持 */
+  border-radius: 4px;
+}
+
+.p-faq__para + .p-faq__para {
+  margin-block-start: 1em;
+}
+
+.p-faq__link {
+  color: var(--base-text-blue);
+  text-decoration: underline;
+}

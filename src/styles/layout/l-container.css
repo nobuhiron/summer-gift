@@ -1,16 +1,9 @@
-@import '../global/variables.css';
-
-/* セクション内コンテンツの器。本体は SP 幅(--layout-main-width)の固定列。 */
+/* セクション内コンテンツの器。
+   幅キャップ(375)＋中央寄せは .l-main-column が担うため、ここは全幅＋左右20px。 */
 .l-container {
-  width: min(100%, var(--layout-main-width));
-  max-width: 100%;
-  margin: 0 auto;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--layout-padding-sp);
+  box-sizing: border-box;
   display: grid;
-}
-
-/* 縦向きスマホでは画面幅に追従 */
-@media (max-width: 767px) and (orientation: portrait) {
-  .l-container {
-    width: 100%;
-  }
 }

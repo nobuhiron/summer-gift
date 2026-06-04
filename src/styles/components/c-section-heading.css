@@ -1,0 +1,19 @@
+.c-section-heading {
+  text-align: center;
+  margin-block-end: var(--spacing-3xl);
+}
+.c-section-heading__en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: var(--fw-regular);
+  color: var(--color-main);
+  line-height: 1.2;
+}
+.c-section-heading__ja {
+  display: block;
+  font-family: var(--font-jp--serif);
+  font-size: clamp(13px, 1.5vw, 16px);
+  color: var(--color-text);
+  margin-block-start: var(--spacing-xs);
+}

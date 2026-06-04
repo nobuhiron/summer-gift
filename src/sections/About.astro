@@ -1,0 +1,53 @@
+---
+/**
+ * リード文 / about（about.jpg）
+ * Hero 直後の導入。背景=about-bg.jpg、見出し＋リボン(about-ribon.svg)＋3段落＋風鈴(about-furin.svg)。
+ */
+import aboutBg from '../assets/images/about-bg.jpg';
+import { publicAssetPath } from '../utils/assets';
+
+const INTRO_PARAGRAPHS = [
+  'お中元は、家族や友人、仕事関係の人々との絆を深める日本の美しい文化の一端です。暑い夏の季節に、日頃の感謝や健康を願う気持ちを込めて贈り物をすることで、お相手の心に涼やかなひとときをお届けします。',
+  '森半では、90年以上磨き上げてきた夏の定番「氷茶」をはじめ、甘くやわらかな香りと渋みが少なくさっぱりとした味わいが特徴の「和紅茶」など夏の贈り物にぴったりな商品をご用意しております。',
+  'こだわりと真心を込めた大切な贈り物を、ぜひ森半でお選びください。',
+];
+---
+
+<section
+  id="about"
+  class="l-section p-about"
+  aria-labelledby="heading-about"
+  style={`--about-bg: url("${aboutBg.src}")`}
+>
+  <div class="l-container">
+    <header class="p-about__header">
+      <h2 id="heading-about" class="p-about__title">
+        <span class="p-about__title-sm">森半の</span>
+        <span class="p-about__title-lg">お中元・夏ギフト</span>
+      </h2>
+      <img
+        src={publicAssetPath('/about-ribon.svg')}
+        alt=""
+        aria-hidden="true"
+        class="p-about__ribbon"
+        width="375"
+        height="48"
+      />
+    </header>
+
+    <div class="p-about__body">
+      {INTRO_PARAGRAPHS.map((para) => (
+        <p class="p-about__para">{para}</p>
+      ))}
+    </div>
+  </div>
+
+  <img
+    src={publicAssetPath('/about-furin.svg')}
+    alt=""
+    aria-hidden="true"
+    class="p-about__furin"
+    width="69"
+    height="127"
+  />
+</section>

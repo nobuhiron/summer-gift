@@ -1,0 +1,117 @@
+/* nav: 縦並びボタン。右にベージュ丸＋白 chevron */
+
+.c-nav-stack {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+}
+
+.c-nav-stack__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  width: 100%;
+  min-height: 44px;
+  padding: 14px var(--spacing-lg);
+  box-sizing: border-box;
+  font-family: var(--font-jp--serif);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.45;
+  color: var(--color-text);
+  background: var(--base-bg);
+  border: 1px solid var(--color-main);
+  border-radius: 999px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.c-nav-stack__btn:hover {
+  color: var(--base-text-on-dark) !important;
+  background-color: var(--color-main);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-main) 24%, transparent);
+  transform: translateY(-1px);
+}
+
+.c-nav-stack__btn:hover .c-nav-stack__icon {
+  background: var(--base-bg);
+  color: var(--color-main);
+}
+
+.c-nav-stack__label {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.c-nav-stack__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-xl);
+  background: var(--color-main);
+  color: var(--base-text-on-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-nav-stack__btn--compact .c-nav-stack__icon {
+  background: transparent;
+  color: inherit;
+}
+
+.c-nav-stack__chevron {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.c-nav-stack__btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* PC 右カラム：詰め */
+.c-nav-stack--compact {
+  gap: var(--spacing-xs);
+}
+
+.c-nav-stack--compact .c-nav-stack__btn--compact {
+  font-size: 12px;
+  padding-block-start: 20px;
+  padding-block-end: 10px;
+  padding-inline: var(--spacing-sm);
+  padding-inline-end: var(--spacing-xs);
+  min-height: 40px;
+  line-height: 1.35;
+}
+.c-nav-stack__btn--compact:hover {
+  color: #00355D !important;
+  border-color: #00355D;
+}
+
+.c-nav-stack__btn--compact:hover .c-nav-stack__icon {
+  background: transparent;
+  color: inherit;
+}
+
+.c-nav-stack--compact .c-nav-stack__btn--compact .c-nav-stack__label {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+}
+
+.c-nav-stack--compact .c-nav-stack__btn--compact .c-nav-stack__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.c-nav-stack--compact .c-nav-stack__btn--compact .c-nav-stack__chevron {
+  width: 12px;
+  height: 12px;
+}

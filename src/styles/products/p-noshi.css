@@ -1,0 +1,162 @@
+/* のし紙の種類と書き方（のし紙の種類と書き方.jpg）:
+   波アイコン→見出し→導入文→のし図解→ケース別カード Splide→閉じる。 */
+
+.p-noshi {
+  padding-block: 44px;
+  background: var(--base-bg);
+}
+
+.p-noshi__icon {
+  display: block;
+  width: 52px;
+  height: auto;
+  margin: 0 auto 8px;
+}
+
+.p-noshi__title {
+  text-align: center;
+  font-family: var(--font-jp--serif);
+  font-size: var(--font-size-title-ja-xl);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  letter-spacing: 0.06em;
+  margin-block-end: 24px;
+}
+
+.p-noshi__intro {
+  font-size: var(--font-size-body-sm);
+  line-height: 2;
+  color: var(--color-text);
+}
+
+/* のし図解（支給画像） */
+.p-noshi__main {
+  margin-block: 24px 28px;
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+
+.p-noshi__main-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ケース別カード Splide */
+.p-noshi__detail {
+  /* l-container は grid。grid item の min-width:auto を解除しないと
+     カルーセル内容幅にトラックが伸びてコンテナをはみ出す。 */
+  min-width: 0;
+}
+
+.p-noshi__detail[hidden] {
+  display: none;
+}
+
+.p-noshi__carousel {
+  padding-block-end: 8px;
+  /* SP ポートレートで親列が流動幅になるため、カルーセルが内容幅に伸びて
+     コンテナをはみ出すのを防ぐ。Splide のトラックを列幅内にクリップする。 */
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.p-noshi__slide.splide__slide {
+  width: 220px;
+}
+
+.c-noshi-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.c-noshi-card__title {
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-bold);
+  font-size: 16px;
+  color: var(--color-main);
+}
+
+.c-noshi-card__divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-block: 10px 12px;
+  background: color-mix(in srgb, var(--color-main) 30%, transparent);
+}
+
+.c-noshi-card__body {
+  font-size: var(--font-size-body-sm);
+  line-height: 1.8;
+  color: var(--color-text);
+  min-height: 4.4em;
+}
+
+.c-noshi-card__image {
+  margin-block-start: 12px;
+  border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+  border-radius: var(--radius-xs);
+  background: var(--base-bg);
+  overflow: hidden;
+}
+
+.c-noshi-card__image-el {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* トグル（詳しく見る / 閉じる）— 最下部 */
+.p-noshi__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-block-start: 28px;
+  padding: 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-cta);
+  color: var(--base-text-on-dark);
+  font-family: var(--font-jp--sanserif);
+  font-weight: var(--fw-bold);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.p-noshi__toggle-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-xl);
+  background: var(--base-bg);
+  color: var(--color-cta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.p-noshi__toggle-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.p-noshi__toggle-label--close {
+  display: none;
+}
+
+.p-noshi__toggle[aria-expanded='true'] .p-noshi__toggle-label--more {
+  display: none;
+}
+
+.p-noshi__toggle[aria-expanded='true'] .p-noshi__toggle-label--close {
+  display: inline;
+}
+
+.p-noshi__toggle[aria-expanded='false'] .p-noshi__toggle-icon {
+  transform: rotate(180deg);
+}

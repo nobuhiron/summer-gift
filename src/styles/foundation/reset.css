@@ -33,7 +33,9 @@ html {
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   text-rendering: optimizeSpeed;
+  background-color: #ec8e83;
 }
 
 a {

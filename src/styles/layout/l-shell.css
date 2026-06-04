@@ -1,8 +1,4 @@
-/* -------------------------------------------------------------
-   l-shell — SP は中央固定列(--layout-main-width) 1 本、
-   PC(--lg) では 1fr / main / 1fr のグリッドにして左右に chrome を出す。
-   季節 LP 共通の骨格。左右 chrome の中身は案件ごとに PageChrome* で実装する。
-------------------------------------------------------------- */
+/* 共通背景 + 中央固定幅 main + PC 時のみ左右シェル */
 
 .l-page {
   position: relative;
@@ -11,14 +7,83 @@
   isolation: isolate;
 }
 
-/* ページ全体の背景レイヤー（案件ごとに差し替える想定の薄いプレースホルダ）。
-   既定では何も描かない。必要なら background を上書きする。 */
 .l-page__bg {
   position: fixed;
-  inset: 0;
+  inset: -1px;
+  inset: calc(env(safe-area-inset-top, 0px) * -1)
+        calc(env(safe-area-inset-right, 0px) * -1)
+        calc(env(safe-area-inset-bottom, 0px) * -1)
+        calc(env(safe-area-inset-left, 0px) * -1);
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+}
+
+.l-page__bg-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 480ms ease;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.l-page__bg-layer--default {
+  background-image: var(--gradient-bg-default);
+}
+
+.l-page__bg-layer--about {
+  background-image: url('../../assets/images/bg_line.jpg');
+}
+
+.l-page__bg-layer--gift-flow {
+  background-color: #3d6cb3;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+.l-page__bg-ashirai {
+  display: none;
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (--lg) {
+  .l-page__bg-ashirai {
+    display: block;
+  }
+
+  .l-page__bg-ashirai--tl {
+    top: 0;
+    left: 0;
+    width: clamp(220px, 32vw, 467px);
+  }
+
+  .l-page__bg-ashirai--br {
+    right: 0;
+    bottom: 0;
+    width: clamp(120px, 16vw, 234px);
+  }
+
+  .l-page__bg-ashirai--bl {
+    bottom: 0;
+    left: 0;
+    width: clamp(80px, 10vw, 145px);
+  }
+}
+
+.l-page__bg[data-bg-state='default'] .l-page__bg-layer--default,
+.l-page__bg[data-bg-state='about'] .l-page__bg-layer--about,
+.l-page__bg[data-bg-state='gift-flow'] .l-page__bg-layer--gift-flow {
+  opacity: 1;
 }
 
 .l-shell {
@@ -27,7 +92,6 @@
   z-index: 1;
 }
 
-/* 左右 chrome は SP では非表示、PC でのみ表示 */
 .l-shell__aside {
   display: none;
 }
@@ -36,11 +100,16 @@
   width: 100%;
 }
 
-/* 本体の中央固定列 */
 .l-main-column {
   width: 100%;
   max-width: var(--layout-main-width);
   margin-inline: auto;
+}
+
+.l-shell__sticky {
+  position: sticky;
+  top: var(--spacing-xl);
+  padding-block: var(--spacing-md);
 }
 
 @media (--lg) {
@@ -55,7 +124,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .l-shell__aside--left,
+  .l-shell__aside--right {
     min-width: 0;
+  }
+
+  .l-shell__aside--left,
+  .l-shell__aside--right {
     position: sticky;
     top: 0;
     height: 100vh;
@@ -65,13 +142,11 @@
     min-width: 0;
   }
 
-  /* グリッド内では中央カラムなので margin auto は不要 */
   .l-main-column {
     margin-inline: 0;
   }
 }
 
-/* 縦向きスマホでは固定幅を解除して画面幅に追従させる */
 @media (max-width: 767px) and (orientation: portrait) {
   .l-main-column {
     max-width: none;

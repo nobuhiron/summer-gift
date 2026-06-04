@@ -1,0 +1,33 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  compact?: boolean;
+}
+
+const { href, label, compact = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={['c-nav-stack__btn', compact && 'c-nav-stack__btn--compact']}
+>
+  <span class="c-nav-stack__label">{label}</span>
+  <span class="c-nav-stack__icon" aria-hidden="true">
+    <svg
+      class="c-nav-stack__chevron"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M10 6l6 6-6 6"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </span>
+</a>

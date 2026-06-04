@@ -1,0 +1,50 @@
+---
+/**
+ * 森半が選ばれている理由
+ * 見出し＋理由カード（横スクロール）。Reason 01 にブランド由来。
+ * NOTE: 支給画像には Reason 01 のみ。02 以降は支給後に追記する。
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { REASONS } from '../data/reasons';
+import reasonMorihan from '../assets/images/reason-morihan.jpg';
+
+const reasonImages: Record<string, ImageMetadata> = {
+  'Reason 01': reasonMorihan,
+};
+---
+
+<section id="reason" class="l-section p-reason" aria-labelledby="heading-reason">
+  <div class="l-container">
+    <header class="p-reason__header">
+      <h2 id="heading-reason" class="p-reason__title">
+        <span class="p-reason__title-sm">森半が</span>
+        <span class="p-reason__title-lg">選ばれている理由</span>
+      </h2>
+      <span class="p-reason__wave" aria-hidden="true"></span>
+    </header>
+
+    <ul class="p-reason__list" role="list">
+      {REASONS.map((reason) => (
+        <li class="p-reason__item">
+          <article class="c-reason-card">
+            <p class="c-reason-card__eyebrow" aria-hidden="true">{reason.eyebrow}</p>
+            <h3 class="c-reason-card__title">{reason.title}</h3>
+            {reasonImages[reason.eyebrow] ? (
+              <Image src={reasonImages[reason.eyebrow]} alt={reason.title} class="c-reason-card__image" />
+            ) : (
+              <div class="c-reason-card__image c-reason-card__image--ph" role="img" aria-label={`${reason.title}のイメージ`}></div>
+            )}
+            <p class="c-reason-card__body">{reason.body}</p>
+            <a href={reason.href} class="c-reason-card__btn">
+              <span>{reason.cta}</span>
+              <span class="c-reason-card__btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+            </a>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

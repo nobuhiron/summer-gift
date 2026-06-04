@@ -1,0 +1,8 @@
+.p-hero {
+  width: 100%;
+}
+.p-hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}

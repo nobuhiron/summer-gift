@@ -1,0 +1,59 @@
+---
+/**
+ * 商品カテゴリセクション（再利用可能）
+ * props で見出しとカテゴリを切り替える
+ */
+interface Props {
+  id: string;
+  titleEn: string;
+  titleJa: string;
+  bgVariant?: 'base' | 'surface';
+  productCount?: number;
+}
+
+const {
+  id,
+  titleEn,
+  titleJa,
+  bgVariant = 'base',
+  productCount = 3,
+} = Astro.props;
+
+const bgClass = `l-section--bg-${bgVariant}`;
+const placeholderProducts = Array.from({ length: productCount }, (_, i) => ({
+  name: `${titleJa}ギフト ${i + 1}`,
+  price: `￥${((i + 1) * 1000 + 2000).toLocaleString()}`,
+}));
+
+import { LINK_BASE as linkBase } from '../data/links';
+---
+
+<section id={id} class={`l-section ${bgClass}`} aria-labelledby={`heading-${id}`}>
+  <div class="l-container">
+    <header class="c-section-heading">
+      <h2 id={`heading-${id}`}>
+        <span class="c-section-heading__en">{titleEn}</span>
+        <span class="c-section-heading__ja">{titleJa}</span>
+      </h2>
+    </header>
+
+    <div class="p-product-category__grid">
+      {placeholderProducts.map((product) => (
+        <article class="c-category-product-card">
+          <div class="c-category-product-card__image" role="img" aria-label={`${product.name}の画像`}></div>
+          <div class="c-category-product-card__body">
+            <h3 class="c-category-product-card__name">{product.name}</h3>
+            <p class="c-category-product-card__price">{product.price}</p>
+            <div class="c-category-product-card__action">
+              <a href={linkBase} class="c-btn c-btn--cta">カートに入れる</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="p-product-category__more">
+      <a href={linkBase} class="c-btn c-btn--outline">もっと見る</a>
+    </div>
+  </div>
+</section>

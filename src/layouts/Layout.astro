@@ -3,6 +3,10 @@ import '../styles/style.css';
 import { FONT_LINKS, SITE } from '../config/site';
 import PageChromeLeft from '../components/PageChromeLeft.astro';
 import PageChromeRight from '../components/PageChromeRight.astro';
+import { publicAssetPath } from '../utils/assets';
+import giftAshirai1 from '../assets/images/gift-ashirai-1.png';
+import giftAshirai2 from '../assets/images/gift-ashirai-2.png';
+import giftAshirai3 from '../assets/images/gift-ashirai-3.png';
 
 interface Props {
   title?: string;
@@ -43,8 +47,8 @@ const twitterCard = ogImageUrl ? 'summary_large_image' : 'summary';
 <html lang={SITE.lang}>
   <head>
     <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel='icon' type='image/x-icon' href={publicAssetPath('/favicon.ico')} />
+    <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
     <meta name='generator' content={Astro.generator} />
     {FONT_LINKS.preconnect.map((href) => (
       <link rel='preconnect' href={href} crossorigin='anonymous' />
@@ -66,20 +70,31 @@ const twitterCard = ogImageUrl ? 'summary_large_image' : 'summary';
     {ogImageUrl && <meta name='twitter:image' content={ogImageUrl} />}
     <title>{title}</title>
   </head>
-  <body class='l-page'>
-    <div class='l-page__bg' aria-hidden='true'></div>
-    <div class='l-shell'>
-      <aside class='l-shell__aside l-shell__aside--left'>
+  <body class="l-page">
+    <div class="l-page__bg" aria-hidden="true" data-bg-state="default">
+      <div class="l-page__bg-layer l-page__bg-layer--default"></div>
+      <div class="l-page__bg-layer l-page__bg-layer--about"></div>
+      <div class="l-page__bg-layer l-page__bg-layer--gift-flow">
+        <img class="l-page__bg-ashirai l-page__bg-ashirai--tl" src={giftAshirai1.src} width={giftAshirai1.width} height={giftAshirai1.height} alt="" />
+        <img class="l-page__bg-ashirai l-page__bg-ashirai--br" src={giftAshirai2.src} width={giftAshirai2.width} height={giftAshirai2.height} alt="" />
+        <img class="l-page__bg-ashirai l-page__bg-ashirai--bl" src={giftAshirai3.src} width={giftAshirai3.width} height={giftAshirai3.height} alt="" />
+      </div>
+    </div>
+    <div class="l-shell">
+      <aside class="l-shell__aside l-shell__aside--left" aria-label="ページタイトル">
         <PageChromeLeft />
       </aside>
-      <div class='l-shell__main'>
-        <main id='main-content' class='l-main-column'>
+      <div class="l-shell__main">
+        <main id="main-content" class="l-main-column">
           <slot />
         </main>
       </div>
-      <aside class='l-shell__aside l-shell__aside--right'>
+      <aside class="l-shell__aside l-shell__aside--right" aria-label="補助ナビとLINE登録">
         <PageChromeRight />
       </aside>
     </div>
+    <script>
+      import '../scripts/main.js';
+    </script>
   </body>
 </html>

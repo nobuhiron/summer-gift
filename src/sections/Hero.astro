@@ -1,0 +1,17 @@
+---
+/**
+ * Hero / First View
+ * 森半 お中元・夏ギフトのメインビジュアル。
+ * NOTE: FV.jpg は支給カンプ(main.jpg)からの暫定スライス。最終 FV 画像支給後に差し替える。
+ */
+import { Image } from 'astro:assets';
+import heroImage from '../assets/images/FV.jpg';
+---
+
+<section id="hero" class="p-hero">
+  <Image
+    src={heroImage}
+    alt="森半tea&coffee お中元・夏ギフト ありがとうを添えて、夏の暮らしを華やかに彩るギフト"
+    class="p-hero__image"
+  />
+</section>

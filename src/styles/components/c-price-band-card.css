@@ -1,0 +1,92 @@
+/* 萓｡譬ｼ蟶ｯ繧ｻ繧ｯ繧ｷ繝ｧ繝ｳ逕ｨ縺ｮ蝠・刀繧ｫ繝ｼ繝・*/
+
+.c-price-band-card {
+  background-color: var(--color-bg);
+  padding: 16px 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  gap: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- 逕ｻ蜒・---------- */
+.c-price-band-card__image {
+  width: 100%;
+  aspect-ratio: 303 / 170;
+  background-color: var(--palette-image-placeholder);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.c-price-band-card__image-el {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- 繝・く繧ｹ繝医お繝ｪ繧｢ ---------- */
+.c-price-band-card__body {
+  display: grid;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding: 0;
+}
+
+.c-price-band-card__cta {
+  display: flex;
+  justify-content: center;
+}
+
+/* 繝・く繧ｹ繝域ュ蝣ｱ繝悶Ο繝・け */
+.c-price-band-card__info {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+/* 蝠・刀蜷・+ 萓｡譬ｼ */
+.c-price-band-card__header {
+  display: grid;
+  gap: 4px;
+}
+.c-price-band-card__name {
+  font-family: var(--font-jp--serif);
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+.c-price-band-card__price {
+  margin: 0;
+  font-family: var(--font-jp--serif);
+  font-size: 30px;
+  font-weight: var(--fw-medium);
+  color: var(--color-accent);
+  line-height: 1;
+}
+.c-price-band-card__price-yen {
+  font-size: 14px;
+}
+.c-price-band-card__price-tax {
+  font-size: 10px;
+  font-weight: var(--fw-regular);
+}
+
+/* 蛹ｺ蛻・ｊ邱・*/
+.c-price-band-card__divider {
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--color-accent);
+}
+
+/* 隱ｬ譏取枚 */
+.c-price-band-card__desc {
+  margin: 0;
+  font-family: var(--font-jp--sanserif);
+  font-size: 14px;
+  font-weight: var(--fw-regular);
+  color: var(--color-text);
+  line-height: 1.6;
+}

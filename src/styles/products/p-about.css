@@ -1,0 +1,68 @@
+/* リード文 / about（about.jpg）: 支給背景(about-bg.jpg)に中央寄せ導入文＋リボン＋風鈴 */
+
+.p-about {
+  position: relative;
+  padding-block: 44px 64px;
+  background-image: var(--about-bg);
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.p-about__header {
+  margin-block-end: 28px;
+}
+
+.p-about__title {
+  font-family: var(--font-jp--serif);
+  color: var(--color-main);
+  font-weight: var(--fw-medium);
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+}
+
+.p-about__title-sm {
+  display: block;
+  font-size: 19px;
+}
+
+.p-about__title-lg {
+  display: block;
+  font-size: 27px;
+}
+
+/* リボン（支給 SVG・本文幅いっぱい） */
+.p-about__ribbon {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 16px auto 0;
+}
+
+.p-about__body {
+  max-width: 268px;
+  margin-inline: auto;
+}
+
+.p-about__para {
+  font-size: var(--font-size-body-sm);
+  line-height: 2.05;
+  color: var(--color-text);
+}
+
+.p-about__para + .p-about__para {
+  margin-block-start: 1.6em;
+}
+
+/* 風鈴あしらい（支給 SVG・左下） */
+.p-about__furin {
+  position: absolute;
+  left: 18px;
+  bottom: 20px;
+  width: 52px;
+  height: auto;
+}

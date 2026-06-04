@@ -1,0 +1,126 @@
+/* お中元の豆知識（お中元の豆知識.jpg）:
+   見出し＋リボン＋アイコン項目（タイトル→青区切り→本文）。折りたたみ→詳しく見るで展開。 */
+
+.p-trivia {
+  padding-block: 44px;
+  background: var(--base-bg);
+}
+
+.p-trivia__title {
+  text-align: center;
+  font-family: var(--font-jp--serif);
+  font-size: var(--font-size-title-ja-xl);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  letter-spacing: 0.08em;
+}
+
+.p-trivia__ribbon {
+  display: block;
+  width: 190px;
+  height: auto;
+  margin: 12px auto 32px;
+}
+
+/* 項目 */
+.p-trivia__item + .p-trivia__item,
+.p-trivia__rest .p-trivia__item {
+  margin-block-start: 36px;
+}
+
+.p-trivia__item-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.p-trivia__item-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.p-trivia__item-title {
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-medium);
+  font-size: var(--font-size-title-ja);
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+}
+
+.p-trivia__item-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-block: 14px 16px;
+  background: var(--color-main);
+}
+
+.p-trivia__item-body {
+  font-size: var(--font-size-body-sm);
+  line-height: 2;
+  color: var(--color-text);
+}
+
+/* トグル（詳しく見る / 閉じる）— 最下部 */
+.p-trivia__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-block-start: 36px;
+  padding: 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-cta);
+  color: var(--base-text-on-dark);
+  font-family: var(--font-jp--sanserif);
+  font-weight: var(--fw-bold);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.p-trivia__toggle-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-xl);
+  background: var(--base-bg);
+  color: var(--color-cta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.p-trivia__toggle-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* 既定（閉）は「詳しく見る」＋下向き矢印。開くと「閉じる」＋上向き矢印 */
+.p-trivia__toggle-label--close {
+  display: none;
+}
+
+.p-trivia__toggle[aria-expanded='true'] .p-trivia__toggle-label--more {
+  display: none;
+}
+
+.p-trivia__toggle[aria-expanded='true'] .p-trivia__toggle-label--close {
+  display: inline;
+}
+
+/* 閉じている時は矢印を下向きに（既定 SVG は上向き） */
+.p-trivia__toggle[aria-expanded='false'] .p-trivia__toggle-icon {
+  transform: rotate(180deg);
+}
+
+.p-trivia__rest {
+  margin-block-start: 36px;
+}
+
+.p-trivia__rest[hidden] {
+  display: none;
+}

@@ -1,0 +1,109 @@
+---
+/**
+ * ギフトラッピングセクション
+ * Gift bag パート
+ */
+import { Image } from 'astro:assets';
+import messageImg1 from '../assets/images/tag-img-1.jpg';
+import messageImg2 from '../assets/images/tag-img-2.jpg';
+import tagFlower from '../assets/images/tag-flower.png';
+import tagMessage from '../assets/images/tag-message.png';
+import tagImg from '../assets/images/tag.png';
+import { publicAssetPath } from '../utils/assets';
+
+---
+
+<section
+  id='gift'
+  class='p-gift-wrapping'
+  aria-labelledby='gift-mothers-wrap'
+>
+  <!-- ===== Gift bag ===== -->
+  <div class='p-gift-wrapping__gift-bag'>
+    <div class='l-container p-gift-wrapping__gift-bag-container'>
+      <header id='gift-mothers-wrap' class='p-gift-wrapping__gift-bag-heading'>
+        <h2 class='p-gift-wrapping__gift-bag-heading-en'>
+          <span class='p-gift-wrapping__gift-bag-heading-en-mark' aria-hidden='true'></span>
+          <span class='p-gift-wrapping__gift-bag-heading-en-text'>GIFT BAG</span>
+          <span class='p-gift-wrapping__gift-bag-heading-en-mark' aria-hidden='true'></span>
+        </h2>
+        <p class='p-gift-wrapping__gift-bag-heading-ja'>
+          森半オリジナル<br />ギフト袋&amp;メッセージタグ</p>
+      </header>
+      <div class='p-gift-wrapping__gift-bag-body'>
+        <a
+          href="https://www.tea-and-coffee.shop/view/item/000000000842"
+          class='p-gift-wrapping__gift-bag-visual'
+          aria-label='森半オリジナルギフト袋の商品ページを開く'
+        >
+          <div class='p-gift-wrapping__gift-bag-image'>
+            <div class='p-gift-wrapping__gift-bag-badge'>
+              <p class='p-gift-wrapping__gift-bag-badge-text'>
+                <span class='p-gift-wrapping__gift-bag-badge-highlight'
+                  >お中元<br />限定タグ</span
+                >を<br />つけてお届けいた<br />します。
+              </p>
+            </div>
+            <Image
+              src={tagImg}
+              alt='森半オリジナルギフト袋'
+              class='p-gift-wrapping__gift-bag-photo'
+            />
+            <img
+              src={publicAssetPath('/limited-tag.svg')}
+              alt=''
+              aria-hidden='true'
+              class='p-gift-wrapping__gift-bag-limited-tag'
+            />
+          </div>
+        </a>
+
+        <div class='p-gift-wrapping__message-row'>
+          <div class='p-gift-wrapping__message-item'>
+            <Image
+              src={tagFlower}
+              alt=''
+              aria-hidden='true'
+              class='p-gift-wrapping__message-tag p-gift-wrapping__message-tag--flower'
+            />
+            <div class='p-gift-wrapping__message-image'>
+              <div class='p-gift-wrapping__message-photo-frame'>
+                <Image
+                  class='p-gift-wrapping__message-photo'
+                  src={messageImg1}
+                  alt='メッセージ付きギフト袋'
+                />
+              </div>
+            </div>
+            <p class='p-gift-wrapping__message-caption'>
+              メッセージ付きで<br />想いを伝える
+            </p>
+          </div>
+          <div class='p-gift-wrapping__message-item'>
+            <Image
+              src={tagMessage}
+              alt=''
+              aria-hidden='true'
+              class='p-gift-wrapping__message-tag p-gift-wrapping__message-tag--message'
+            />
+            <div class='p-gift-wrapping__message-image'>
+              <div class='p-gift-wrapping__message-photo-frame'>
+                <Image
+                  class='p-gift-wrapping__message-photo'
+                  src={messageImg2}
+                  alt='直筆メッセージタグ'
+                />
+              </div>
+            </div>
+            <p class='p-gift-wrapping__message-caption'>
+              直筆メッセージで<br />想いを伝える
+            </p>
+          </div>
+        </div>
+        <p class='p-gift-wrapping__note'>
+          ※メッセージの代筆は承っておりません。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

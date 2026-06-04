@@ -1,0 +1,155 @@
+/* ===== Shop by price セクション ===== */
+.p-shop-by-price {
+  overflow-x: hidden;
+  padding-block-end: var(--spacing-5xl);
+  /* 支給の bg-wave-price.jpg を敷く */
+  background-image: var(--price-bg);
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-color: #eaf4fd;
+}
+
+.p-shop-by-price > .l-container {
+  padding-inline: 20px;
+}
+
+/* ヘッダー（カンプ準拠：中央見出し＋波＋帯タブ） */
+.p-shop-by-price__header {
+  text-align: center;
+  padding-block-start: var(--spacing-xl);
+  margin-block-end: var(--spacing-2xl);
+}
+
+.p-shop-by-price__heading {
+  font-family: var(--font-jp--serif);
+  font-size: var(--font-size-title-ja-lg);
+  font-weight: var(--fw-medium);
+  color: var(--color-main);
+  letter-spacing: 0.1em;
+}
+
+.p-shop-by-price__wave {
+  display: block;
+  width: 40px;
+  height: 12px;
+  margin: 10px auto 24px;
+  background: repeating-linear-gradient(
+    118deg,
+    var(--color-main) 0 3px,
+    transparent 3px 7px
+  );
+}
+
+/* 帯タブ（2×2 ピル・各帯へジャンプ）: 白ピル＋ネイビー丸チェブロン */
+.p-shop-by-price__tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Frame 57: 白い角丸ボックス＋ネイビー枠＋明朝・濃色ラベル＋ネイビー丸チェブロン */
+.p-shop-by-price__tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 12px 10px 12px 14px;
+  border-radius: 8px;
+  background: var(--base-bg);
+  border: 1px solid var(--color-main);
+  color: var(--color-text);
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-medium);
+  font-size: 12.5px;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s ease;
+}
+
+.p-shop-by-price__tab > span:first-child {
+  white-space: nowrap;
+}
+
+.p-shop-by-price__tab:hover {
+  background: var(--palette-blue-pale);
+}
+
+.p-shop-by-price__tab-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-xl);
+  background: var(--color-main);
+  color: var(--base-text-on-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-shop-by-price__tab-icon svg {
+  width: 11px;
+  height: 11px;
+  display: block;
+}
+
+/* タブからのジャンプ時に見出しが隠れないように */
+.p-shop-by-price__band {
+  scroll-margin-top: 16px;
+}
+
+/* 価格帯グループ */
+.p-shop-by-price__bands {
+  display: grid;
+  gap: var(--spacing-5xl);
+}
+
+/* ---------- 価格帯ヘッダー ---------- */
+.p-shop-by-price__band-header {
+  text-align: center;
+  margin-block-end: var(--spacing-2xl);
+}
+
+.p-shop-by-price__band:first-child {
+  padding-block-start: var(--spacing-3xl);
+}
+
+/* 価格帯タイトル（数字大きく、「円」小さく） */
+.p-shop-by-price__band-title {
+  margin: 0;
+  font-family: var(--font-jp--serif);
+  font-size: 28px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+.p-shop-by-price__band-num {
+  font-size: inherit;
+  letter-spacing: -0.02em;
+}
+.p-shop-by-price__band-yen {
+  font-size: 14px;
+  vertical-align: baseline;
+}
+.p-shop-by-price__band-tilde {
+  font-size: 24px;
+  margin-inline: 0.1em;
+}
+
+/* おすすめアイテム */
+.p-shop-by-price__band-sub {
+  display: inline-block;
+  font-family: var(--font-jp--serif);
+  font-size: 24px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  letter-spacing: 0.1em;
+}
+
+/* 商品リスト（縦積み） */
+.p-shop-by-price__list {
+  list-style: none;
+  margin-block-start: var(--spacing-xl);
+  padding: 0;
+  display: grid;
+  gap: var(--spacing-3xl);
+}

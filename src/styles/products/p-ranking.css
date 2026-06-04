@@ -1,0 +1,145 @@
+/* お中元人気ランキング（ランキング.jpg / カード=1.png）:
+   王冠＋No.X の白カードを横スクロール。 */
+
+.p-ranking {
+  padding-block: 40px 44px;
+  background: linear-gradient(180deg, #f3f8fe 0%, #e9f2fc 100%);
+}
+
+/* 見出し（お中元 人気 ランキング ＋ 王冠あしらい） */
+.p-ranking__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block-end: 28px;
+}
+
+.p-ranking__header-crown {
+  width: 26px;
+  height: auto;
+  margin-block-end: 4px;
+}
+
+.p-ranking__title {
+  font-family: var(--font-jp--serif);
+  font-size: var(--font-size-title-ja-lg);
+  font-weight: var(--fw-medium);
+  color: var(--color-main);
+  letter-spacing: 0.06em;
+}
+
+.p-ranking__title-accent {
+  color: var(--palette-blue-light);
+}
+
+/* Splide カルーセル（コーディングルール: ランキングは横スクロール）。
+   track/list は Splide が管理。スライド幅は autoWidth で各スライドの width を使う。 */
+.p-ranking__carousel {
+  padding-block-end: 8px;
+  /* l-container(grid) の grid item。min-width:auto を解除してコンテナ内に収める。 */
+  min-width: 0;
+  overflow: hidden;
+}
+
+.p-ranking__item.splide__slide {
+  width: 146px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* カードがスライド高にそろうように伸長 */
+.p-ranking__item.splide__slide .c-rank-card {
+  flex: 1;
+}
+
+/* 王冠＋No.X（カード上・背景なし・左寄せ） */
+.c-rank-card__badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-block-end: 8px;
+  padding-inline-start: 2px;
+}
+
+.c-rank-card__crown {
+  width: 22px;
+  height: auto;
+}
+
+.c-rank-card__rank {
+  font-family: var(--font-en--heading);
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-main);
+  letter-spacing: 0.02em;
+}
+
+/* カード本体 */
+.c-rank-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--base-bg);
+  border: 1px solid color-mix(in srgb, var(--color-main) 14%, transparent);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(61, 97, 177, 0.1);
+  overflow: hidden;
+}
+
+/* 額装風の画像エリア（淡いマット＋内側余白） */
+.c-rank-card__image {
+  margin: 10px;
+  padding: 6px;
+  background: #f6f7f9;
+  border-radius: var(--radius-xs);
+}
+
+.c-rank-card__image-el {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.c-rank-card__body {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 12px 14px;
+  flex: 1;
+}
+
+.c-rank-card__name {
+  font-family: var(--font-jp--serif);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.c-rank-card__divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-block: 12px 10px;
+  background: var(--color-main);
+}
+
+.c-rank-card__price {
+  margin-block-start: auto;
+  color: var(--color-main);
+  font-weight: var(--fw-bold);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.c-rank-card__price-yen {
+  font-size: 15px;
+}
+
+.c-rank-card__price-tax {
+  font-size: 11px;
+  font-weight: var(--fw-regular);
+  color: var(--palette-muted);
+  margin-inline-start: 2px;
+}

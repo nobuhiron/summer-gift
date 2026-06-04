@@ -1,0 +1,246 @@
+---
+/**
+ * About section / LINE chat UI
+ */
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import '@splidejs/splide/css/core';
+import LineChatBotRow from '../components/LineChatBotRow.astro';
+import ReasonCarousel from '../components/ReasonCarousel.astro';
+import chatData from '../data/line-chat.json';
+import choiceIcon from '../assets/images/icon_usagi.png';
+import { LINK_BASE } from '../data/links';
+import { publicAssetPath } from '../utils/assets';
+
+const brandEntries = await getCollection('brandCards');
+const brandCarouselCards = brandEntries.map((entry) => ({
+  reason: entry.data.reason,
+  title: entry.data.title,
+  description: entry.data.description,
+  href: entry.data.href ?? LINK_BASE,
+  image: entry.data.image,
+  imageAlt: entry.data.imageAlt,
+  buttons: entry.data.cta
+    ? [
+        {
+          label: entry.data.cta,
+          href: entry.data.ctaHref ?? entry.data.href ?? LINK_BASE,
+        },
+      ]
+    : [],
+}));
+const giftEntries = await getCollection('giftCards');
+const giftCarouselCards = giftEntries.map((entry) => ({
+  reason: entry.data.reason,
+  title: entry.data.title,
+  description: entry.data.description,
+  href: entry.data.href ?? LINK_BASE,
+  image: entry.data.image,
+  imageAlt: entry.data.imageAlt,
+  buttons: entry.data.buttons.map((button) =>
+    typeof button === 'string'
+      ? { label: button, href: entry.data.href ?? LINK_BASE }
+      : {
+          label: button.label,
+          href: button.href ?? entry.data.href ?? LINK_BASE,
+        },
+  ),
+}));
+
+const [introMessage, choiceMessage, replyAMessage, replyBMessage] = chatData.messages;
+const choiceOptions = (choiceMessage.options ?? []).map((option) => ({
+  ...option,
+  choiceKey: option.label.toLowerCase(),
+}));
+const replyARows = (replyAMessage.texts ?? []).map((text, index) => ({
+  text,
+  avatar: replyAMessage.avatars?.[index] ?? replyAMessage.avatars?.[0] ?? '',
+  avatarKey: `reply-a-${index + 1}`,
+}));
+const replyBRows = (replyBMessage.texts ?? []).map((text, index) => ({
+  text,
+  avatar: replyBMessage.avatars?.[index] ?? replyBMessage.avatars?.[0] ?? '',
+  avatarKey: `reply-b-${index + 1}`,
+}));
+---
+
+<section
+  id='reason'
+  class='l-section p-brand-about'
+  aria-labelledby='brand-about-title'
+>
+  <div class='l-container'>
+    <!-- LINE chat container -->
+    <div class='p-line-chat'>
+      <div class='p-line-chat__screen'>
+        <div class='p-line-chat__notch' aria-hidden='true'></div>
+        <!-- LINE header -->
+        <div class='p-line-chat__header'>
+          <button class='p-line-chat__header-back' aria-label='戻る'>
+            <svg
+              width='8'
+              height='14'
+              viewBox='0 0 10 18'
+              fill='none'
+              aria-hidden='true'
+            >
+              <path
+                d='M9 1L1 9l8 8'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'></path>
+            </svg>
+          </button>
+          <h2 id='brand-about-title' class='p-line-chat__header-title'>
+            <span class='p-line-chat__header-name'>森半について</span>
+            <span class='p-line-chat__header-sub'>about MORIHAN</span>
+          </h2>
+          <div class='p-line-chat__header-icons'>
+            <img
+              src={publicAssetPath('/icon-search.svg')}
+              alt=''
+              aria-hidden='true'
+              width='20'
+              height='20'
+            />
+            <img
+              src={publicAssetPath('/icon-telephone.svg')}
+              alt=''
+              aria-hidden='true'
+              width='20'
+              height='20'
+            />
+            <img
+              src={publicAssetPath('/icon-hamburger.svg')}
+              alt=''
+              aria-hidden='true'
+              width='20'
+              height='20'
+            />
+          </div>
+        </div>
+
+        <!-- Chat body -->
+        <div class='p-line-chat__body'>
+          <LineChatBotRow
+            text={introMessage.text ?? ''}
+            avatar={introMessage.avatar ?? ''}
+            avatarKey='initial'
+            rowClass={['p-line-chat__anim', 'is-visible']}
+          />
+
+          <!-- A/B choices -->
+          <div
+            class='p-line-chat__row p-line-chat__row--user p-line-chat__anim is-visible'
+          >
+            <div class='p-line-chat__choices-layout'>
+              <div class='p-line-chat__choices-panel'>
+                <div class='p-line-chat__choices'>
+                  {
+                    choiceOptions.map((option) => (
+                      <button
+                        class='p-line-chat__choice-btn'
+                        data-choice={option.choiceKey}
+                        type='button'
+                      >
+                        <span class='p-line-chat__choice-label'>
+                          {option.label}
+                        </span>
+                        <span>{option.text}</span>
+                      </button>
+                    ))
+                  }
+                </div>
+              </div>
+              <div class='p-line-chat__choices-icon' aria-hidden='true'>
+                <Image
+                  src={choiceIcon}
+                  alt=''
+                  class='p-line-chat__choices-icon-image'
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Reply A -->
+          <div class='p-line-chat__reply' data-reply='a' hidden>
+            {
+              replyARows.map((row) => (
+                <LineChatBotRow
+                  text={row.text}
+                  avatar={row.avatar}
+                  avatarKey={row.avatarKey}
+                  rowClass='p-line-chat__reply-msg'
+                />
+              ))
+            }
+          </div>
+
+          <!-- Reply B -->
+          <div class='p-line-chat__reply' data-reply='b' hidden>
+            <div class='p-line-chat__reply-b'>
+              {
+                replyBRows.slice(0, 2).map((row) => (
+                  <LineChatBotRow
+                    text={row.text}
+                    avatar={row.avatar}
+                    avatarKey={row.avatarKey}
+                    rowClass='p-line-chat__reply-msg'
+                  />
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Reason carousel -->
+          <ReasonCarousel
+            carouselId='brand-carousel-a'
+            eyebrow='REASON'
+            heading='森半が選ばれる理由'
+            ariaLabel='森半が選ばれる理由'
+            cards={brandCarouselCards}
+            containerClass='p-line-chat__after-reply p-line-chat__after-reply--brand-a'
+            hidden
+          />
+
+          <LineChatBotRow
+            text={replyBRows[2].text}
+            avatar={replyBRows[2].avatar}
+            avatarKey={replyBRows[2].avatarKey}
+            rowClass={[
+              'p-line-chat__after-reply',
+              'p-line-chat__after-reply--b-note',
+            ]}
+            hidden
+          />
+
+          <ReasonCarousel
+            carouselId='gift-carousel'
+            eyebrow='CHOOSING A GIFT'
+            heading='ギフトに選ばれる理由'
+            ariaLabel='ギフトに選ばれる理由'
+            cards={giftCarouselCards}
+            containerClass='p-line-chat__after-reply p-line-chat__after-reply--gift'
+            hidden
+            tone='accent'
+          />
+
+          <LineChatBotRow
+            text={chatData.footer.text}
+            avatar={chatData.footer.avatar}
+            avatarKey='footer'
+            rowClass='p-line-chat__after-reply'
+            bubbleClass='p-line-chat__bubble--footer'
+            hidden
+          />
+        </div>
+
+        <!-- End of LINE chat -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src={publicAssetPath('/vendor/splide.min.js')} defer></script>
+<script src={publicAssetPath('/scripts/brand-about.js')} defer></script>

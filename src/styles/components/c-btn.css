@@ -1,0 +1,82 @@
+﻿.c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-sm);
+  font-weight: var(--fw-bold);
+  font-size: clamp(13px, 1.4vw, 15px);
+  border: none;
+  line-height: 1.4;
+}
+.c-btn--cta {
+  background-color: var(--color-cta);
+  color: var(--base-text-on-dark) !important;
+  width: 100%;
+}
+.c-btn--accent {
+  background-color: var(--color-accent);
+  color: var(--base-text-on-dark) !important;
+}
+.c-btn--outline {
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+
+/* ---------- 繧ｫ繝ｼ繝臥畑繝斐Ν繝懊ち繝ｳ ---------- */
+.c-btn-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 255px;
+  padding-block: 12px;
+  padding-inline: 0;
+  --pill-bg: var(--color-main);
+  --pill-fg: var(--base-text-on-dark);
+  --pill-circle-fill: var(--base-bg);
+  --pill-arrow-color: var(--color-main);
+  background-color: var(--pill-bg);
+  color: var(--pill-fg) !important;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: var(--font-jp--sanserif);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.c-btn-pill:hover {
+  --pill-bg: var(--base-bg);
+  --pill-fg: var(--color-main);
+  --pill-circle-fill: var(--color-main);
+  --pill-arrow-color: var(--base-text-on-dark);
+  border-color: var(--color-main);
+}
+.c-btn-pill__arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--pill-fg) !important;
+}
+.c-btn-pill__arrow svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.c-btn-pill__arrow circle {
+  fill: var(--pill-circle-fill);
+}
+.c-btn-pill__arrow path {
+  stroke: var(--pill-arrow-color);
+}
+

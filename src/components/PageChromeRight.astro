@@ -1,12 +1,49 @@
+﻿---
+import { Image } from 'astro:assets';
+import { CATEGORY_NAV_ITEMS } from '../data/category-nav';
+import NavStackLink from './NavStackLink.astro';
+import linePromoImg from '../assets/images/line.png';
+import lineAboutImg from '../assets/images/line-about.png';
+
+const LINE_URL =
+  'https://cdn.omiseconnect.jp/liff/index.html?channel_id=2004048028&liff.state=%3Focsrc%3Doc_popup&liff.referrer=https%3A%2F%2Fl.omct.jp%2F';
 ---
-/**
- * PageChromeRight — PC 右カラム chrome（SP では l-shell 側で非表示）。
- * 季節 LP では「補助ナビ / LINE 登録 / CTA」などを置くことが多い。
- * 案件ごとにこのファイルの中身を実装する。slot を渡せば差し込みも可能。
- */
----
-<div class="c-page-chrome c-page-chrome--right">
-  <slot>
-    {/* TODO: 右カラムの内容（補助ナビ / LINE 登録 / CTA など）をここに実装 */}
-  </slot>
+
+<div class="p-page-chrome-right">
+  <div class="p-page-chrome-right__default">
+    <div class="p-page-chrome-right__stack">
+      <nav class="p-page-chrome-right__nav" aria-label="補助ナビゲーション">
+        <ul class="c-nav-stack c-nav-stack--compact">
+          {CATEGORY_NAV_ITEMS.map((item) => (
+            <li class="c-nav-stack__item">
+              <NavStackLink href={item.href} label={item.label} compact />
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div class="p-page-chrome-right__line">
+        <a
+          href={LINE_URL}
+          class="p-page-chrome-right__line-link"
+          aria-label="LINEでお問い合わせ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image src={linePromoImg} alt="" class="p-page-chrome-right__line-image" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="p-page-chrome-right__about" aria-hidden="true">
+    <a
+      href={LINE_URL}
+      class="p-page-chrome-right__about-link"
+      aria-label="LINEでお問い合わせ"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image src={lineAboutImg} alt="" class="p-page-chrome-right__about-image" />
+    </a>
+  </div>
 </div>
+

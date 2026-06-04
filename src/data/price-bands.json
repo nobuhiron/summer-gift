@@ -1,0 +1,106 @@
+[
+  {
+    "id": "band-1",
+    "label": "1,000円〜1,999円",
+    "labelEn": "1000 yen - 1999 yen",
+    "arch": "/ashirai-1000.svg",
+    "items": [
+      {
+        "name": "KFK(カフカ)COFFEE MEETS MILK カフェインレス ホンジュラス[18g×6P]",
+        "price": "1,500",
+        "description": "ミルクさえあれば簡単に濃厚でなめらかなミルクコーヒーが抽出できるのでお家CAFÉにはぴったりです。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000419"
+      },
+      {
+        "name": "森半 クリームサンド ヴァッフェル(抹茶・ほうじ茶)詰合せ[各5個入り]",
+        "price": "1,990",
+        "description": "茶師が厳選した人気のスイーツでお茶の時間をぐっと豊かに。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000173"
+      }
+    ]
+  },
+  {
+    "id": "band-2",
+    "label": "2,001円〜4,000円",
+    "labelEn": "2001 yen - 4000 yen",
+    "arch": "/ashirai-2000.svg",
+    "items": [
+      {
+        "name": "KFK(カフカ)<ドリップコーヒー>ロマンスコーヒーセレクション ギフトセット[ガラパゴス／エチオピア 各10g×5P入り]",
+        "price": "2,268",
+        "description": "焙煎、鮮度、品質にこだわった人の心を魅了するワンランク上のコーヒーのギフトセットです。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000770"
+      },
+      {
+        "name": "MINTON(ミントン)<ティーバッグ> 和紅茶 3箱ギフトセット(京・苺・白桃)",
+        "price": "2,106",
+        "description": "テーブルの貴婦人といわれる本格英国紅茶「MINTON(ミントン)」の\"和紅茶\"です。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000674"
+      },
+      {
+        "name": "森半 宇治産 手摘み抹茶[30g缶入り]",
+        "price": "3,780",
+        "description": "京の現代名工で「宇治にこの人あり」と称される名人 吉田利一氏の茶園で手摘みされた茶葉を丁寧に石臼で挽き上げました。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000120"
+      },
+      {
+        "name": "森半 銘茶五香(ごこう)煎茶・抹茶カステラ詰合せ(WG-3)",
+        "price": "3,078",
+        "description": "ティータイムのお供に上級の抹茶をたっぷり使って焼き上げた極上の手作り抹茶カステラとご一緒に。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000354"
+      }
+    ]
+  },
+  {
+    "id": "band-3",
+    "label": "4,001円〜7,000円",
+    "labelEn": "4001 yen - 7000 yen",
+    "arch": "/ashirai-4000.svg",
+    "items": [
+      {
+        "name": "森半 お茶屋のスイーツ満足セット",
+        "price": "5,508",
+        "description": "抹茶スイーツが8種類入った詰め合わせ。ご自宅用はもちろん、ご進物にも最適です。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000307"
+      },
+      {
+        "name": "KFK(カフカ)<ドリップバッグ> コーヒーギフトボックス 40PG 七宝つなぎ[40個入り]",
+        "price": "4,698",
+        "description": "厳選ドリップコーヒーが全種類が入ったバラエティー豊かなギフトセットは贈り物に最適！",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000373"
+      },
+      {
+        "name": "森半 くつろぎ 五感で味わう急須 CHASTA(チャスタ)・五香(ごこう)煎茶[120g缶入り]",
+        "price": "4,980",
+        "description": "厳選茶葉のみをブレンドして仕上げた「五香(ごこう)」シリーズの煎茶と五感で味わう急須「CHASTA(チャスタ)」の詰め合わせ。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000414"
+      }
+    ]
+  },
+  {
+    "id": "band-4",
+    "label": "7,001円〜",
+    "labelEn": "7001 yen -",
+    "arch": "/ashirai-6000.svg",
+    "items": [
+      {
+        "name": "森半 宇治茶詰め合わせ[玉露／国の誉 120g缶、初摘煎茶 120g缶、雁が音／鷹が峰 100g缶]",
+        "price": "7,731",
+        "description": "全国茶審査技術大会で2度の優勝を誇る茶師が、自信を持ってお勧めする玉露と煎茶、雁が音(茎茶)のギフトセットです。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000100"
+      },
+      {
+        "name": "森半 <宇治> 名品銘茶詰め合わせ(国松 100R)",
+        "price": "10,800",
+        "description": "森半の茶師が贈る逸品。玉露の甘み、煎茶の清涼感。極上の日本茶をあの方へ。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000401"
+      },
+      {
+        "name": "茶缶「開化堂 真鍮茶筒 100g」",
+        "price": "23,100",
+        "description": "ひとつひとつ丁寧に手作りされた茶筒は、素材である真鍮(しんちゅう)の風合いを楽しんでいただける生地物で、使い込むほどにその表情を変化させていきます。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000043"
+      }
+    ]
+  }
+]

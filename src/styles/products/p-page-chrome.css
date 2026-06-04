@@ -1,0 +1,22 @@
+.p-page-chrome-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.p-page-chrome-left__image {
+  display: block;
+  width: min(80.86%, 431px);
+  height: auto;
+}
+
+@media (max-width: 1023px) {
+  .p-page-chrome-left {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+}
+

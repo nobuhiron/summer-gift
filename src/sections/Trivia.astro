@@ -1,0 +1,71 @@
+---
+/**
+ * お中元の豆知識（お中元の豆知識.jpg）
+ * 見出し＋リボン(trivia-ribon.png)＋アイコン付き項目（タイトル→青区切り→本文）。
+ * 通常時は折りたたみ（最初の項目＋「詳しく見る」）、開くと全項目＋「閉じる」。
+ * トグルは最下部（コーディングルールの開閉仕様）。
+ */
+import { Image } from 'astro:assets';
+import triviaRibon from '../assets/images/trivia-ribon.png';
+import { publicAssetPath } from '../utils/assets';
+import { TRIVIA_ITEMS } from '../data/trivia';
+
+const [first, ...rest] = TRIVIA_ITEMS;
+---
+
+<section id="trivia" class="l-section p-trivia" aria-labelledby="heading-trivia">
+  <div class="l-container">
+    <h2 id="heading-trivia" class="p-trivia__title">お中元の豆知識</h2>
+    <Image src={triviaRibon} alt="" aria-hidden="true" class="p-trivia__ribbon" />
+
+    <div class="p-trivia__items">
+      <div class="p-trivia__item">
+        <div class="p-trivia__item-head">
+          <img src={publicAssetPath(first.icon)} alt="" aria-hidden="true" class="p-trivia__item-icon" />
+          <h3 class="p-trivia__item-title">{first.title}</h3>
+        </div>
+        <span class="p-trivia__item-divider" aria-hidden="true"></span>
+        <p class="p-trivia__item-body">{first.body}</p>
+      </div>
+
+      <div id="trivia-rest" class="p-trivia__rest" hidden>
+        {rest.map((item) => (
+          <div class="p-trivia__item">
+            <div class="p-trivia__item-head">
+              <img src={publicAssetPath(item.icon)} alt="" aria-hidden="true" class="p-trivia__item-icon" />
+              <h3 class="p-trivia__item-title">{item.title}</h3>
+            </div>
+            <span class="p-trivia__item-divider" aria-hidden="true"></span>
+            <p class="p-trivia__item-body">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="p-trivia__toggle"
+      aria-expanded="false"
+      aria-controls="trivia-rest"
+      data-trivia-toggle
+    >
+      <span class="p-trivia__toggle-label p-trivia__toggle-label--more">詳しく見る</span>
+      <span class="p-trivia__toggle-label p-trivia__toggle-label--close">閉じる</span>
+      <span class="p-trivia__toggle-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 15l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </span>
+    </button>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-trivia-toggle]').forEach((btn) => {
+    const controls = document.getElementById(btn.getAttribute('aria-controls') || '');
+    if (!controls) return;
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      controls.hidden = open;
+    });
+  });
+</script>

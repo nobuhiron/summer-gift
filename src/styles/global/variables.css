@@ -1,40 +1,58 @@
 /* -------------------
-   Project Editable Tokens
-   Edit this section for each project
+   Project Editable Tokens（コーディングルール準拠：森半 お中元・夏ギフト）
+   ベース色 #333 / #fff / #3D61B1、キーカラー6色（青系＋tan）。
 ------------------- */
 :root {
-  /* Base Colors */
-  --base-main: #6a3c0a;
-  --base-accent: #c2584a;
-  --base-sub: #bf9c35;
-  --base-text: #333;
-  --base-bg: #efe5d1;
-  --base-surface: #f6f5f2;
+  /* Base（テキスト・ベース） */
+  --base-bg: #ffffff;
+  --base-text: #333333;
+  --base-text-on-dark: #ffffff;
+  --base-heading: #3d61b1; /* 見出し・主役の青（コーディングルール base #3D61B1） */
+  --base-text-blue: #0071bc; /* リンク・強調の青（キーカラー #0071BC） */
+
+  /* キーカラー（コーディングルール # キーカラー） */
+  --palette-blue-royal: #3d61b1;
+  --palette-blue-pale: #c8e1fa;
+  --palette-blue-strong: #0071bc;
+  --palette-cyan-light: #a6e8f3;
+  --palette-blue-light: #43b6c8;
+  --palette-tan: #b0936f;
+  --palette-grey-blue: #bdc2cd;
+
+  /* 補助・派生 */
+  --palette-highlight: #a6e8f3;
+  --palette-price: #c8102e; /* 価格の赤（要確認・差分ループで調整） */
+  --palette-image-placeholder: #dfe9f2;
+  --palette-muted: #666666;
+  --palette-border: color-mix(in srgb, var(--base-text) 12%, transparent);
+
+  /* Gradients（夏・水のあしらい） */
+  --gradient-bg-default: linear-gradient(180deg, #e7f3fd 0%, #cfe6fa 60%, #c3def7 100%);
+  --gradient-section-wrap: linear-gradient(353.61deg, #9fd0f7 0.68%, #c5e1f8 40%, #eaf6ff 72%, #ffffff 90%);
 
   /* Project Font Sources */
   --font-source-jp-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --font-source-jp-sans: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
-  --font-source-en: 'Metal', 'Georgia', serif;
-  --font-source-en-decor: 'Alex Brush', 'Times New Roman', cursive;
+  --font-source-en: 'Allison', cursive; /* 英字あしらい（コーディングルール: Allison） */
+  --font-source-en-display: 'Allison', cursive;
+  --font-source-en-heading: 'Noto Sans JP', sans-serif;
 
-  /* Layout */
+  /* Layout（カンプ幅 375px） */
   --layout-max-width: 1440px;
-  --layout-max-width-inner: 1100px;
-  /* SP 本体（中央固定列）の幅。カンプ幅に合わせる。既定 375px */
   --layout-main-width: 375px;
+  --layout-max-width-container: 1100px;
   --layout-padding-sp: 20px;
-  --layout-padding-pc: 50px;
 
   /* Spacing */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
-  --spacing-2xl: 40px;
-  --spacing-3xl: 48px;
-  --spacing-4xl: 64px;
-  --spacing-5xl: 96px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 40px;
+  --spacing-4xl: 48px;
+  --spacing-5xl: 64px;
 
   /* Radius */
   --radius-xs: 4px;
@@ -43,30 +61,36 @@
   --radius-lg: 24px;
   --radius-xl: 50%;
 
-  /* Typography */
+  /* Typography（コーディングルール: 本文 14/16、和タイトル 20/24/32/38、英 14/16） */
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
-  --font-size-base: clamp(16px, 1.6vw, 18px);
+  --font-size-body-sm: 14px;
+  --font-size-body: clamp(14px, 1.5vw, 16px);
+  --font-size-base: clamp(14px, 1.5vw, 16px); /* base.css 互換エイリアス */
+  --font-size-title-ja: clamp(20px, 2.2vw, 24px);
+  --font-size-title-ja-lg: clamp(24px, 3.4vw, 32px);
+  --font-size-title-ja-xl: clamp(28px, 4vw, 38px);
+  --font-size-en: clamp(14px, 1.5vw, 16px);
   --line-height-base: 1.62;
 }
 
 /* -------------------
    Semantic Tokens
-   Use this small set in implementation
 ------------------- */
 :root {
   --color-text: var(--base-text);
   --color-bg: var(--base-bg);
-  --color-surface: var(--base-surface);
-  --color-main: var(--base-main);
-  --color-accent: var(--base-accent);
-  --color-sub: var(--base-sub);
+  --color-surface: var(--base-bg);
+  --color-main: var(--base-heading); /* 主役の青 #3D61B1 */
+  --color-accent: var(--base-text-blue); /* 強調の青 #0071BC */
+  --color-sub: var(--palette-tan); /* tan #B0936F */
+  --color-cta: var(--palette-blue-royal); /* CTA ボタンの青 */
 
-  /* Font Aliases */
   --font-jp--serif: var(--font-source-jp-serif);
   --font-jp--sanserif: var(--font-source-jp-sans);
   --font-en: var(--font-source-en);
-  --font-en--decor: var(--font-source-en-decor);
+  --font-en--display: var(--font-source-en-display);
+  --font-en--heading: var(--font-source-en-heading);
 }

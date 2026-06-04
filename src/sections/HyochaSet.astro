@@ -1,0 +1,110 @@
+---
+/**
+ * 氷茶 詰め合わせ / 氷茶・くず餅 詰め合わせ
+ * 大型「Assortment NN」フィーチャーカードの縦並び ＋ くず餅バリエーションのグリッド。
+ * NOTE: 商品画像はプレースホルダ。最終の箱写真支給後に差し替える。
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import {
+  HYOCHA_SET_DESC,
+  HYOCHA_ASSORTMENTS,
+  KUZU_ASSORTMENTS,
+  KUZU_GRID,
+} from '../data/hyocha-sets';
+import assortment01 from '../assets/images/assortment-01.png';
+import kuzusetBg from '../assets/images/Ellipse 20.png';
+
+/** Assortment 番号 → 商品画像（未支給は undefined でプレースホルダ） */
+const assortmentImages: Record<string, ImageMetadata> = {
+  'Assortment 01': assortment01,
+};
+---
+
+<section id="hyocha-set" class="p-hyocha-set" aria-labelledby="heading-hyocha-set">
+  {/* ===== 氷茶 詰め合わせ ===== */}
+  <div class="p-hyocha-set__block p-hyocha-set__block--tea">
+    <div class="l-container">
+      <header class="p-hyocha-set__heading">
+        <h2 id="heading-hyocha-set" class="p-hyocha-set__heading-ja">氷茶 詰め合わせ</h2>
+        <span class="p-hyocha-set__heading-ribbon" aria-hidden="true"></span>
+      </header>
+
+      <ul class="p-hyocha-set__features" role="list">
+        {HYOCHA_ASSORTMENTS.map((item) => (
+          <li class="c-assortment-card">
+            <p class="c-assortment-card__no" aria-hidden="true">{item.no}</p>
+            <h3 class="c-assortment-card__title">{item.title}</h3>
+            {item.spec && <p class="c-assortment-card__spec">{item.spec}</p>}
+            <p class="c-assortment-card__price">
+              <span class="c-assortment-card__price-yen">￥</span>{item.price}<span class="c-assortment-card__price-tax">(税込)</span>
+            </p>
+            {assortmentImages[item.no] ? (
+              <Image src={assortmentImages[item.no]} alt={`${item.title}の商品画像`} class="c-assortment-card__image" />
+            ) : (
+              <div class="c-assortment-card__image c-assortment-card__image--ph" role="img" aria-label={`${item.title}の商品画像`}></div>
+            )}
+            <p class="c-assortment-card__desc">{HYOCHA_SET_DESC}</p>
+            <a href={item.href} class="c-assortment-card__btn">
+              <span>詳しくはこちら</span>
+              <span class="c-assortment-card__btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  {/* ===== 氷茶・くず餅 詰め合わせ ===== */}
+  <div
+    class="p-hyocha-set__block p-hyocha-set__block--kuzu"
+    style={`--kuzuset-bg: url("${kuzusetBg.src}")`}
+  >
+    <div class="l-container">
+      <header class="p-hyocha-set__heading">
+        <h2 class="p-hyocha-set__heading-ja">氷茶・くず餅 詰め合わせ</h2>
+        <span class="p-hyocha-set__heading-dots" aria-hidden="true"></span>
+      </header>
+    </div>
+
+    {/* 白楕円カードは外枠まで全幅。中身は l-container(20px) で内側に。 */}
+    <ul class="p-hyocha-set__features" role="list">
+      {KUZU_ASSORTMENTS.map((item) => (
+        <li class="c-kuzuset-card">
+          <div class="l-container c-kuzuset-card__inner">
+            <div class="c-kuzuset-card__image c-kuzuset-card__image--ph" role="img" aria-label={`${item.title}の商品画像`}></div>
+            <p class="c-kuzuset-card__no" aria-hidden="true">{item.no}</p>
+            <h3 class="c-kuzuset-card__title">{item.title}</h3>
+            <p class="c-kuzuset-card__price">
+              <span class="c-kuzuset-card__price-yen">￥</span>{item.price}<span class="c-kuzuset-card__price-tax">(税込)</span>
+            </p>
+            <p class="c-kuzuset-card__desc">{HYOCHA_SET_DESC}</p>
+            <a href={item.href} class="c-kuzuset-card__btn">
+              <span>詳しくはこちら</span>
+              <span class="c-kuzuset-card__btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+            </a>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <div class="l-container">
+      <ul class="p-hyocha-set__grid" role="list">
+        {KUZU_GRID.map((item) => (
+          <li class="c-kuzu-card">
+            <div class="c-kuzu-card__image" role="img" aria-label={`${item.name}の商品画像`}></div>
+            <h3 class="c-kuzu-card__name">{item.name}</h3>
+            <p class="c-kuzu-card__price">
+              <span class="c-kuzu-card__price-yen">￥</span>{item.price}<span class="c-kuzu-card__price-tax">(税込)</span>
+            </p>
+            <a href={item.href} class="c-kuzu-card__btn">詳しくはこちら</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

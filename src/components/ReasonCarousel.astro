@@ -1,0 +1,153 @@
+﻿---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { splitLines } from '../utils/text';
+import { publicAssetPath } from '../utils/assets';
+
+type CarouselButton = {
+  label: string;
+  href?: string | null;
+};
+
+type CarouselCard = {
+  reason: string;
+  title: string;
+  description: string;
+  href?: string | null;
+  image?: ImageMetadata | null;
+  imageAlt?: string;
+  buttons?: Array<string | CarouselButton>;
+};
+
+type Props = {
+  carouselId: string;
+  eyebrow?: string;
+  heading: string;
+  ariaLabel: string;
+  cards: CarouselCard[];
+  containerClass?: string;
+  hidden?: boolean;
+  tone?: 'accent' | 'gold';
+};
+
+const getButtonConfig = (card: CarouselCard, button: string | CarouselButton) => {
+  if (typeof button === 'string') {
+    return {
+      label: button,
+      href: card.href ?? '#',
+    };
+  }
+
+  return {
+    label: button.label,
+    href: button.href ?? card.href ?? '#',
+  };
+};
+
+const {
+  carouselId,
+  eyebrow,
+  heading,
+  ariaLabel,
+  cards,
+  containerClass,
+  hidden,
+  tone = 'accent',
+} = Astro.props as Props;
+const themeClass = tone === 'gold' ? 'p-line-chat__reason--gold' : 'p-line-chat__reason--accent';
+---
+
+<div
+  class:list={[
+    'p-line-chat__reason',
+    themeClass,
+    'p-line-chat__reply-msg',
+    containerClass,
+  ]}
+  data-reason-carousel
+  hidden={hidden}
+>
+  <div class="p-line-chat__reason-heading">
+    <div class="p-line-chat__reason-heading-inner">
+      {eyebrow && (
+        <span class="p-line-chat__reason-heading-badge">
+          <span class="p-line-chat__reason-heading-en">{eyebrow}</span>
+        </span>
+      )}
+      <p class="p-line-chat__reason-heading-ja">{heading}</p>
+    </div>
+  </div>
+  <div
+    id={carouselId}
+    class="splide p-line-chat__carousel"
+    aria-label={ariaLabel}
+    style={`--splide-arrow-icon: url("${publicAssetPath('/arrow.svg')}")`}
+  >
+    <div class="splide__track">
+      <ul class="splide__list">
+        {cards.map((card, cardIndex) => (
+          <li class="splide__slide">
+            <article class="p-line-chat__card" data-reason-carousel-card aria-label={ariaLabel}>
+              {card.reason && (
+                <div class="p-line-chat__card-reason-image">
+                  <span class="p-line-chat__card-reason-image-el">{card.reason}</span>
+                </div>
+              )}
+              <h3 class="p-line-chat__card-title">
+                {splitLines(card.title).map((line, index, lines) => (
+                  <Fragment>
+                    {line}
+                    {index < lines.length - 1 && <br />}
+                  </Fragment>
+                ))}
+              </h3>
+              {card.image ? (
+                <div class="p-line-chat__card-media">
+                  <Image
+                    src={card.image}
+                    alt={card.imageAlt ?? ''}
+                    class="p-line-chat__card-media-image"
+                  />
+                </div>
+              ) : (
+                <div class="p-line-chat__card-image" role="img" aria-label={`${card.title}のイメージ`}></div>
+              )}
+              <p class="p-line-chat__card-desc">
+                {splitLines(card.description).map((line, index, lines) => (
+                  <Fragment>
+                    {line}
+                    {index < lines.length - 1 && <br />}
+                  </Fragment>
+                ))}
+              </p>
+              {!!card.buttons?.length && (
+                <div class="p-line-chat__card-actions">
+                  {card.buttons.map((button, buttonIndex) => {
+                    const { label, href } = getButtonConfig(card, button);
+
+                    return (
+                      <a
+                        href={href}
+                        class="p-line-chat__card-link"
+                        data-link-tone={carouselId === 'gift-carousel' && cardIndex === 0 && buttonIndex === 1 ? 'gold' : 'accent'}
+                      >
+                        <span>{label}</span>
+                        <span class="c-btn-pill__arrow" aria-hidden="true">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="11" fill="currentColor" />
+                            <path d="M10 8l4 4-4 4" stroke="var(--pill-arrow-color, currentColor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </span>
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+

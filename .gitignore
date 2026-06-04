@@ -2,6 +2,10 @@
 dist/
 # visual-diff scratch output (scripts/)
 tmp/
+# 支給デザインカンプ（リポジトリ直下の画像のみ・ビルド素材ではないので除外）
+/*.jpg
+/*.jpeg
+/*.png
 # generated types
 .astro/
 

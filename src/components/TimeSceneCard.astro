@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { splitLines } from '../utils/text';
+
+interface Props {
+  name: string;
+  price: string;
+  description: string;
+  href?: string;
+  mainImage: ImageMetadata;
+}
+
+const { name, price, description, href = '#', mainImage } = Astro.props;
+const nameLines = splitLines(name);
+const descLines = splitLines(description);
+---
+
+<article class="c-time-scene-card">
+  <h3 class="c-time-scene-card__name">
+    {nameLines.map((line, i) => (
+      <>{line}{i < nameLines.length - 1 && <br />}</>
+    ))}
+  </h3>
+
+  <div class="c-time-scene-card__image">
+    <Image
+      src={mainImage}
+      alt={`${nameLines[0]}のメイン画像`}
+      class="c-time-scene-card__image-el"
+    />
+  </div>
+
+  <p class="c-time-scene-card__desc">
+    {descLines.map((line, i) => (
+      <>{line}{i < descLines.length - 1 && <br />}</>
+    ))}
+  </p>
+
+  <p class="c-time-scene-card__price">
+    <span class="c-time-scene-card__price-yen">￥</span>{price}<span class="c-time-scene-card__price-tax">(税込)</span>
+  </p>
+
+  <div class="c-time-scene-card__btn">
+    <a href={href} class="c-btn-pill">
+      <span>詳しくはこちら</span>
+      <span class="c-btn-pill__arrow" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="11" fill="currentColor" />
+          <path d="M10 8l4 4-4 4" stroke="var(--pill-arrow-color, currentColor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    </a>
+  </div>
+</article>

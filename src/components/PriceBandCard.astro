@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  name: string;
+  price: string;
+  description: string;
+  href?: string;
+  image: ImageMetadata;
+}
+
+const { name, price, description, href = '#', image } = Astro.props;
+---
+
+<article class="c-price-band-card">
+  <div class="c-price-band-card__image">
+    <Image
+      src={image}
+      alt={`${name}の商品画像`}
+      class="c-price-band-card__image-el"
+    />
+  </div>
+
+  <div class="c-price-band-card__body">
+    <div class="c-price-band-card__info">
+      <div class="c-price-band-card__header">
+        <h4 class="c-price-band-card__name">{name}</h4>
+        <p class="c-price-band-card__price">
+          <span class="c-price-band-card__price-yen">￥</span>{price}<span class="c-price-band-card__price-tax">(税込)</span>
+        </p>
+      </div>
+      <hr class="c-price-band-card__divider" />
+      <p class="c-price-band-card__desc">{description}</p>
+    </div>
+    <div class="c-price-band-card__cta">
+      <a href={href} class="c-btn-pill">
+        <span>詳しくはこちら</span>
+        <span class="c-btn-pill__arrow" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="currentColor" />
+            <path d="M10 8l4 4-4 4" stroke="var(--pill-arrow-color, currentColor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</article>

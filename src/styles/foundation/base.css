@@ -1,5 +1,3 @@
-@import '../global/variables.css';
-
 html {
   min-height: 100%;
   width: 100%;
@@ -19,7 +17,7 @@ body {
 main {
   /*本来はbodyで書く内容だが、makeshop用の特別な対応 共通headerのcolorに影響が出るため。*/
   color: var(--color-text);
-  font-family: var(--font-jp--serif);
+  font-family: var(--font-jp--sanserif);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   font-weight: var(--fw-medium);
@@ -36,11 +34,9 @@ button:focus-visible,
   outline: 2px solid var(--color-main);
 }
 img {
-  max-width: 100%;
   height: auto;
-  display: block;
 }
 
 #contents-area {
-  padding-bottom: 0;
+  padding-block-end: 0;
 }

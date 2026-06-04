@@ -1,0 +1,188 @@
+/* ===== Gift Wrapping セクション全体 ===== */
+.p-gift-wrapping {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--spacing-5xl);
+  background: #ecf9fe;
+}
+.p-gift-wrapping .l-container {
+  padding-inline: 20px;
+}
+
+.p-gift-wrapping__gift-bag {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Gift bag ---------- */
+.p-gift-wrapping__gift-bag-container {
+  display: grid;
+  gap: var(--spacing-2xl);
+}
+.p-gift-wrapping__gift-bag-body {
+  display: grid;
+  gap: var(--spacing-md);
+}
+.p-gift-wrapping__gift-bag-visual {
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.p-gift-wrapping__gift-bag-badge {
+  position: absolute;
+  top: -3%;
+  left: -3%;
+  z-index: 1;
+  width: 133px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--base-bg);
+  border: 1px solid var(--base-heading);
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+.p-gift-wrapping__gift-bag-badge-text {
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-semibold);
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.22;
+}
+.p-gift-wrapping__gift-bag-badge-highlight {
+  color: var(--base-heading);
+  font-size: 17px;
+}
+.p-gift-wrapping__gift-bag-image {
+  position: relative;
+  width: 350px;
+  margin-inline: auto;
+}
+.p-gift-wrapping__gift-bag-image::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  z-index: 0;
+  width: 78%;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--palette-blue-pale);
+  filter: blur(14px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.p-gift-wrapping__gift-bag-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.p-gift-wrapping__gift-bag-limited-tag {
+  position: absolute;
+  top: 24%;
+  right: 12%;
+  z-index: 2;
+  width: 64px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* メッセージ紹介行 */
+.p-gift-wrapping__message-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+.p-gift-wrapping__message-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+.p-gift-wrapping__message-tag {
+  position: absolute;
+  top: 0;
+  right: -43px;
+  z-index: 2;
+  width: 110px;
+  height: auto;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+.p-gift-wrapping__message-image {
+  position: relative;
+  width: 70%;
+}
+.p-gift-wrapping__message-photo-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--palette-image-placeholder);
+  border-radius: 50%;
+  outline: 1px solid #d9d9d9;
+  outline-offset: 6px;
+}
+.p-gift-wrapping__message-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.p-gift-wrapping__message-caption {
+  font-family: var(--font-jp--serif);
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.5;
+  font-weight: var(--fw-medium);
+  text-align: center;
+}
+
+/* 注釈 */
+.p-gift-wrapping__note {
+  font-size: 10px;
+  font-family: var(--font-jp--sanserif);
+  font-weight: var(--fw-regular);
+  text-align: right;
+}
+
+/* ---------- Gift bag heading ---------- */
+.p-gift-wrapping__gift-bag-heading {
+  display: grid;
+  gap: var(--spacing-sm);
+}
+.p-gift-wrapping__gift-bag-heading-en {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  font-family: var(--font-en--heading);
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  text-align: center;
+}
+.p-gift-wrapping__gift-bag-heading-en-mark {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 4px;
+  border-top: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+}
+.p-gift-wrapping__gift-bag-heading-ja {
+  font-size: 16px;
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  line-height: 1.7;
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+/* 青海波の通し背景（bg-wave.jpg）。豆知識〜便利なサービスを 1 枚の波柄で敷く。
+   パターンは縦にリピートして全高をカバー。中の各セクションは背景透過にする。 */
+.l-wave-bg {
+  background-image: var(--wave-bg);
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-position: top center;
+}
+
+/* 通し背景の上に乗るセクションは自前の背景を透過にして波柄を見せる */
+.l-wave-bg .p-trivia,
+.l-wave-bg .p-noshi,
+.l-wave-bg .p-services {
+  background: transparent;
+}

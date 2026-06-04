@@ -1,8 +1,61 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE } from '../config/site';
+import bgWave from '../assets/images/bg-wave.jpg';
+import Hero from '../sections/Hero.astro';
+import About from '../sections/About.astro';
+import CategoryNav from '../sections/CategoryNav.astro';
+import Ranking from '../sections/Ranking.astro';
+import Trivia from '../sections/Trivia.astro';
+import Noshi from '../sections/Noshi.astro';
+import Services from '../sections/Services.astro';
+import Reason from '../sections/Reason.astro';
+import Hyocha from '../sections/Hyocha.astro';
+import HyochaSet from '../sections/HyochaSet.astro';
+import ShopByPrice from '../sections/ShopByPrice.astro';
+import Faq from '../sections/Faq.astro';
+import SiteFooter from '../sections/SiteFooter.astro';
 ---
 
 <Layout title={SITE.defaultTitle} description={SITE.defaultDescription}>
-  <h1>MakeShop LP Template</h1>
+  {/* FV / メインビジュアル */}
+  <Hero />
+
+  {/* リード文 / about（森半の お中元・夏ギフト） */}
+  <About />
+
+  {/* カテゴリナビ（nav.jpg） */}
+  <CategoryNav />
+
+  {/* お中元人気ランキング（横スクロール） */}
+  <Ranking />
+
+  {/* 豆知識〜便利なサービスを青海波の背景(bg-wave.jpg)で通し敷き */}
+  <div class="l-wave-bg" style={`--wave-bg: url("${bgWave.src}")`}>
+    {/* お中元の豆知識（折りたたみ） */}
+    <Trivia />
+
+    {/* のし紙の種類と書き方（折りたたみ・横スクロール） */}
+    <Noshi />
+
+    {/* オンラインショップの便利なサービス（のし紙 / ラッピング / 手提げ袋） */}
+    <Services />
+  </div>
+
+  {/* 森半が選ばれる理由（横スクロール） */}
+  <Reason />
+
+  {/* 森半の氷茶（横スクロール） */}
+  <Hyocha />
+
+  {/* 氷茶 詰め合わせ / 氷茶・くず餅 詰め合わせ */}
+  <HyochaSet />
+
+  {/* 価格帯で選ぶ */}
+  <ShopByPrice />
+
+  {/* よくある質問 */}
+  <Faq />
+
+  <SiteFooter />
 </Layout>

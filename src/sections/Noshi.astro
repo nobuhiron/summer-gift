@@ -1,0 +1,84 @@
+---
+/**
+ * のし紙の種類と書き方（のし紙の種類と書き方.jpg）
+ * 波アイコン → 見出し → 導入文 → のし図解(noshi-main) → ケース別カード Splide(3枚) → 閉じる。
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import '@splidejs/splide/css/core';
+import { publicAssetPath } from '../utils/assets';
+import { NOSHI_INTRO, NOSHI_CASES } from '../data/noshi';
+import noshiMain from '../assets/images/noshi-main.jpg';
+import noshi1 from '../assets/images/noshi-1.jpg';
+import noshi2 from '../assets/images/noshi-2.jpg';
+import noshi3 from '../assets/images/noshi-3.jpg';
+
+const caseImages: Record<string, ImageMetadata> = {
+  'noshi-1': noshi1,
+  'noshi-2': noshi2,
+  'noshi-3': noshi3,
+};
+---
+
+<section id="noshi" class="l-section p-noshi" aria-labelledby="heading-noshi">
+  <div class="l-container">
+    <img src={publicAssetPath('/icon-nami.png')} alt="" aria-hidden="true" class="p-noshi__icon" width="122" height="90" />
+    <h2 id="heading-noshi" class="p-noshi__title">のし紙の種類と書き方</h2>
+
+    <p class="p-noshi__intro">{NOSHI_INTRO}</p>
+
+    <figure class="p-noshi__main">
+      <Image src={noshiMain} alt="のし紙の各部名称（表書き・水引・名入れ）" class="p-noshi__main-image" />
+    </figure>
+
+    <div class="p-noshi__detail" id="noshi-detail">
+      <div id="noshi-carousel" class="splide p-noshi__carousel" aria-label="のし紙の書き方（ケース別）">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {NOSHI_CASES.map((item) => (
+              <li class="splide__slide p-noshi__slide">
+                <article class="c-noshi-card">
+                  <h3 class="c-noshi-card__title">{item.title}</h3>
+                  <span class="c-noshi-card__divider" aria-hidden="true"></span>
+                  <p class="c-noshi-card__body">{item.body}</p>
+                  <div class="c-noshi-card__image">
+                    <Image src={caseImages[item.image]} alt={`${item.title}ののし紙の例`} class="c-noshi-card__image-el" />
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="p-noshi__toggle"
+      aria-expanded="true"
+      aria-controls="noshi-detail"
+      data-noshi-toggle
+    >
+      <span class="p-noshi__toggle-label p-noshi__toggle-label--more">詳しく見る</span>
+      <span class="p-noshi__toggle-label p-noshi__toggle-label--close">閉じる</span>
+      <span class="p-noshi__toggle-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 15l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </span>
+    </button>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-noshi-toggle]').forEach((btn) => {
+    const controls = document.getElementById(btn.getAttribute('aria-controls') || '');
+    if (!controls) return;
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      controls.hidden = open;
+    });
+  });
+</script>
+
+<script is:inline src={publicAssetPath('/vendor/splide.min.js')} defer></script>
+<script is:inline src={publicAssetPath('/scripts/noshi.js')} defer></script>

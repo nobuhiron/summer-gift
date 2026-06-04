@@ -1,0 +1,69 @@
+.c-time-scene-card {
+  display: grid;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.c-time-scene-card__name {
+  margin: 0;
+  font-family: var(--font-jp--serif);
+  font-size: 22px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+.c-time-scene-card__image {
+  width: 100%;
+}
+
+.c-time-scene-card__image-el {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.c-time-scene-card__desc {
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+.c-time-scene-card__price {
+  position: relative;
+  font-family: var(--font-en--heading);
+  font-size: 20px;
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+}
+.c-time-scene-card__price::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-text);
+}
+
+.c-time-scene-card__price-yen {
+  font-size: 16px;
+}
+
+.c-time-scene-card__price-tax {
+  font-family: var(--font-jp--sanserif);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+}
+
+.c-time-scene-card__btn {
+  margin-block-start: var(--spacing-sm);
+}

@@ -1,0 +1,60 @@
+---
+/**
+ * サイトフッター
+ * ロゴ + ページ内ナビ + 外部リンク
+ */
+import { Image } from 'astro:assets';
+import logoFooter from '../assets/images/logo-footer.png';
+import { FOOTER_NAV_ITEMS } from '../data/footer-nav';
+---
+
+<footer id='footer' class='p-footer'>
+  <div class='l-container p-footer__inner'>
+    <!-- ロゴ -->
+    <div class='p-footer__logo'>
+      <Image
+        src={logoFooter}
+        alt='森半 tea&coffee'
+        class='p-footer__logo-img'
+      />
+    </div>
+
+    <!-- ナビゲーション -->
+    <nav aria-label='フッターナビ'>
+      <ul class='p-footer__nav'>
+        {
+          FOOTER_NAV_ITEMS.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+        <li>
+          <a
+            href='https://www.tea-and-coffee.shop/'
+            class='p-footer__external'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            公式オンラインショップ
+            <svg
+              class='p-footer__external-icon'
+              width='14'
+              height='14'
+              viewBox='0 0 24 24'
+              fill='none'
+              aria-hidden='true'
+            >
+              <path
+                d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>

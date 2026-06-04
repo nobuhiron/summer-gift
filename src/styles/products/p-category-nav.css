@@ -1,0 +1,60 @@
+/* CategoryNav（nav.jpg）: royal-blue 背景に 2 カラムの白ボタン。
+   ボタンは c-nav-stack を流用し、ここで 2 カラム＋白ボタン化を上書き。 */
+
+.p-category-nav {
+  position: relative;
+  overflow: hidden;
+  padding-block: 48px;
+  /* 支給の nav-bg.jpg（青チェッカー）をそのまま背景に敷く */
+  background-image: var(--nav-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.p-category-nav > .l-container {
+  position: relative;
+  z-index: 1;
+  padding-inline: 20px;
+}
+
+/* 2 カラムグリッド（7 項目 → 4 行目左に「森半の氷茶」が単独で並ぶ） */
+.p-category-nav .c-nav-stack {
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* 白ボタン（枠線なし・淡い影）、ラベルは明朝 */
+.p-category-nav .c-nav-stack__btn {
+  background: var(--base-bg);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 18px 12px 18px 16px;
+  gap: 4px;
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.14);
+}
+
+/* ラベルは 1 行に収める（カンプは 1 行表記） */
+.p-category-nav .c-nav-stack__label {
+  white-space: nowrap;
+}
+
+.p-category-nav .c-nav-stack__icon {
+  width: 22px;
+  height: 22px;
+}
+
+.p-category-nav .c-nav-stack__btn:hover {
+  background-color: var(--palette-blue-pale);
+  color: var(--color-text) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
+}
+
+.p-category-nav .c-nav-stack__btn:hover .c-nav-stack__icon {
+  background: var(--palette-blue-royal);
+  color: var(--base-text-on-dark);
+}

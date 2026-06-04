@@ -1,0 +1,61 @@
+/* ===== フッター ===== */
+
+.p-footer {
+  padding-block: var(--spacing-5xl);
+  background-color: var(--base-text);
+}
+.p-footer > .l-container {
+  padding-inline: 20px;
+  color: var(--base-text-on-dark);
+}
+
+.p-footer__inner {
+  display: grid;
+  justify-items: center;
+  gap: 64px;
+}
+
+/* ---------- ロゴ ---------- */
+.p-footer__logo {
+  margin-block-end: 0;
+}
+.p-footer__logo-img {
+  display: block;
+  width: 130px;
+  height: auto;
+}
+
+/* ---------- ナビゲーション ---------- */
+.p-footer__nav {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.p-footer__nav a {
+  color: var(--base-text-on-dark);
+  text-decoration: none;
+  font-family: var(--font-jp--sanserif);
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+.p-footer__nav a:hover {
+  opacity: 0.7;
+}
+
+/* 外部リンク */
+.p-footer__external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.p-footer__external-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+

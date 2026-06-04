@@ -1,0 +1,27 @@
+---
+/**
+ * ページ内ナビゲーション
+ */
+import { CATEGORY_NAV_ITEMS } from '../data/category-nav';
+import NavStackLink from '../components/NavStackLink.astro';
+import navBg from '../assets/images/nav-bg.jpg';
+---
+
+<section
+  id="category"
+  class="l-section l-section--bg-surface p-category-nav"
+  aria-label="ページ内ナビ"
+  style={`--nav-bg: url("${navBg.src}")`}
+>
+  <div class="l-container">
+    <nav aria-label="ページ内セクションへのジャンプ">
+      <ul class="c-nav-stack">
+        {CATEGORY_NAV_ITEMS.map((cat) => (
+          <li class="c-nav-stack__item">
+            <NavStackLink href={cat.href} label={cat.label} />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</section>

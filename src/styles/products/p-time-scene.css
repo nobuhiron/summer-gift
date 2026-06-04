@@ -1,0 +1,76 @@
+/* ===== Time Scene セクションレイアウト ===== */
+.p-time-scene {
+  background: #FFFEF5;
+  padding-block: 80px;
+}
+.p-time-scene > .l-container {
+  padding-inline: 20px;
+}
+
+/* ヘッダー */
+.p-time-scene__header {
+  text-align: center;
+  margin-block-end: var(--spacing-3xl);
+}
+.p-time-scene__badge {
+  display: inline-block;
+  padding: 10px 32px 20px;
+  background: var(--time-scene-ribbon-bg) center / 100% 100% no-repeat;
+  font-family: var(--font-jp--serif);
+  color: var(--color-sub);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+}
+.p-time-scene__title {
+  display: grid;
+  gap: var(--spacing-sm);
+}
+.p-time-scene__title-main {
+  font-family: var(--font-jp--serif);
+  font-size: 24px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+}
+.p-time-scene__title-en {
+  display: block;
+  font-family: var(--font-en--heading);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--color-main);
+  text-align: center;
+}
+
+/* リスト */
+.p-time-scene__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 60px;
+}
+
+/* ---------- カード外枠（オフセット二重ボーダー） ---------- */
+.p-time-scene__item {
+  position: relative;
+  padding: 32px 20px;
+  border: 1px solid #D4B45D;
+  background: transparent;
+}
+.p-time-scene__item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #D4B45D;
+  transform: translate(-7px, -6px);
+  pointer-events: none;
+}
+
+.p-time-scene__item[data-id='item-5'] .c-time-scene-card__name {
+  letter-spacing: -0.04em;
+}
