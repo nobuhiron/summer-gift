@@ -21,6 +21,13 @@ const crownByRank: Record<number, string> = {
   3: '/crown-icon-bronze.svg',
 };
 const crownFor = (rank: number) => crownByRank[rank] ?? '/crown-icon.svg';
+
+const rankColorByRank: Record<number, string> = {
+  1: '#3d61b1',
+  2: '#6c768a',
+  3: '#b0936f',
+};
+const rankColorFor = (rank: number) => rankColorByRank[rank] ?? '#3d61b1';
 ---
 
 <section id="ranking" class="l-section p-ranking" aria-labelledby="heading-ranking">
@@ -28,7 +35,7 @@ const crownFor = (rank: number) => crownByRank[rank] ?? '/crown-icon.svg';
     <header class="p-ranking__header">
       <img src={publicAssetPath('/crown-icon.svg')} alt="" aria-hidden="true" class="p-ranking__header-crown" width="22" height="17" />
       <h2 id="heading-ranking" class="p-ranking__title">
-        お中元<span class="p-ranking__title-accent">人気</span>ランキング
+        お中元<span class="p-ranking__title-accent">人気ランキング</span>
       </h2>
     </header>
 
@@ -39,7 +46,9 @@ const crownFor = (rank: number) => crownByRank[rank] ?? '/crown-icon.svg';
             <li class="splide__slide p-ranking__item">
               <p class="c-rank-card__badge">
                 <img src={publicAssetPath(crownFor(item.rank))} alt="" aria-hidden="true" class="c-rank-card__crown" width="22" height="17" />
-                <span class="c-rank-card__rank">No.{item.rank}</span>
+                <span class="c-rank-card__rank" style={`--rank-color: ${rankColorFor(item.rank)}`}>
+                  <span class="c-rank-card__rank-label">No.</span><span class="c-rank-card__rank-num">{item.rank}</span>
+                </span>
               </p>
               <a href={item.href} class="c-rank-card" aria-label={`${item.name.replace('\n', '')}の商品ページ`}>
                 <div class="c-rank-card__image">

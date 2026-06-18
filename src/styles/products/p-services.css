@@ -6,6 +6,11 @@
   padding-block: 44px;
 }
 
+.p-services__inner {
+  padding: 60px 26px;
+  background: var(--base-bg);
+}
+
 .p-services__header {
   text-align: center;
   margin-block-end: 32px;

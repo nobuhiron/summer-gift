@@ -24,12 +24,12 @@
   font-family: var(--font-jp--serif);
   font-size: var(--font-size-title-ja-lg);
   font-weight: var(--fw-medium);
-  color: var(--color-main);
-  letter-spacing: 0.06em;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
 }
 
 .p-ranking__title-accent {
-  color: var(--palette-blue-light);
+  color: var(--color-main);
 }
 
 /* Splide カルーセル（コーディングルール: ランキングは横スクロール）。
@@ -55,7 +55,7 @@
 /* 王冠＋No.X（カード上・背景なし・左寄せ） */
 .c-rank-card__badge {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
   gap: 6px;
   margin-block-end: 8px;
@@ -68,11 +68,21 @@
 }
 
 .c-rank-card__rank {
-  font-family: var(--font-en--heading);
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-jp--serif);
+  color: var(--rank-color, var(--color-main));
+  line-height: 1;
+}
+
+.c-rank-card__rank-label {
   font-size: 20px;
-  font-weight: var(--fw-bold);
-  color: var(--color-main);
-  letter-spacing: 0.02em;
+  font-weight: var(--fw-medium);
+}
+
+.c-rank-card__rank-num {
+  font-size: 36px;
+  font-weight: var(--fw-medium);
 }
 
 /* カード本体 */
@@ -127,19 +137,20 @@
 
 .c-rank-card__price {
   margin-block-start: auto;
-  color: var(--color-main);
-  font-weight: var(--fw-bold);
-  font-size: 22px;
+  font-family: var(--font-jp--serif);
+  color: var(--color-text);
+  font-weight: var(--fw-regular);
+  font-size: 24px;
   line-height: 1;
 }
 
 .c-rank-card__price-yen {
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
 }
 
 .c-rank-card__price-tax {
-  font-size: 11px;
-  font-weight: var(--fw-regular);
-  color: var(--palette-muted);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
   margin-inline-start: 2px;
 }

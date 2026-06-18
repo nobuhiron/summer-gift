@@ -20,49 +20,51 @@ const serviceImages: Record<string, ImageMetadata> = {
 
 <section id="gift" class="l-section p-services" aria-labelledby="heading-services">
   <div class="l-container">
-    <header class="p-services__header">
-      <h2 id="heading-services" class="p-services__title">
-        オンラインショップの<br />便利なサービス
-      </h2>
-    </header>
+    <div class="p-services__inner">
+      <header class="p-services__header">
+        <h2 id="heading-services" class="p-services__title">
+          オンラインショップの<br />便利なサービス
+        </h2>
+      </header>
 
-    <ul class="p-services__list" role="list">
-      {SERVICES.map((service) => (
-        <li class="c-service-card">
-          <div class="c-service-card__head">
-            <span class="c-service-card__badge">
-              <img src={publicAssetPath(service.freeIcon)} alt="" aria-hidden="true" class="c-service-card__badge-fan" />
-              <span class="c-service-card__badge-text">無料</span>
-            </span>
-            <div class="c-service-card__heading">
-              <p class="c-service-card__lead">{service.lead}</p>
-              <h3 class="c-service-card__title">{service.title}</h3>
+      <ul class="p-services__list" role="list">
+        {SERVICES.map((service) => (
+          <li class="c-service-card">
+            <div class="c-service-card__head">
+              <span class="c-service-card__badge">
+                <img src={publicAssetPath(service.freeIcon)} alt="" aria-hidden="true" class="c-service-card__badge-fan" />
+                <span class="c-service-card__badge-text">無料</span>
+              </span>
+              <div class="c-service-card__heading">
+                <p class="c-service-card__lead">{service.lead}</p>
+                <h3 class="c-service-card__title">{service.title}</h3>
+              </div>
             </div>
-          </div>
 
-          <p class="c-service-card__body">{service.body}</p>
+            <p class="c-service-card__body">{service.body}</p>
 
-          <div class="c-service-card__image">
-            <Image src={serviceImages[service.image]} alt={`${service.title}のイメージ`} class="c-service-card__image-el" />
-          </div>
-
-          {service.buttons.length > 0 && (
-            <div class="c-service-card__actions">
-              {service.buttons.map((button) => (
-                <a
-                  href={button.href}
-                  class:list={['c-service-card__btn', `c-service-card__btn--${button.tone}`]}
-                >
-                  <span>{button.label}</span>
-                  <span class="c-service-card__btn-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                  </span>
-                </a>
-              ))}
+            <div class="c-service-card__image">
+              <Image src={serviceImages[service.image]} alt={`${service.title}のイメージ`} class="c-service-card__image-el" />
             </div>
-          )}
-        </li>
-      ))}
-    </ul>
+
+            {service.buttons.length > 0 && (
+              <div class="c-service-card__actions">
+                {service.buttons.map((button) => (
+                  <a
+                    href={button.href}
+                    class:list={['c-service-card__btn', `c-service-card__btn--${button.tone}`]}
+                  >
+                    <span>{button.label}</span>
+                    <span class="c-service-card__btn-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>

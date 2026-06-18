@@ -6,6 +6,11 @@
   background: var(--base-bg);
 }
 
+.p-trivia__inner {
+  padding: 60px 26px;
+  background: var(--base-bg);
+}
+
 .p-trivia__title {
   text-align: center;
   font-family: var(--font-jp--serif);

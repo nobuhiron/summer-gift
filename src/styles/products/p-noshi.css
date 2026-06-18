@@ -6,6 +6,14 @@
   background: var(--base-bg);
 }
 
+.p-noshi__inner {
+  padding: 60px 26px;
+  background: var(--base-bg);
+  /* l-container(grid) の grid item。min-width:auto のままだと内部の Splide
+     トラックが内容幅に伸びてコンテナをはみ出すため、ここで shrink を許可する。 */
+  min-width: 0;
+}
+
 .p-noshi__icon {
   display: block;
   width: 52px;
@@ -16,7 +24,7 @@
 .p-noshi__title {
   text-align: center;
   font-family: var(--font-jp--serif);
-  font-size: var(--font-size-title-ja-xl);
+  font-size: 32px;
   font-weight: var(--fw-medium);
   color: var(--color-text);
   letter-spacing: 0.06em;

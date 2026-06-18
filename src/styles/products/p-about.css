@@ -20,18 +20,14 @@
   font-family: var(--font-jp--serif);
   color: var(--color-main);
   font-weight: var(--fw-medium);
+  font-size: 38px;
   line-height: 1.55;
   letter-spacing: 0.08em;
 }
 
-.p-about__title-sm {
-  display: block;
-  font-size: 19px;
-}
-
+.p-about__title-sm,
 .p-about__title-lg {
   display: block;
-  font-size: 27px;
 }
 
 /* リボン（支給 SVG・本文幅いっぱい） */
@@ -40,16 +36,16 @@
   width: 100%;
   max-width: 280px;
   height: auto;
-  margin: 16px auto 0;
+  margin-inline: auto;
 }
 
 .p-about__body {
-  max-width: 268px;
   margin-inline: auto;
 }
 
 .p-about__para {
-  font-size: var(--font-size-body-sm);
+  font-family: var(--font-jp--serif);
+  font-size: 14px;
   line-height: 2.05;
   color: var(--color-text);
 }

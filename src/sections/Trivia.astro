@@ -15,30 +15,32 @@ const [first, ...rest] = TRIVIA_ITEMS;
 
 <section id="trivia" class="l-section p-trivia" aria-labelledby="heading-trivia">
   <div class="l-container">
-    <h2 id="heading-trivia" class="p-trivia__title">お中元の豆知識</h2>
-    <Image src={triviaRibon} alt="" aria-hidden="true" class="p-trivia__ribbon" />
+    <div class="p-trivia__inner">
+      <h2 id="heading-trivia" class="p-trivia__title">お中元の豆知識</h2>
+      <Image src={triviaRibon} alt="" aria-hidden="true" class="p-trivia__ribbon" />
 
-    <div class="p-trivia__items">
-      <div class="p-trivia__item">
-        <div class="p-trivia__item-head">
-          <img src={publicAssetPath(first.icon)} alt="" aria-hidden="true" class="p-trivia__item-icon" />
-          <h3 class="p-trivia__item-title">{first.title}</h3>
-        </div>
-        <span class="p-trivia__item-divider" aria-hidden="true"></span>
-        <p class="p-trivia__item-body">{first.body}</p>
-      </div>
-
-      <div id="trivia-rest" class="p-trivia__rest" hidden>
-        {rest.map((item) => (
-          <div class="p-trivia__item">
-            <div class="p-trivia__item-head">
-              <img src={publicAssetPath(item.icon)} alt="" aria-hidden="true" class="p-trivia__item-icon" />
-              <h3 class="p-trivia__item-title">{item.title}</h3>
-            </div>
-            <span class="p-trivia__item-divider" aria-hidden="true"></span>
-            <p class="p-trivia__item-body">{item.body}</p>
+      <div class="p-trivia__items">
+        <div class="p-trivia__item">
+          <div class="p-trivia__item-head">
+            <img src={publicAssetPath(first.icon)} alt="" aria-hidden="true" class="p-trivia__item-icon" />
+            <h3 class="p-trivia__item-title">{first.title}</h3>
           </div>
-        ))}
+          <span class="p-trivia__item-divider" aria-hidden="true"></span>
+          <p class="p-trivia__item-body">{first.body}</p>
+        </div>
+
+        <div id="trivia-rest" class="p-trivia__rest" hidden>
+          {rest.map((item) => (
+            <div class="p-trivia__item">
+              <div class="p-trivia__item-head">
+                <img src={publicAssetPath(item.icon)} alt="" aria-hidden="true" class="p-trivia__item-icon" />
+                <h3 class="p-trivia__item-title">{item.title}</h3>
+              </div>
+              <span class="p-trivia__item-divider" aria-hidden="true"></span>
+              <p class="p-trivia__item-body">{item.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
 

@@ -101,8 +101,8 @@
 }
 
 .l-main-column {
-  width: 100%;
-  max-width: var(--layout-main-width);
+  width: var(--layout-main-width);
+  max-width: 100%;
   margin-inline: auto;
 }
 
@@ -144,11 +144,5 @@
 
   .l-main-column {
     margin-inline: 0;
-  }
-}
-
-@media (max-width: 767px) and (orientation: portrait) {
-  .l-main-column {
-    max-width: none;
   }
 }

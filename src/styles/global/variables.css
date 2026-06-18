@@ -67,12 +67,12 @@
   --fw-semibold: 600;
   --fw-bold: 700;
   --font-size-body-sm: 14px;
-  --font-size-body: clamp(14px, 1.5vw, 16px);
-  --font-size-base: clamp(14px, 1.5vw, 16px); /* base.css 互換エイリアス */
-  --font-size-title-ja: clamp(20px, 2.2vw, 24px);
-  --font-size-title-ja-lg: clamp(24px, 3.4vw, 32px);
-  --font-size-title-ja-xl: clamp(28px, 4vw, 38px);
-  --font-size-en: clamp(14px, 1.5vw, 16px);
+  --font-size-body: 16px;
+  --font-size-base: 16px; /* base.css 互換エイリアス */
+  --font-size-title-ja: 24px;
+  --font-size-title-ja-lg: 32px;
+  --font-size-title-ja-xl: 38px;
+  --font-size-en: 16px;
   --line-height-base: 1.62;
 }
 

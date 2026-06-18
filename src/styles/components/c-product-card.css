@@ -13,7 +13,7 @@
   padding: var(--spacing-md);
 }
 .c-product-card__name {
-  font-size: clamp(13px, 1.4vw, 15px);
+  font-size: 15px;
   line-height: 1.5;
 }
 .c-product-card__price {

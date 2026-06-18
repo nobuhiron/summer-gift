@@ -22,32 +22,34 @@ const caseImages: Record<string, ImageMetadata> = {
 
 <section id="noshi" class="l-section p-noshi" aria-labelledby="heading-noshi">
   <div class="l-container">
-    <img src={publicAssetPath('/icon-nami.png')} alt="" aria-hidden="true" class="p-noshi__icon" width="122" height="90" />
-    <h2 id="heading-noshi" class="p-noshi__title">のし紙の種類と書き方</h2>
+    <div class="p-noshi__inner">
+      <img src={publicAssetPath('/icon-nami.png')} alt="" aria-hidden="true" class="p-noshi__icon" width="122" height="90" />
+      <h2 id="heading-noshi" class="p-noshi__title">のし紙の種類と書き方</h2>
 
-    <p class="p-noshi__intro">{NOSHI_INTRO}</p>
+      <p class="p-noshi__intro">{NOSHI_INTRO}</p>
 
-    <figure class="p-noshi__main">
-      <Image src={noshiMain} alt="のし紙の各部名称（表書き・水引・名入れ）" class="p-noshi__main-image" />
-    </figure>
+      <figure class="p-noshi__main">
+        <Image src={noshiMain} alt="のし紙の各部名称（表書き・水引・名入れ）" class="p-noshi__main-image" />
+      </figure>
 
-    <div class="p-noshi__detail" id="noshi-detail">
-      <div id="noshi-carousel" class="splide p-noshi__carousel" aria-label="のし紙の書き方（ケース別）">
-        <div class="splide__track">
-          <ul class="splide__list">
-            {NOSHI_CASES.map((item) => (
-              <li class="splide__slide p-noshi__slide">
-                <article class="c-noshi-card">
-                  <h3 class="c-noshi-card__title">{item.title}</h3>
-                  <span class="c-noshi-card__divider" aria-hidden="true"></span>
-                  <p class="c-noshi-card__body">{item.body}</p>
-                  <div class="c-noshi-card__image">
-                    <Image src={caseImages[item.image]} alt={`${item.title}ののし紙の例`} class="c-noshi-card__image-el" />
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ul>
+      <div class="p-noshi__detail" id="noshi-detail">
+        <div id="noshi-carousel" class="splide p-noshi__carousel" aria-label="のし紙の書き方（ケース別）">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {NOSHI_CASES.map((item) => (
+                <li class="splide__slide p-noshi__slide">
+                  <article class="c-noshi-card">
+                    <h3 class="c-noshi-card__title">{item.title}</h3>
+                    <span class="c-noshi-card__divider" aria-hidden="true"></span>
+                    <p class="c-noshi-card__body">{item.body}</p>
+                    <div class="c-noshi-card__image">
+                      <Image src={caseImages[item.image]} alt={`${item.title}ののし紙の例`} class="c-noshi-card__image-el" />
+                    </div>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
