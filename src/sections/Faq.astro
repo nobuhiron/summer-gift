@@ -26,14 +26,23 @@ const wrappingHref = `${LINK_BASE}`;
             </span>
           </summary>
           <div class="p-faq__answer">
-            {item.answer.map((para) =>
-              para === 'ギフト包装、熨斗についてはこちら' ? (
+            {item.answer.map((block) =>
+              typeof block !== 'string' ? (
+                <div class="p-faq__notes">
+                  <p class="p-faq__notes-heading">{block.heading}</p>
+                  <ul class="p-faq__notes-list">
+                    {block.items.map((note) => (
+                      <li class="p-faq__note">{note}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : block === 'ギフト包装、熨斗についてはこちら' ? (
                 <p class="p-faq__para">
                   ギフト包装、熨斗については
                   <a class="p-faq__link" href={wrappingHref}>こちら</a>
                 </p>
               ) : (
-                <p class="p-faq__para">{para}</p>
+                <p class="p-faq__para">{block}</p>
               )
             )}
           </div>

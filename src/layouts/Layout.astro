@@ -3,6 +3,7 @@ import '../styles/style.css';
 import { FONT_LINKS, SITE } from '../config/site';
 import PageChromeLeft from '../components/PageChromeLeft.astro';
 import PageChromeRight from '../components/PageChromeRight.astro';
+import PageTop from '../components/PageTop.astro';
 import { publicAssetPath } from '../utils/assets';
 import giftAshirai1 from '../assets/images/gift-ashirai-1.png';
 import giftAshirai2 from '../assets/images/gift-ashirai-2.png';
@@ -93,6 +94,7 @@ const twitterCard = ogImageUrl ? 'summary_large_image' : 'summary';
         <PageChromeRight />
       </aside>
     </div>
+    <PageTop />
     <script>
       import '../scripts/main.js';
     </script>

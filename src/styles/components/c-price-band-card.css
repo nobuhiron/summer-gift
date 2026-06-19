@@ -63,7 +63,7 @@
   font-family: var(--font-jp--serif);
   font-size: 30px;
   font-weight: var(--fw-medium);
-  color: var(--color-accent);
+  color: var(--color-main);
   line-height: 1;
 }
 .c-price-band-card__price-yen {
@@ -78,7 +78,7 @@
 .c-price-band-card__divider {
   margin: 0;
   border: none;
-  border-top: 1px solid var(--color-accent);
+  border-top: 1px solid var(--color-main);
 }
 
 /* 隱ｬ譏取枚 */

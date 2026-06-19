@@ -26,36 +26,29 @@
 }
 
 /* ---------- ナビゲーション ---------- */
+.p-footer__nav-wrap {
+  justify-self: start;
+}
 .p-footer__nav {
   display: grid;
-  justify-items: center;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  justify-items: start;
   align-items: center;
-  gap: 24px;
+  gap: 12px 40px;
 }
 
 .p-footer__nav a {
   color: var(--base-text-on-dark);
   text-decoration: none;
-  font-family: var(--font-jp--sanserif);
+  font-family: var(--font-jp--serif);
   font-size: 14px;
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   line-height: 1;
   letter-spacing: 0.04em;
   transition: opacity 0.2s;
 }
 .p-footer__nav a:hover {
   opacity: 0.7;
-}
-
-/* 外部リンク */
-.p-footer__external {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.p-footer__external-icon {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
 }
 

@@ -53,15 +53,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
-  padding: 12px 10px 12px 14px;
-  border-radius: 8px;
+  width: 160px;
+  height: 45px;
+  padding: 0 8px 0 10px;
+  border-radius: var(--radius-xs);
   background: var(--base-bg);
   border: 1px solid var(--color-main);
   color: var(--color-text);
   font-family: var(--font-jp--serif);
-  font-weight: var(--fw-medium);
-  font-size: 12.5px;
+  font-weight: var(--fw-semibold);
+  font-size: 14px;
   letter-spacing: -0.01em;
   transition: background-color 0.2s ease;
 }
@@ -76,8 +77,8 @@
 
 .p-shop-by-price__tab-icon {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: var(--radius-xl);
   background: var(--color-main);
   color: var(--base-text-on-dark);

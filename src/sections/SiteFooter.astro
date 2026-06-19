@@ -20,7 +20,7 @@ import { FOOTER_NAV_ITEMS } from '../data/footer-nav';
     </div>
 
     <!-- ナビゲーション -->
-    <nav aria-label='フッターナビ'>
+    <nav class='p-footer__nav-wrap' aria-label='フッターナビ'>
       <ul class='p-footer__nav'>
         {
           FOOTER_NAV_ITEMS.map((link) => (
@@ -29,31 +29,6 @@ import { FOOTER_NAV_ITEMS } from '../data/footer-nav';
             </li>
           ))
         }
-        <li>
-          <a
-            href='https://www.tea-and-coffee.shop/'
-            class='p-footer__external'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            公式オンラインショップ
-            <svg
-              class='p-footer__external-icon'
-              width='14'
-              height='14'
-              viewBox='0 0 24 24'
-              fill='none'
-              aria-hidden='true'
-            >
-              <path
-                d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3'
-                stroke='currentColor'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'></path>
-            </svg>
-          </a>
-        </li>
       </ul>
     </nav>
   </div>
