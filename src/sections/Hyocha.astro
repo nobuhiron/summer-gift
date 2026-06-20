@@ -5,7 +5,7 @@
  * NOTE: hyocha-hero.jpg は支給カンプ(森半の氷茶.jpg)からのスライス。商品画像はプレースホルダ。
  */
 import { Image } from 'astro:assets';
-import heroImg from '../assets/images/hyocha-hero.jpg';
+import koriImage from '../assets/images/koricha-image.png';
 import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
 ---
 
@@ -13,7 +13,8 @@ import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
   <h2 id="heading-hyocha" class="visually-hidden">森半の氷茶</h2>
 
   <div class="p-hyocha__hero">
-    <Image src={heroImg} alt="森半の氷茶（こおりちゃ）" class="p-hyocha__hero-image" />
+    <img src="/koricha-title.svg" alt="" aria-hidden="true" class="p-hyocha__hero-title" width="71" height="238" />
+    <Image src={koriImage} alt="森半の氷茶（こおりちゃ）" class="p-hyocha__hero-image" />
   </div>
 
   <div class="l-container">
@@ -23,9 +24,10 @@ import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
       ))}
     </div>
 
-    <ul class="p-hyocha__list" role="list">
-      {HYOCHA_PRODUCTS.map((product) => (
-        <li class="p-hyocha__item">
+    <div class="swiper p-hyocha__swiper" data-carousel="free" data-scrollbar="#hyocha-scrollbar" aria-label="氷茶 商品一覧">
+      <ul class="swiper-wrapper" role="list">
+        {HYOCHA_PRODUCTS.map((product) => (
+          <li class="swiper-slide p-hyocha__item">
           <article class="c-hyocha-card">
             <div class="c-hyocha-card__image" role="img" aria-label={`${product.name}の商品画像`}></div>
             <div class="c-hyocha-card__body">
@@ -44,8 +46,10 @@ import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
               </a>
             </div>
           </article>
-        </li>
-      ))}
-    </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div id="hyocha-scrollbar" class="swiper-scrollbar c-swiper-scrollbar" aria-hidden="true"></div>
   </div>
 </section>

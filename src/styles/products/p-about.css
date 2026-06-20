@@ -33,10 +33,11 @@
 /* リボン（支給 SVG・本文幅いっぱい） */
 .p-about__ribbon {
   display: block;
-  width: 100%;
-  max-width: 280px;
+  /* l-container(20px) を相殺して 375px カラム全幅 */
+  width: calc(100% + var(--layout-padding-sp) * 2);
+  max-width: none; /* reset の img max-width:100% を解除 */
   height: auto;
-  margin-inline: auto;
+  margin-inline: calc(-1 * var(--layout-padding-sp));
 }
 
 .p-about__body {

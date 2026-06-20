@@ -18,11 +18,12 @@
 
 .p-services__title {
   font-family: var(--font-jp--serif);
-  font-size: var(--font-size-title-ja-lg);
+  font-size: 28px;
   font-weight: var(--fw-medium);
   color: var(--color-text);
-  line-height: 1.5;
+  line-height: 1.5; /* 42px / 28px */
   letter-spacing: 0.06em;
+  text-align: center;
 }
 
 /* 見出し下の波帯モチーフ（treatment-service.png） */
@@ -62,6 +63,7 @@
 .c-service-card__badge-text {
   position: absolute;
   inset: 0;
+  top: -20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,12 +76,22 @@
 }
 
 .c-service-card__lead {
-  font-size: 13px;
+  font-size: 18px;
+  color: var(--color-text);
+}
+
+/* 3つ目（でお届けします付き）のタイトルは 20px */
+.c-service-card__heading:has(.c-service-card__title-suffix) .c-service-card__title {
+  font-size: 20px;
+}
+
+.c-service-card__title-suffix {
+  font-size: 14px;
   color: var(--color-text);
 }
 
 .c-service-card__title {
-  font-family: var(--font-jp--serif);
+  font-family: var(--font-jp--sanserif);
   font-size: var(--font-size-title-ja);
   font-weight: var(--fw-medium);
   color: var(--color-text);

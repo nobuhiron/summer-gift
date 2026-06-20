@@ -1,13 +1,12 @@
 ---
 /**
  * お中元人気ランキング（ランキング.jpg / カード=1.png）
- * 王冠アイコン＋No.X の商品カードを Splide カルーセルで横並び。No.1〜3。
+ * 王冠アイコン＋No.X の商品カードをネイティブ横スクロールで横並び。No.1〜3。
  * 王冠は支給 SVG（金/銀/銅）。商品画像は father のプレースホルダ（最終画像で差し替え）。
- * スクロールバーは後日追加予定。
+ * スクロールバー・ドラッグは Swiper（carousels.js）。
  */
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import '@splidejs/splide/css/core';
 import { splitLines } from '../utils/text';
 import { publicAssetPath } from '../utils/assets';
 
@@ -39,11 +38,11 @@ const rankColorFor = (rank: number) => rankColorByRank[rank] ?? '#3d61b1';
       </h2>
     </header>
 
-    <div id="ranking-carousel" class="splide p-ranking__carousel" aria-label="お中元人気ランキング">
-      <div class="splide__track">
-        <ul class="splide__list">
+    <div class="p-ranking__carousel">
+      <div class="swiper p-ranking__swiper" data-carousel="free" data-scrollbar="#ranking-scrollbar" aria-label="お中元人気ランキング">
+        <ul class="swiper-wrapper">
           {rankingItems.map((item) => (
-            <li class="splide__slide p-ranking__item">
+            <li class="swiper-slide p-ranking__item">
               <p class="c-rank-card__badge">
                 <img src={publicAssetPath(crownFor(item.rank))} alt="" aria-hidden="true" class="c-rank-card__crown" width="22" height="17" />
                 <span class="c-rank-card__rank" style={`--rank-color: ${rankColorFor(item.rank)}`}>
@@ -73,9 +72,7 @@ const rankColorFor = (rank: number) => rankColorByRank[rank] ?? '#3d61b1';
           ))}
         </ul>
       </div>
+      <div id="ranking-scrollbar" class="swiper-scrollbar c-swiper-scrollbar" aria-hidden="true"></div>
     </div>
   </div>
 </section>
-
-<script is:inline src={publicAssetPath('/vendor/splide.min.js')} defer></script>
-<script is:inline src={publicAssetPath('/scripts/ranking.js')} defer></script>

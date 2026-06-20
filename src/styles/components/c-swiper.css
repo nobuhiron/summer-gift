@@ -1,0 +1,51 @@
+/* Swiper カルーセルの見た目調整（支給 Frame 207 のスクロールバー＝薄い角丸トラック＋青つまみ）。 */
+
+/* --- スクロールバー（自由スクロール系） ---
+   Swiper の scrollbar CSS（position:absolute 等）を確実に上書きするため
+   レイアウト系は !important でカルーセル直下にインフロー配置する。 */
+.c-swiper-scrollbar.swiper-scrollbar {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  z-index: auto !important;
+  width: 100% !important;
+  height: 6px !important;
+  margin-block-start: 16px;
+  border-radius: 999px;
+  background: #ffffff; /* 白トラック（薄青背景でも見える） */
+  box-shadow: inset 0 0 0 1px #cfe0f4;
+}
+
+.c-swiper-scrollbar .swiper-scrollbar-drag {
+  height: 100%;
+  border-radius: 999px;
+  background: #aacdf3; /* 視認できる青つまみ */
+  cursor: grab;
+}
+
+.c-swiper-scrollbar .swiper-scrollbar-drag:active {
+  cursor: grabbing;
+}
+
+/* --- 矢印（1枚送り系：Reason） --- */
+.c-swiper-nav.swiper-button-prev,
+.c-swiper-nav.swiper-button-next {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-xl);
+  background: var(--base-bg);
+  color: var(--color-cta);
+  box-shadow: 0 2px 8px rgba(61, 97, 177, 0.18);
+}
+
+.c-swiper-nav.swiper-button-prev::after,
+.c-swiper-nav.swiper-button-next::after {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.c-swiper-nav.swiper-button-disabled {
+  opacity: 0.35;
+}

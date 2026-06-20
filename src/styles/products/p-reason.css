@@ -3,7 +3,7 @@
 
 .p-reason {
   padding-block: 44px 48px;
-  background: linear-gradient(180deg, #eaf4fd 0%, #d7ebfb 100%);
+  background: url('../../assets/images/reasons-bg.jpg') #d7ebfb top center / cover no-repeat;
   /* 全幅カルーセル（負マージン）がビューポート外に出るのを抑える */
   overflow-x: clip;
 }
@@ -15,20 +15,12 @@
 
 .p-reason__title {
   font-family: var(--font-jp--serif);
-  color: var(--color-main);
+  color: var(--color-text); /* #333 */
   font-weight: var(--fw-medium);
-  line-height: 1.5;
-  letter-spacing: 0.08em;
-}
-
-.p-reason__title-sm {
-  display: block;
-  font-size: var(--font-size-title-ja);
-}
-
-.p-reason__title-lg {
-  display: block;
-  font-size: var(--font-size-title-ja-lg);
+  font-size: var(--font-size-title-ja-lg); /* 32px 一律 */
+  line-height: 1.3125; /* 42px / 32px */
+  letter-spacing: 0.06em;
+  text-align: center;
 }
 
 .p-reason__wave {
@@ -38,27 +30,15 @@
   margin: 12px auto 0;
 }
 
-/* 理由カード横スクロール */
-.p-reason__list {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-block-end: 12px;
-  margin-inline: calc(var(--layout-padding-sp) * -1);
-  padding-inline: var(--layout-padding-sp);
-  -webkit-overflow-scrolling: touch;
+/* l-container(grid) の grid item。Swiper を grid 直下に置くと slidesPerView:1 で
+   幅が循環して暴走するため、ラッパーを噛ませて min-width:0 でコンテナ幅に収める。 */
+.p-reason__carousel {
+  min-width: 0;
 }
 
-/* カードが 1 枚のときは中央寄せ */
-.p-reason__list:has(.p-reason__item:only-child) {
-  justify-content: center;
-}
-
-.p-reason__item {
-  flex: 0 0 auto;
-  width: min(300px, 86%);
-  scroll-snap-align: center;
+/* 理由カード横スクロール（slidesPerView:1。幅は Swiper が算出するので CSS 指定しない） */
+.p-reason__item.swiper-slide {
+  height: auto;
 }
 
 .c-reason-card {
@@ -72,10 +52,12 @@
 }
 
 .c-reason-card__eyebrow {
-  font-family: var(--font-en);
-  font-size: 22px;
-  color: var(--palette-blue-light);
-  line-height: 1;
+  font-family: var(--font-jp--mincho); /* Shippori Mincho */
+  font-weight: var(--fw-semibold); /* 600 */
+  font-size: 14px;
+  line-height: 2.4286; /* 34px / 14px */
+  letter-spacing: 0;
+  color: var(--color-main);
   margin-block-end: 6px;
 }
 
@@ -105,6 +87,7 @@
   font-size: var(--font-size-body-sm);
   line-height: 1.9;
   color: var(--color-text);
+  white-space: pre-line; /* データ内の改行(\n)を反映 */
   flex: 1;
 }
 

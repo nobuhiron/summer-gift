@@ -3,18 +3,16 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "predev": "node scripts/copy-brand-about-vendor.mjs",
     "dev": "astro dev",
-    "prebuild": "node scripts/copy-brand-about-vendor.mjs",
     "build": "astro build && node scripts/patch-dist-assets.mjs",
     "check": "astro check",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@splidejs/splide": "^4.1.4",
     "astro": "^5.15.4",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "swiper": "^12.2.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

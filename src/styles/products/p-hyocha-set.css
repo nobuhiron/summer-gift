@@ -6,7 +6,8 @@
 }
 
 .p-hyocha-set__block--tea {
-  background: linear-gradient(180deg, #d7ebfb 0%, #c3def7 100%);
+  /* 支給の水テクスチャ背景（koricha-set-bg.jpg）をブロック全面に敷く */
+  background: url('../../assets/images/koricha-set-bg.jpg') #cfe6fa top center / cover no-repeat;
 }
 
 .p-hyocha-set__block--kuzu {
@@ -21,10 +22,11 @@
 
 .p-hyocha-set__heading-ja {
   font-family: var(--font-jp--serif);
-  font-size: var(--font-size-title-ja-lg);
+  font-size: var(--font-size-title-ja-lg); /* 32px */
   font-weight: var(--fw-medium);
-  letter-spacing: 0.1em;
-  color: var(--color-main);
+  line-height: 1.375; /* 44px / 32px */
+  letter-spacing: 0.06em;
+  color: var(--color-text);
 }
 
 .p-hyocha-set__block--kuzu .p-hyocha-set__heading-ja {
@@ -33,12 +35,10 @@
 
 .p-hyocha-set__heading-ribbon {
   display: block;
-  width: 110px;
-  height: 14px;
-  margin: 10px auto 0;
-  background: var(--palette-blue-light);
-  -webkit-mask: url('/ribon_bg.svg') center / contain no-repeat;
-  mask: url('/ribon_bg.svg') center / contain no-repeat;
+  /* l-container(20px) の外まで広げ、375px カラム幅いっぱいに敷く */
+  margin: 10px calc(-1 * var(--layout-padding-sp)) 0;
+  aspect-ratio: 750 / 98;
+  background: url('../../assets/images/koricha-ribon.jpg') center / cover no-repeat;
 }
 
 .p-hyocha-set__heading-dots {
@@ -61,7 +61,7 @@
 .c-assortment-card__no {
   font-family: var(--font-en);
   font-size: 22px;
-  color: var(--palette-blue-light);
+  color: var(--color-sub); /* #B0936F */
   line-height: 1;
   margin-block-end: 6px;
 }
@@ -81,21 +81,32 @@
 }
 
 .c-assortment-card__price {
+  /* 数字（5,400）部分 = Shippori Mincho / 400 / 24px / lh 34px / letter-spacing 2%。カラーは main */
   color: var(--color-main);
-  font-weight: var(--fw-bold);
+  font-family: var(--font-jp--mincho);
+  font-weight: var(--fw-regular);
   font-size: 24px;
+  line-height: 1.4167; /* 34px / 24px */
+  letter-spacing: 0.02em;
+  text-align: center;
   margin-block: 8px;
 }
 
+/* ¥ と (税込)（数字以外）= Noto Serif JP / 600 / 14px / letter-spacing 5%。カラーは main を継承 */
+.c-assortment-card__price-yen,
+.c-assortment-card__price-tax {
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-semibold);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
 .c-assortment-card__price-yen {
-  font-size: 16px;
+  margin-inline-end: 0.08em;
 }
 
 .c-assortment-card__price-tax {
-  font-size: 12px;
-  font-weight: var(--fw-regular);
-  color: var(--palette-muted);
-  margin-inline-start: 2px;
+  margin-inline-start: 0.12em;
 }
 
 .c-assortment-card__image {
@@ -201,20 +212,23 @@
 
 .c-kuzuset-card__price {
   color: var(--color-main);
-  font-weight: var(--fw-bold);
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-medium);
   font-size: 24px;
+  line-height: 1.15;
   margin-block: 8px;
 }
 
 .c-kuzuset-card__price-yen {
-  font-size: 16px;
+  font-size: 0.72em;
+  margin-inline-end: 0.08em;
 }
 
 .c-kuzuset-card__price-tax {
-  font-size: 12px;
-  font-weight: var(--fw-regular);
-  color: var(--palette-muted);
-  margin-inline-start: 2px;
+  font-size: 0.48em;
+  font-weight: var(--fw-medium);
+  color: var(--color-main);
+  margin-inline-start: 0.08em;
 }
 
 .c-kuzuset-card__desc {
@@ -271,7 +285,7 @@
   flex-direction: column;
   background: var(--base-bg);
   border-radius: 7px;
-  padding: 16px 14px;
+  padding: 16px 10px;
   overflow: hidden;
   box-shadow: none;
 }
@@ -291,9 +305,9 @@
 
 .c-kuzu-card__name {
   font-family: var(--font-jp--serif);
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: var(--fw-medium);
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--color-text);
   letter-spacing: 0;
   margin: 0;

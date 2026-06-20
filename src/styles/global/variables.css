@@ -32,6 +32,7 @@
 
   /* Project Font Sources */
   --font-source-jp-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-source-jp-mincho: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   --font-source-jp-sans: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   --font-source-en: 'Allison', cursive; /* 英字あしらい（コーディングルール: Allison） */
   --font-source-en-display: 'Allison', cursive;
@@ -89,6 +90,7 @@
   --color-cta: var(--palette-blue-royal); /* CTA ボタンの青 */
 
   --font-jp--serif: var(--font-source-jp-serif);
+  --font-jp--mincho: var(--font-source-jp-mincho);
   --font-jp--sanserif: var(--font-source-jp-sans);
   --font-en: var(--font-source-en);
   --font-en--display: var(--font-source-en-display);

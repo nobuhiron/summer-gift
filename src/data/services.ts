@@ -6,6 +6,7 @@ export type Service = {
   freeIcon: string;
   lead: string;
   title: string;
+  titleSuffix?: string;
   body: string;
   image: string;
   buttons: ServiceButton[];
@@ -35,6 +36,7 @@ export const SERVICES: Service[] = [
     freeIcon: '/icon-free-3.svg',
     lead: '贈りたい方へ直接',
     title: '丁寧な梱包',
+    titleSuffix: 'でお届けします',
     body: 'お届けする商品が傷つかないよう、段ボールに緩衝材を入れて丁寧に梱包し発送いたします。また、贈り物として安心してご利用いただけるよう、金額が分かる明細書や納品書は同梱しておりません。',
     image: 'gift-3',
     buttons: [],

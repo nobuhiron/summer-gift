@@ -63,16 +63,13 @@
 }
 
 .p-noshi__carousel {
-  padding-block-end: 8px;
-  /* SP ポートレートで親列が流動幅になるため、カルーセルが内容幅に伸びて
-     コンテナをはみ出すのを防ぐ。Splide のトラックを列幅内にクリップする。 */
   width: 100%;
   min-width: 0;
-  overflow: hidden;
 }
 
-.p-noshi__slide.splide__slide {
+.p-noshi__slide.swiper-slide {
   width: 220px;
+  height: auto;
 }
 
 .c-noshi-card {

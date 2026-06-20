@@ -32,23 +32,26 @@
   color: var(--color-main);
 }
 
-/* Splide カルーセル（コーディングルール: ランキングは横スクロール）。
-   track/list は Splide が管理。スライド幅は autoWidth で各スライドの width を使う。 */
+/* Swiper 横スクロール（コーディングルール: ランキングは横スクロール）。 */
 .p-ranking__carousel {
-  padding-block-end: 8px;
   /* l-container(grid) の grid item。min-width:auto を解除してコンテナ内に収める。 */
   min-width: 0;
-  overflow: hidden;
 }
 
-.p-ranking__item.splide__slide {
+.p-ranking__swiper {
+  /* スライドの高さを揃える */
+  align-items: stretch;
+}
+
+.p-ranking__item.swiper-slide {
   width: 146px;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
 
 /* カードがスライド高にそろうように伸長 */
-.p-ranking__item.splide__slide .c-rank-card {
+.p-ranking__item.swiper-slide .c-rank-card {
   flex: 1;
 }
 

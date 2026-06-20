@@ -6,4 +6,7 @@
   padding-inline: var(--layout-padding-sp);
   box-sizing: border-box;
   display: grid;
+  /* 単一カラムをコンテナ幅に固定（auto トラックだと中身が広いカルーセル等で
+     トラックがコンテンツ幅に膨張＝グリッド破綻するため minmax(0,1fr) で抑える） */
+  grid-template-columns: minmax(0, 1fr);
 }

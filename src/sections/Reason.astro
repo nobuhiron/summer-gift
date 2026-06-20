@@ -1,51 +1,57 @@
 ---
 /**
  * 森半が選ばれている理由
- * 見出し＋理由カード（横スクロール）。Reason 01 にブランド由来。
- * NOTE: 支給画像には Reason 01 のみ。02 以降は支給後に追記する。
+ * 見出し＋理由カード（Swiper・矢印送り）。内容は父の日特集と共通の brandCards コレクション。
  */
 import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-import { REASONS } from '../data/reasons';
-import reasonMorihan from '../assets/images/reason-morihan.jpg';
+import { getCollection } from 'astro:content';
+import { LINK_BASE } from '../data/links';
 import treatmentReasons from '../assets/images/treatment-reasons.png';
 
-const reasonImages: Record<string, ImageMetadata> = {
-  'Reason 01': reasonMorihan,
-};
+const reasonEntries = await getCollection('brandCards');
+const reasons = reasonEntries.map((entry) => ({
+  eyebrow: entry.data.reason,
+  title: entry.data.title,
+  body: entry.data.description,
+  image: entry.data.image,
+  imageAlt: entry.data.imageAlt,
+  cta: entry.data.cta,
+  href: entry.data.ctaHref ?? entry.data.href ?? LINK_BASE,
+}));
 ---
 
 <section id="reason" class="l-section p-reason" aria-labelledby="heading-reason">
   <div class="l-container">
     <header class="p-reason__header">
-      <h2 id="heading-reason" class="p-reason__title">
-        <span class="p-reason__title-sm">森半が</span>
-        <span class="p-reason__title-lg">選ばれている理由</span>
-      </h2>
+      <h2 id="heading-reason" class="p-reason__title">森半が<br />選ばれている理由</h2>
       <Image src={treatmentReasons} alt="" aria-hidden="true" class="p-reason__wave" />
     </header>
 
-    <ul class="p-reason__list" role="list">
-      {REASONS.map((reason) => (
-        <li class="p-reason__item">
+    <div class="p-reason__carousel">
+      <div class="swiper p-reason__swiper" data-carousel="slides" aria-label="森半が選ばれている理由">
+        <ul class="swiper-wrapper" role="list">
+        {reasons.map((reason) => (
+          <li class="swiper-slide p-reason__item">
           <article class="c-reason-card">
             <p class="c-reason-card__eyebrow" aria-hidden="true">{reason.eyebrow}</p>
             <h3 class="c-reason-card__title">{reason.title}</h3>
-            {reasonImages[reason.eyebrow] ? (
-              <Image src={reasonImages[reason.eyebrow]} alt={reason.title} class="c-reason-card__image" />
-            ) : (
-              <div class="c-reason-card__image c-reason-card__image--ph" role="img" aria-label={`${reason.title}のイメージ`}></div>
-            )}
+            <Image src={reason.image} alt={reason.imageAlt} class="c-reason-card__image" />
             <p class="c-reason-card__body">{reason.body}</p>
-            <a href={reason.href} class="c-reason-card__btn">
-              <span>{reason.cta}</span>
-              <span class="c-reason-card__btn-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-              </span>
-            </a>
+            {reason.cta && (
+              <a href={reason.href} class="c-reason-card__btn">
+                <span>{reason.cta}</span>
+                <span class="c-reason-card__btn-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+              </a>
+            )}
           </article>
-        </li>
-      ))}
-    </ul>
+          </li>
+        ))}
+      </ul>
+        <div class="swiper-button-prev c-swiper-nav" aria-label="前へ"></div>
+        <div class="swiper-button-next c-swiper-nav" aria-label="次へ"></div>
+      </div>
+    </div>
   </div>
 </section>

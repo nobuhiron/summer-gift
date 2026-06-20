@@ -39,7 +39,7 @@ const serviceImages: Record<string, ImageMetadata> = {
               </span>
               <div class="c-service-card__heading">
                 <p class="c-service-card__lead">{service.lead}</p>
-                <h3 class="c-service-card__title">{service.title}</h3>
+                <h3 class="c-service-card__title">{service.title}{service.titleSuffix && <span class="c-service-card__title-suffix">{service.titleSuffix}</span>}</h3>
               </div>
             </div>
 

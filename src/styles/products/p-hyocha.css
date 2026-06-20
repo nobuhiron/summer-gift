@@ -3,19 +3,30 @@
 
 .p-hyocha {
   padding-block-end: 48px;
-  background: linear-gradient(180deg, #ffffff 0%, #eef6fd 100%);
+  /* 支給の水テクスチャ背景をセクション全面に敷く */
+  background: url('../../assets/images/koricha-bg.jpg') #eef6fd top center / cover no-repeat;
   /* 全幅カルーセル（負マージン）がビューポート外に出るのを抑える */
   overflow-x: clip;
 }
 
 .p-hyocha__hero {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block-start: 48px;
+}
+
+.p-hyocha__hero-title {
+  display: block;
+  width: auto;
+  height: 256px;
 }
 
 .p-hyocha__hero-image {
   display: block;
-  width: 100%;
+  width: 85%;
   height: auto;
+  margin-block-start: 32px;
 }
 
 /* 導入文（中央寄せ） */
@@ -34,22 +45,10 @@
   margin-block-start: 1.4em;
 }
 
-/* 商品カード横スクロール（コーディングルール: 氷茶は横スクロール） */
-.p-hyocha__list {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-block-end: 12px;
-  margin-inline: calc(var(--layout-padding-sp) * -1);
-  padding-inline: var(--layout-padding-sp);
-  -webkit-overflow-scrolling: touch;
-}
-
-.p-hyocha__item {
-  flex: 0 0 auto;
+/* 商品カード横スクロール（コーディングルール: 氷茶は横スクロール / Swiper） */
+.p-hyocha__item.swiper-slide {
   width: 240px;
-  scroll-snap-align: start;
+  height: auto;
 }
 
 .c-hyocha-card {

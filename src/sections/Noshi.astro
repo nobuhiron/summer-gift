@@ -1,12 +1,10 @@
 ---
 /**
  * のし紙の種類と書き方（のし紙の種類と書き方.jpg）
- * 波アイコン → 見出し → 導入文 → のし図解(noshi-main) → ケース別カード Splide(3枚) → 閉じる。
+ * 波アイコン → 見出し → 導入文 → のし図解(noshi-main) → ケース別カード横スクロール(3枚) → 閉じる。
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import '@splidejs/splide/css/core';
-import { publicAssetPath } from '../utils/assets';
 import { NOSHI_INTRO, NOSHI_CASES } from '../data/noshi';
 import noshiMain from '../assets/images/noshi-main.jpg';
 import noshi1 from '../assets/images/noshi-1.jpg';
@@ -34,11 +32,11 @@ const caseImages: Record<string, ImageMetadata> = {
       </figure>
 
       <div class="p-noshi__detail" id="noshi-detail">
-        <div id="noshi-carousel" class="splide p-noshi__carousel" aria-label="のし紙の書き方（ケース別）">
-          <div class="splide__track">
-            <ul class="splide__list">
+        <div class="p-noshi__carousel">
+          <div class="swiper p-noshi__swiper" data-carousel="free" data-scrollbar="#noshi-scrollbar" aria-label="のし紙の書き方（ケース別）">
+            <ul class="swiper-wrapper">
               {NOSHI_CASES.map((item) => (
-                <li class="splide__slide p-noshi__slide">
+                <li class="swiper-slide p-noshi__slide">
                   <article class="c-noshi-card">
                     <h3 class="c-noshi-card__title">{item.title}</h3>
                     <span class="c-noshi-card__divider" aria-hidden="true"></span>
@@ -51,6 +49,7 @@ const caseImages: Record<string, ImageMetadata> = {
               ))}
             </ul>
           </div>
+          <div id="noshi-scrollbar" class="swiper-scrollbar c-swiper-scrollbar" aria-hidden="true"></div>
         </div>
       </div>
     </div>
@@ -82,6 +81,3 @@ const caseImages: Record<string, ImageMetadata> = {
     });
   });
 </script>
-
-<script is:inline src={publicAssetPath('/vendor/splide.min.js')} defer></script>
-<script is:inline src={publicAssetPath('/scripts/noshi.js')} defer></script>
