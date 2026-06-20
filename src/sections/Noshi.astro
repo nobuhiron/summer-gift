@@ -12,6 +12,7 @@ import noshiMain from '../assets/images/noshi-main.jpg';
 import noshi1 from '../assets/images/noshi-1.jpg';
 import noshi2 from '../assets/images/noshi-2.jpg';
 import noshi3 from '../assets/images/noshi-3.jpg';
+import treatmentNoshi from '../assets/images/treatment-noshi.png';
 
 const caseImages: Record<string, ImageMetadata> = {
   'noshi-1': noshi1,
@@ -23,7 +24,7 @@ const caseImages: Record<string, ImageMetadata> = {
 <section id="noshi" class="l-section p-noshi" aria-labelledby="heading-noshi">
   <div class="l-container">
     <div class="p-noshi__inner">
-      <img src={publicAssetPath('/icon-nami.png')} alt="" aria-hidden="true" class="p-noshi__icon" width="122" height="90" />
+      <Image src={treatmentNoshi} alt="" aria-hidden="true" class="p-noshi__icon" />
       <h2 id="heading-noshi" class="p-noshi__title">のし紙の種類と書き方</h2>
 
       <p class="p-noshi__intro">{NOSHI_INTRO}</p>

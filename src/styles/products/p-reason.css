@@ -33,11 +33,9 @@
 
 .p-reason__wave {
   display: block;
-  width: 44px;
-  height: 10px;
+  width: 60px;
+  height: auto;
   margin: 12px auto 0;
-  background:
-    radial-gradient(circle at 50% 120%, transparent 60%, var(--palette-blue-light) 62%) 0 0 / 14px 10px repeat-x;
 }
 
 /* 理由カード横スクロール */

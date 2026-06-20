@@ -25,6 +25,14 @@
   letter-spacing: 0.06em;
 }
 
+/* 見出し下の波帯モチーフ（treatment-service.png） */
+.p-services__deco {
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: 12px auto 0;
+}
+
 .p-services__list {
   display: grid;
   gap: 44px;

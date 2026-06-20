@@ -44,10 +44,8 @@
 .p-hyocha-set__heading-dots {
   display: block;
   width: 40px;
-  height: 6px;
+  height: auto;
   margin: 12px auto 0;
-  background:
-    radial-gradient(circle, var(--palette-tan) 40%, transparent 42%) 0 / 12px 6px repeat-x;
 }
 
 /* フィーチャーカード */
@@ -260,63 +258,83 @@
   height: 12px;
 }
 
-/* くず餅バリエーション 2 カラムグリッド */
+/* くず餅バリエーション */
 .p-hyocha-set__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-block-start: 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 16px;
+  margin-block-start: 34px;
 }
 
 .c-kuzu-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   background: var(--base-bg);
-  border-radius: var(--radius-sm);
-  padding: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 7px;
+  padding: 16px 14px;
+  overflow: hidden;
+  box-shadow: none;
 }
 
 .c-kuzu-card__image {
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-xs);
+  width: 100%;
+  aspect-ratio: 580 / 405;
+  margin-inline: auto;
+  margin-block-end: 12px;
   background:
-    repeating-linear-gradient(45deg, #eef4fb, #eef4fb 8px, #e3edf8 8px, #e3edf8 16px);
+    linear-gradient(#fff, #fff) padding-box,
+    repeating-linear-gradient(45deg, #f7fbff, #f7fbff 10px, #edf6fd 10px, #edf6fd 20px);
+  background-clip: padding-box, border-box;
+  border: 1px solid transparent;
+  border-radius: 2px;
 }
 
 .c-kuzu-card__name {
-  font-size: 12px;
-  font-weight: var(--fw-semibold);
-  line-height: 1.5;
+  font-family: var(--font-jp--serif);
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  line-height: 1.45;
   color: var(--color-text);
+  letter-spacing: 0;
+  margin: 0;
 }
 
 .c-kuzu-card__price {
   color: var(--color-main);
-  font-weight: var(--fw-bold);
-  font-size: 16px;
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-medium);
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: 0;
+  margin-block: 8px 12px;
 }
 
 .c-kuzu-card__price-yen {
-  font-size: 12px;
+  font-size: 0.72em;
+  margin-inline-end: 0.08em;
 }
 
 .c-kuzu-card__price-tax {
-  font-size: 10px;
-  font-weight: var(--fw-regular);
-  color: var(--palette-muted);
+  font-size: 0.48em;
+  font-weight: var(--fw-medium);
+  color: var(--color-main);
+  margin-inline-start: 0.08em;
 }
 
 .c-kuzu-card__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   margin-block-start: auto;
-  text-align: center;
-  padding: 8px;
-  border-radius: var(--radius-xs);
+  padding: 10px 12px;
+  border-radius: 7px;
   background: var(--color-cta);
   color: var(--base-text-on-dark);
-  font-size: 12px;
+  font-size: 15px;
   font-weight: var(--fw-bold);
+  line-height: 1.2;
+  text-align: center;
 }
 
 .c-kuzu-card__btn:hover {

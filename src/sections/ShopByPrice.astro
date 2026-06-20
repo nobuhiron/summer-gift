@@ -5,7 +5,9 @@
 import PriceBandCard from '../components/PriceBandCard.astro';
 import { getCollection } from 'astro:content';
 import { formatPriceBandLabel } from '../utils/text';
+import { Image } from 'astro:assets';
 import priceBg from '../assets/images/bg-wave-price.jpg';
+import treatmentPrice from '../assets/images/treatment-price.png';
 import price1000_1 from '../assets/images/price-1000-1.jpg';
 import price1000_2 from '../assets/images/price-1000-2.jpg';
 import price2000_1 from '../assets/images/price-2000-1.jpg';
@@ -40,7 +42,7 @@ const bandImages = {
   <div class="l-container">
     <header class="p-shop-by-price__header">
       <h2 id="heading-price" class="p-shop-by-price__heading">価格帯で選ぶ</h2>
-      <span class="p-shop-by-price__wave" aria-hidden="true"></span>
+      <Image src={treatmentPrice} alt="" aria-hidden="true" class="p-shop-by-price__wave" />
       <ul class="p-shop-by-price__tabs" role="list">
         {bands.map((band) => (
           <li>

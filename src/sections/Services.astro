@@ -10,6 +10,7 @@ import { SERVICES } from '../data/services';
 import gift1 from '../assets/images/gift-1.jpg';
 import gift2 from '../assets/images/gift-2.jpg';
 import gift3 from '../assets/images/gift-3.jpg';
+import treatmentService from '../assets/images/treatment-service.png';
 
 const serviceImages: Record<string, ImageMetadata> = {
   'gift-1': gift1,
@@ -25,6 +26,7 @@ const serviceImages: Record<string, ImageMetadata> = {
         <h2 id="heading-services" class="p-services__title">
           オンラインショップの<br />便利なサービス
         </h2>
+        <Image src={treatmentService} alt="" aria-hidden="true" class="p-services__deco" />
       </header>
 
       <ul class="p-services__list" role="list">

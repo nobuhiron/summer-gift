@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { REASONS } from '../data/reasons';
 import reasonMorihan from '../assets/images/reason-morihan.jpg';
+import treatmentReasons from '../assets/images/treatment-reasons.png';
 
 const reasonImages: Record<string, ImageMetadata> = {
   'Reason 01': reasonMorihan,
@@ -21,7 +22,7 @@ const reasonImages: Record<string, ImageMetadata> = {
         <span class="p-reason__title-sm">森半が</span>
         <span class="p-reason__title-lg">選ばれている理由</span>
       </h2>
-      <span class="p-reason__wave" aria-hidden="true"></span>
+      <Image src={treatmentReasons} alt="" aria-hidden="true" class="p-reason__wave" />
     </header>
 
     <ul class="p-reason__list" role="list">

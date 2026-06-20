@@ -1,13 +1,24 @@
 /* ===== Shop by price セクション ===== */
 .p-shop-by-price {
+  position: relative;
+  isolation: isolate;
   overflow-x: hidden;
   padding-block-end: var(--spacing-5xl);
-  /* 支給の bg-wave-price.jpg を敷く */
+  background-color: #eaf4fd;
+}
+
+/* 支給の bg-wave-price.jpg を opacity 0.6 で敷く（背景色に重ねて淡くする） */
+.p-shop-by-price::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background-image: var(--price-bg);
   background-size: 100% auto;
   background-repeat: repeat-y;
   background-position: top center;
-  background-color: #eaf4fd;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .p-shop-by-price > .l-container {
@@ -25,27 +36,23 @@
   font-family: var(--font-jp--serif);
   font-size: var(--font-size-title-ja-lg);
   font-weight: var(--fw-medium);
-  color: var(--color-main);
+  color: var(--color-text);
   letter-spacing: 0.1em;
 }
 
 .p-shop-by-price__wave {
   display: block;
-  width: 40px;
-  height: 12px;
+  width: 44px;
+  height: auto;
   margin: 10px auto 24px;
-  background: repeating-linear-gradient(
-    118deg,
-    var(--color-main) 0 3px,
-    transparent 3px 7px
-  );
 }
 
 /* 帯タブ（2×2 ピル・各帯へジャンプ）: 白ピル＋ネイビー丸チェブロン */
 .p-shop-by-price__tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  /* gap:タブ幅＝10:160 の比率を維持（2P/(1-P)=10/160 → P≒3.03%） */
+  gap: 3.03%;
 }
 
 /* Frame 57: 白い角丸ボックス＋ネイビー枠＋明朝・濃色ラベル＋ネイビー丸チェブロン */
@@ -53,7 +60,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 160px;
   height: 45px;
   padding: 0 8px 0 10px;
   border-radius: var(--radius-xs);
