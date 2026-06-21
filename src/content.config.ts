@@ -30,30 +30,6 @@ const brandCards = defineCollection({
     }),
 });
 
-const giftCards = defineCollection({
-  loader: file('src/data/gift-cards.json'),
-  schema: ({ image }) =>
-    z.object({
-      reason: z.string(),
-      title: z.string(),
-      description: z.string(),
-      href: z.string().nullable().default(null),
-      image: image(),
-      imageAlt: z.string(),
-      buttons: z
-        .array(
-          z.union([
-            z.string(),
-            z.object({
-              label: z.string(),
-              href: z.string().nullable().default(null),
-            }),
-          ])
-        )
-        .default([]),
-    }),
-});
-
 const priceBands = defineCollection({
   loader: file('src/data/price-bands.json'),
   schema: z.object({
@@ -72,4 +48,4 @@ const priceBands = defineCollection({
   }),
 });
 
-export const collections = { ranking, brandCards, giftCards, priceBands };
+export const collections = { ranking, brandCards, priceBands };

@@ -1,7 +1,4 @@
 @import './p-hero.css';
-@import './p-delivery-info.css';
-@import './p-product-category.css';
-@import './p-gift-wrapping.css';
 @import './p-shop-by-price.css';
 @import './p-ranking.css';
 @import './p-category-nav.css';
@@ -9,7 +6,6 @@
 @import './p-pagetop.css';
 @import './p-page-chrome.css';
 @import './p-page-chrome-right.css';
-@import './p-time-scene.css';
 @import './p-about.css';
 @import './p-wave-bg.css';
 @import './p-trivia.css';
