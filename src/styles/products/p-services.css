@@ -22,7 +22,7 @@
   font-weight: var(--fw-medium);
   color: var(--color-text);
   line-height: 1.5; /* 42px / 28px */
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-align: center;
 }
 
@@ -124,14 +124,15 @@
 }
 
 .c-service-card__btn {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: center;
   padding: 14px 18px;
-  border-radius: var(--radius-sm);
-  font-weight: var(--fw-bold);
+  border-radius: 4px;
+  font-weight: var(--fw-semibold);
   font-size: 15px;
+  letter-spacing: 0.04em;
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
@@ -163,7 +164,10 @@
 }
 
 .c-service-card__btn-icon {
-  flex-shrink: 0;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 22px;
   height: 22px;
   border-radius: var(--radius-xl);

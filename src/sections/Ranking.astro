@@ -7,6 +7,7 @@
  */
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import rankingBg from '../assets/images/ranking-bg.jpg';
 import { splitLines } from '../utils/text';
 import { publicAssetPath } from '../utils/assets';
 
@@ -29,7 +30,7 @@ const rankColorByRank: Record<number, string> = {
 const rankColorFor = (rank: number) => rankColorByRank[rank] ?? '#3d61b1';
 ---
 
-<section id="ranking" class="l-section p-ranking" aria-labelledby="heading-ranking">
+<section id="ranking" class="l-section p-ranking" aria-labelledby="heading-ranking" style={`--ranking-bg: url(${rankingBg.src})`}>
   <div class="l-container">
     <header class="p-ranking__header">
       <img src={publicAssetPath('/crown-icon.svg')} alt="" aria-hidden="true" class="p-ranking__header-crown" width="22" height="17" />
@@ -54,14 +55,23 @@ const rankColorFor = (rank: number) => rankColorByRank[rank] ?? '#3d61b1';
                   <Image src={item.image} alt={`${item.name.replace('\n', '')}の商品画像`} class="c-rank-card__image-el" />
                 </div>
                 <div class="c-rank-card__body">
-                  <h3 class="c-rank-card__name">
-                    {splitLines(item.name).map((line, index, lines) => (
-                      <Fragment>
-                        {line}
-                        {index < lines.length - 1 && <br />}
-                      </Fragment>
-                    ))}
-                  </h3>
+                  <div class="c-rank-card__name-area">
+                    <h3 class="c-rank-card__name">
+                      {splitLines(item.name).map((line, index, lines) => (
+                        <Fragment>
+                          {line}
+                          {index < lines.length - 1 && <br />}
+                        </Fragment>
+                      ))}
+                    </h3>
+                    {item.subItems && item.subItems.length > 0 && (
+                      <ul class="c-rank-card__sub-items">
+                        {item.subItems.map((sub) => (
+                          <li class="c-rank-card__sub-item">・{sub}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                   <span class="c-rank-card__divider" aria-hidden="true"></span>
                   <p class="c-rank-card__price">
                     <span class="c-rank-card__price-yen">￥</span>{item.price}<span class="c-rank-card__price-tax">(税込)</span>
@@ -72,7 +82,9 @@ const rankColorFor = (rank: number) => rankColorByRank[rank] ?? '#3d61b1';
           ))}
         </ul>
       </div>
-      <div id="ranking-scrollbar" class="swiper-scrollbar c-swiper-scrollbar" aria-hidden="true"></div>
+      <div class="c-swiper-scrollbar-wrap" aria-hidden="true">
+        <div id="ranking-scrollbar" class="swiper-scrollbar c-swiper-scrollbar"></div>
+      </div>
     </div>
   </div>
 </section>

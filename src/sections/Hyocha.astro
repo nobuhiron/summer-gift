@@ -7,6 +7,7 @@
 import { Image } from 'astro:assets';
 import koriImage from '../assets/images/koricha-image.png';
 import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
+import { splitLines } from '../utils/text';
 ---
 
 <section id="hyocha" class="l-section p-hyocha" aria-labelledby="heading-hyocha">
@@ -20,36 +21,44 @@ import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
   <div class="l-container">
     <div class="p-hyocha__intro">
       {HYOCHA_INTRO.map((para) => (
-        <p class="p-hyocha__intro-para">{para}</p>
+        <p class="p-hyocha__intro-para">
+          {splitLines(para).map((line, i, arr) => (
+            <Fragment>{line}{i < arr.length - 1 && <br />}</Fragment>
+          ))}
+        </p>
       ))}
     </div>
 
-    <div class="swiper p-hyocha__swiper" data-carousel="free" data-scrollbar="#hyocha-scrollbar" aria-label="氷茶 商品一覧">
-      <ul class="swiper-wrapper" role="list">
-        {HYOCHA_PRODUCTS.map((product) => (
-          <li class="swiper-slide p-hyocha__item">
-          <article class="c-hyocha-card">
-            <div class="c-hyocha-card__image" role="img" aria-label={`${product.name}の商品画像`}></div>
-            <div class="c-hyocha-card__body">
-              <h3 class="c-hyocha-card__name">
-                {product.name}<span class="c-hyocha-card__unit">{product.unit}</span>
-              </h3>
-              <p class="c-hyocha-card__price">
-                <span class="c-hyocha-card__price-yen">￥</span>{product.price}<span class="c-hyocha-card__price-tax">(税込)</span>
-              </p>
-              <p class="c-hyocha-card__desc">{product.description}</p>
-              <a href={product.href} class="c-hyocha-card__btn">
-                <span class="c-hyocha-card__btn-label">詳しくはこちら</span>
-                <span class="c-hyocha-card__btn-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                </span>
-              </a>
-            </div>
-          </article>
-          </li>
-        ))}
-      </ul>
+    <div class="p-hyocha__carousel">
+      <div class="swiper p-hyocha__swiper" data-carousel="free" data-scrollbar="#hyocha-scrollbar" aria-label="氷茶 商品一覧">
+        <ul class="swiper-wrapper" role="list">
+          {HYOCHA_PRODUCTS.map((product) => (
+            <li class="swiper-slide p-hyocha__item">
+              <article class="c-hyocha-card">
+                <div class="c-hyocha-card__image" role="img" aria-label={`${product.name}の商品画像`}></div>
+                <div class="c-hyocha-card__body">
+                  <h3 class="c-hyocha-card__name">
+                    {product.name}<span class="c-hyocha-card__unit">{product.unit}</span>
+                  </h3>
+                  <p class="c-hyocha-card__price">
+                    <span class="c-hyocha-card__price-yen">￥</span>{product.price}<span class="c-hyocha-card__price-tax">(税込)</span>
+                  </p>
+                  <p class="c-hyocha-card__desc">{product.description}</p>
+                  <a href={product.href} class="c-hyocha-card__btn">
+                    <span class="c-hyocha-card__btn-label">詳しくはこちら</span>
+                    <span class="c-hyocha-card__btn-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M10 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    </span>
+                  </a>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="c-swiper-scrollbar-wrap" aria-hidden="true">
+        <div id="hyocha-scrollbar" class="swiper-scrollbar c-swiper-scrollbar"></div>
+      </div>
     </div>
-    <div id="hyocha-scrollbar" class="swiper-scrollbar c-swiper-scrollbar" aria-hidden="true"></div>
   </div>
 </section>

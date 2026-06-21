@@ -4,7 +4,7 @@
   position: relative;
   padding-block: 44px 64px;
   background-image: var(--about-bg);
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   background-color: #ffffff;

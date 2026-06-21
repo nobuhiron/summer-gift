@@ -3,6 +3,14 @@
 /* --- スクロールバー（自由スクロール系） ---
    Swiper の scrollbar CSS（position:absolute 等）を確実に上書きするため
    レイアウト系は !important でカルーセル直下にインフロー配置する。 */
+.c-swiper-scrollbar-wrap {
+  margin-block-start: 16px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(200, 225, 250, 1);
+}
+
 .c-swiper-scrollbar.swiper-scrollbar {
   position: relative !important;
   left: auto !important;
@@ -11,15 +19,12 @@
   bottom: auto !important;
   z-index: auto !important;
   width: 100% !important;
-  height: 6px !important;
-  margin-block-start: 16px;
-  border-radius: 999px;
-  background: #ffffff; /* 白トラック（薄青背景でも見える） */
-  box-shadow: inset 0 0 0 1px #cfe0f4;
+  height: auto !important;
+  background: transparent;
 }
 
 .c-swiper-scrollbar .swiper-scrollbar-drag {
-  height: 100%;
+  height: 7px;
   border-radius: 999px;
   background: #aacdf3; /* 視認できる青つまみ */
   cursor: grab;
@@ -29,23 +34,3 @@
   cursor: grabbing;
 }
 
-/* --- 矢印（1枚送り系：Reason） --- */
-.c-swiper-nav.swiper-button-prev,
-.c-swiper-nav.swiper-button-next {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-xl);
-  background: var(--base-bg);
-  color: var(--color-cta);
-  box-shadow: 0 2px 8px rgba(61, 97, 177, 0.18);
-}
-
-.c-swiper-nav.swiper-button-prev::after,
-.c-swiper-nav.swiper-button-next::after {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.c-swiper-nav.swiper-button-disabled {
-  opacity: 0.35;
-}

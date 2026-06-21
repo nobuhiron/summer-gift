@@ -30,7 +30,9 @@
 }
 
 .l-page__bg-layer--default {
-  background-image: var(--gradient-bg-default);
+  /* PC で中央カラムの周りに敷く固定背景（氷茶グラスの支給画像）。SP はカラムが全幅のため実質見えない */
+  background-color: #cfe6fa;
+  background-image: url('../../assets/images/sticky-bg.jpg');
 }
 
 .l-page__bg-layer--about {

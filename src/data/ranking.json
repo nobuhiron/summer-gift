@@ -11,8 +11,9 @@
   {
     "id": "2",
     "rank": 2,
-    "name": "氷茶\n詰め合わせ",
+    "name": "氷茶詰め合わせ",
     "description": "玉露と煎茶の氷茶を詰め合わせ。低温でじっくり抽出する、夏の定番ギフトです。",
+    "subItems": ["氷茶(玉露) 10P入", "氷茶(煎茶) 10P入"],
     "price": "5,400",
     "href": "https://www.tea-and-coffee.shop/view/item/000000000770",
     "image": "../assets/images/ranking2_img.jpg"
@@ -20,8 +21,8 @@
   {
     "id": "3",
     "rank": 3,
-    "name": "氷茶 詰め合わせ\n5本セット (IP-50U)",
-    "description": "たっぷり5本入りの氷茶詰め合わせ。ご家族やお世話になった方へ、贅沢なお茶時間をお届けします。",
+    "name": "お茶屋のスイーツ\n満足セット",
+    "description": "お茶に合う多彩なスイーツを詰め合わせた、ボリューム満点のギフトセットです。",
     "price": "5,400",
     "href": "https://www.tea-and-coffee.shop/view/item/000000000307",
     "image": "../assets/images/ranking3_img.jpg"

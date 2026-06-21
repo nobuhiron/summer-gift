@@ -33,6 +33,7 @@ const reasons = reasonEntries.map((entry) => ({
         {reasons.map((reason) => (
           <li class="swiper-slide p-reason__item">
           <article class="c-reason-card">
+            <img src="/logo.svg" alt="" aria-hidden="true" class="c-reason-card__logo" />
             <p class="c-reason-card__eyebrow" aria-hidden="true">{reason.eyebrow}</p>
             <h3 class="c-reason-card__title">{reason.title}</h3>
             <Image src={reason.image} alt={reason.imageAlt} class="c-reason-card__image" />
@@ -49,9 +50,9 @@ const reasons = reasonEntries.map((entry) => ({
           </li>
         ))}
       </ul>
-        <div class="swiper-button-prev c-swiper-nav" aria-label="前へ"></div>
-        <div class="swiper-button-next c-swiper-nav" aria-label="次へ"></div>
       </div>
+      <button class="p-reason__nav-btn p-reason__nav-btn--prev" aria-label="前へ" data-reason-prev></button>
+      <button class="p-reason__nav-btn p-reason__nav-btn--next" aria-label="次へ" data-reason-next></button>
     </div>
   </div>
 </section>

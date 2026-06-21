@@ -3,7 +3,9 @@
 
 .p-ranking {
   padding-block: 40px 44px;
-  background: linear-gradient(180deg, #f3f8fe 0%, #e9f2fc 100%);
+  background-image: var(--ranking-bg);
+  background-size: cover;
+  background-position: center;
 }
 
 /* 見出し（お中元 人気 ランキング ＋ 王冠あしらい） */
@@ -90,20 +92,18 @@
 
 /* カード本体 */
 .c-rank-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
   height: 100%;
   background: var(--base-bg);
-  border: 1px solid color-mix(in srgb, var(--color-main) 14%, transparent);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgba(189, 194, 205, 1);
+  border-radius: 4px;
   box-shadow: 0 2px 8px rgba(61, 97, 177, 0.1);
   overflow: hidden;
 }
 
 /* 額装風の画像エリア（淡いマット＋内側余白） */
 .c-rank-card__image {
-  margin: 10px;
-  padding: 6px;
   background: #f6f7f9;
   border-radius: var(--radius-xs);
 }
@@ -111,35 +111,50 @@
 .c-rank-card__image-el {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .c-rank-card__body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
   padding: 4px 12px 14px;
-  flex: 1;
 }
 
 .c-rank-card__name {
   font-family: var(--font-jp--serif);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: var(--fw-semibold);
   line-height: 1.5;
+  letter-spacing: 0.05em;
   color: var(--color-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.c-rank-card__sub-items {
+  list-style: none;
+  padding: 0;
+  margin-block-start: 4px;
+}
+
+.c-rank-card__sub-item {
+  font-family: var(--font-jp--serif);
+  font-size: 12px;
+  color: var(--color-text);
+  line-height: 1.16;
 }
 
 .c-rank-card__divider {
   display: block;
   width: 100%;
   height: 1px;
-  margin-block: 12px 10px;
+  margin-block: 8px;
   background: var(--color-main);
 }
 
 .c-rank-card__price {
-  margin-block-start: auto;
   font-family: var(--font-jp--serif);
   color: var(--color-text);
   font-weight: var(--fw-regular);

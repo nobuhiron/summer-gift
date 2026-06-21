@@ -28,16 +28,42 @@
   margin: 12px auto 32px;
 }
 
+/* クリップ対象（全項目） */
+.p-trivia__body {
+  position: relative;
+  max-height: 260px;
+  overflow: hidden;
+}
+
+.p-trivia__body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--base-bg));
+  pointer-events: none;
+}
+
+.p-trivia__body.is-open {
+  max-height: none;
+  overflow: visible;
+}
+
+.p-trivia__body.is-open::after {
+  display: none;
+}
+
 /* 項目 */
-.p-trivia__item + .p-trivia__item,
-.p-trivia__rest .p-trivia__item {
+.p-trivia__item + .p-trivia__item {
   margin-block-start: 36px;
 }
 
 .p-trivia__item-head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .p-trivia__item-icon {
@@ -59,7 +85,7 @@
   display: block;
   width: 100%;
   height: 1px;
-  margin-block: 14px 16px;
+  margin-block: 8px;
   background: var(--color-main);
 }
 
@@ -123,10 +149,3 @@
   transform: rotate(180deg);
 }
 
-.p-trivia__rest {
-  margin-block-start: 36px;
-}
-
-.p-trivia__rest[hidden] {
-  display: none;
-}

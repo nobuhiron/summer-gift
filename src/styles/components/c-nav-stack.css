@@ -62,8 +62,8 @@
 }
 
 .c-nav-stack__btn--compact .c-nav-stack__icon {
-  background: transparent;
-  color: inherit;
+  background: var(--color-main);
+  color: var(--base-text-on-dark);
 }
 
 .c-nav-stack__chevron {
@@ -97,8 +97,8 @@
 }
 
 .c-nav-stack__btn--compact:hover .c-nav-stack__icon {
-  background: transparent;
-  color: inherit;
+  background: var(--color-main);
+  color: var(--base-text-on-dark);
 }
 
 .c-nav-stack--compact .c-nav-stack__btn--compact .c-nav-stack__label {

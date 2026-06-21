@@ -8,6 +8,7 @@ const ranking = defineCollection({
       rank: z.number(),
       name: z.string(),
       description: z.string(),
+      subItems: z.array(z.string()).optional(),
       price: z.string(),
       href: z.string(),
       image: image(),

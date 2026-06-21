@@ -24,10 +24,11 @@
 .p-noshi__title {
   text-align: center;
   font-family: var(--font-jp--serif);
-  font-size: 32px;
+  font-size: 28px;
   font-weight: var(--fw-medium);
   color: var(--color-text);
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
+  white-space: nowrap;
   margin-block-end: 24px;
 }
 
@@ -51,14 +52,31 @@
   height: auto;
 }
 
-/* ケース別カード Splide */
-.p-noshi__detail {
-  /* l-container は grid。grid item の min-width:auto を解除しないと
-     カルーセル内容幅にトラックが伸びてコンテナをはみ出す。 */
+/* クリップ対象（イントロ〜カルーセル） */
+.p-noshi__body {
+  position: relative;
+  max-height: 440px;
+  overflow: hidden;
   min-width: 0;
 }
 
-.p-noshi__detail[hidden] {
+.p-noshi__body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--base-bg));
+  pointer-events: none;
+}
+
+.p-noshi__body.is-open {
+  max-height: none;
+  overflow: visible;
+}
+
+.p-noshi__body.is-open::after {
   display: none;
 }
 
@@ -67,15 +85,21 @@
   min-width: 0;
 }
 
+.p-noshi__swiper {
+  align-items: stretch;
+}
+
 .p-noshi__slide.swiper-slide {
   width: 220px;
   height: auto;
 }
 
 .c-noshi-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
   height: 100%;
+  background: #F2F5F6;
+  padding: 12px 16px 20px;
 }
 
 .c-noshi-card__title {
@@ -90,7 +114,7 @@
   width: 100%;
   height: 1px;
   margin-block: 10px 12px;
-  background: color-mix(in srgb, var(--color-main) 30%, transparent);
+  background: var(--color-main);
 }
 
 .c-noshi-card__body {

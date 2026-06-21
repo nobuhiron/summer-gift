@@ -3,11 +3,10 @@
    - data-carousel="slides" … 1枚送り＋矢印（Reason）
    スクロールバー要素は data-scrollbar="#id" で外部指定（インセット配置のため）。 */
 import Swiper from 'swiper';
-import { FreeMode, Scrollbar, Navigation, Keyboard, Mousewheel } from 'swiper/modules';
+import { FreeMode, Scrollbar, Keyboard, Mousewheel } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/scrollbar';
-import 'swiper/css/navigation';
 
 export function initFreeCarousel(el) {
   if (!el || el.swiper) return el && el.swiper;
@@ -28,18 +27,28 @@ export function initFreeCarousel(el) {
 
 export function initSlidesCarousel(el) {
   if (!el || el.swiper) return el && el.swiper;
-  return new Swiper(el, {
-    modules: [Navigation, Keyboard],
-    slidesPerView: 1,
-    spaceBetween: 0,
-    autoHeight: false, // 等高（flex stretch）。autoHeight は高さ暴走の原因になるため使わない
-    watchOverflow: true, // スライドが1枚なら矢印を隠す
-    keyboard: { enabled: true, onlyInViewport: true }, // ←→ キーで送り
-    navigation: {
-      nextEl: el.querySelector('.swiper-button-next'),
-      prevEl: el.querySelector('.swiper-button-prev'),
-    },
+  const sw = new Swiper(el, {
+    modules: [Keyboard],
+    slidesPerView: 1.1,
+    spaceBetween: 11,
+    autoHeight: false,
+    watchOverflow: true,
+    keyboard: { enabled: true, onlyInViewport: true },
   });
+  const wrap = el.closest('.p-reason__carousel');
+  if (wrap) {
+    const prevBtn = wrap.querySelector('[data-reason-prev]');
+    const nextBtn = wrap.querySelector('[data-reason-next]');
+    prevBtn?.addEventListener('click', () => sw.slidePrev());
+    nextBtn?.addEventListener('click', () => sw.slideNext());
+    const update = () => {
+      prevBtn?.classList.toggle('is-disabled', sw.isBeginning);
+      nextBtn?.classList.toggle('is-disabled', sw.isEnd);
+    };
+    sw.on('slideChange', update);
+    update();
+  }
+  return sw;
 }
 
 /* slides 系（Reason）は可視になった時点で初期化し、

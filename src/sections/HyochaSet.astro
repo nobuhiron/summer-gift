@@ -63,7 +63,7 @@ const assortmentImages: Record<string, ImageMetadata> = {
     class="p-hyocha-set__block p-hyocha-set__block--kuzu"
     style={`--kuzuset-bg: url("${kuzusetBg.src}")`}
   >
-    <div class="l-container">
+    <div class="p-hyocha-set__heading-banner">
       <header class="p-hyocha-set__heading">
         <h2 class="p-hyocha-set__heading-ja">氷茶・くず餅<br />詰め合わせ</h2>
         <Image src={treatmentKuzu} alt="" aria-hidden="true" class="p-hyocha-set__heading-dots" />
@@ -77,7 +77,18 @@ const assortmentImages: Record<string, ImageMetadata> = {
           <div class="l-container c-kuzuset-card__inner">
             <div class="c-kuzuset-card__image c-kuzuset-card__image--ph" role="img" aria-label={`${item.title}の商品画像`}></div>
             <p class="c-kuzuset-card__no" aria-hidden="true">{item.no}</p>
-            <h3 class="c-kuzuset-card__title">{item.title}</h3>
+            <h3 class="c-kuzuset-card__title">
+              {(() => {
+                const idx = item.title.indexOf('(');
+                if (idx === -1) return item.title;
+                return (
+                  <Fragment>
+                    <span class="c-kuzuset-card__title-main">{item.title.slice(0, idx).trimEnd()}</span>
+                    <span class="c-kuzuset-card__title-sub">{item.title.slice(idx)}</span>
+                  </Fragment>
+                );
+              })()}
+            </h3>
             <p class="c-kuzuset-card__price">
               <span class="c-kuzuset-card__price-yen">￥</span>{item.price}<span class="c-kuzuset-card__price-tax">(税込)</span>
             </p>
