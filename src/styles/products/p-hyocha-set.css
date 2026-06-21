@@ -12,7 +12,7 @@
 
 .p-hyocha-set__block--kuzu {
   padding-block-start: 0;
-  background: linear-gradient(180deg, #efe7d6 0%, #e6d9c2 100%);
+  background: url('../../assets/images/kuzu-bg.jpg') center bottom / 100% auto no-repeat;
 }
 
 /* ブロック見出し */
@@ -63,8 +63,12 @@
 .p-hyocha-set__features {
   display: grid;
   gap: 40px;
+}
+
+.p-hyocha-set__block--kuzu .p-hyocha-set__features {
   margin-block-start: -54px;
 }
+
 
 .c-assortment-card {
   text-align: center;

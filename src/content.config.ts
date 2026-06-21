@@ -54,19 +54,6 @@ const giftCards = defineCollection({
     }),
 });
 
-const timeSceneProducts = defineCollection({
-  loader: file('src/data/time-scene-products.json'),
-  schema: ({ image }) =>
-    z.object({
-      id: z.string(),
-      name: z.string(),
-      price: z.string(),
-      description: z.string(),
-      href: z.string(),
-      image: image(),
-    }),
-});
-
 const priceBands = defineCollection({
   loader: file('src/data/price-bands.json'),
   schema: z.object({
@@ -85,4 +72,4 @@ const priceBands = defineCollection({
   }),
 });
 
-export const collections = { ranking, brandCards, giftCards, timeSceneProducts, priceBands };
+export const collections = { ranking, brandCards, giftCards, priceBands };

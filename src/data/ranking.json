@@ -6,7 +6,7 @@
     "description": "氷を浮かべることで引き立つ氷茶と、ひんやり涼やかなくず餅。暑い季節の贈り物にいちばん人気の詰め合わせです。",
     "price": "5,400",
     "href": "https://www.tea-and-coffee.shop/view/item/000000000842",
-    "image": "../assets/images/ranking1_img.jpg"
+    "image": "../assets/images/ranking-item-1.jpg"
   },
   {
     "id": "2",
@@ -14,17 +14,17 @@
     "name": "氷茶詰め合わせ",
     "description": "玉露と煎茶の氷茶を詰め合わせ。低温でじっくり抽出する、夏の定番ギフトです。",
     "subItems": ["氷茶(玉露) 10P入", "氷茶(煎茶) 10P入"],
-    "price": "5,400",
-    "href": "https://www.tea-and-coffee.shop/view/item/000000000770",
-    "image": "../assets/images/ranking2_img.jpg"
+    "price": "2,484",
+    "href": "https://www.tea-and-coffee.shop/view/item/000000000495",
+    "image": "../assets/images/ranking-item-2.jpg"
   },
   {
     "id": "3",
     "rank": 3,
-    "name": "お茶屋のスイーツ\n満足セット",
+    "name": "お茶屋のスイーツ満足セット",
     "description": "お茶に合う多彩なスイーツを詰め合わせた、ボリューム満点のギフトセットです。",
-    "price": "5,400",
+    "price": "5,508",
     "href": "https://www.tea-and-coffee.shop/view/item/000000000307",
-    "image": "../assets/images/ranking3_img.jpg"
+    "image": "../assets/images/ranking-item-3.jpg"
   }
 ]

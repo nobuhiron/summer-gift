@@ -70,7 +70,9 @@
   font-weight: var(--fw-semibold);
   font-size: 14px;
   letter-spacing: -0.01em;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .p-shop-by-price__tab > span:first-child {
@@ -78,7 +80,13 @@
 }
 
 .p-shop-by-price__tab:hover {
-  background: var(--palette-blue-pale);
+  background: var(--color-main);
+  color: #ffffff;
+}
+
+.p-shop-by-price__tab:hover .p-shop-by-price__tab-icon {
+  background: #ffffff;
+  color: var(--color-main);
 }
 
 .p-shop-by-price__tab-icon {
@@ -91,6 +99,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .p-shop-by-price__tab-icon svg {

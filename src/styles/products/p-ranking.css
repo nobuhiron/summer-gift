@@ -27,7 +27,7 @@
   font-size: var(--font-size-title-ja-lg);
   font-weight: var(--fw-medium);
   color: var(--color-text);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 .p-ranking__title-accent {

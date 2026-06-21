@@ -13,12 +13,26 @@ import {
   KUZU_GRID,
 } from '../data/hyocha-sets';
 import assortment01 from '../assets/images/assortment-01.png';
+import assortment02 from '../assets/images/assortment-02.png';
+import assortment03 from '../assets/images/assortment-03.png';
+import assortment04 from '../assets/images/assortment-04.png';
+import assortment05 from '../assets/images/assortment-05.png';
+import assortment06 from '../assets/images/assortment-06.png';
+import assortment07 from '../assets/images/assortment-07.png';
+import assortment08 from '../assets/images/assortment-08.png';
+import assortment09 from '../assets/images/assortment-09.png';
+
+const kuzuGridImages = [assortment06, assortment07, assortment08, assortment09];
 import kuzusetBg from '../assets/images/Ellipse 20.png';
 import treatmentKuzu from '../assets/images/treatment-kuzu.png';
 
-/** Assortment 番号 → 商品画像（未支給は undefined でプレースホルダ） */
+/** Assortment 番号 → 商品画像 */
 const assortmentImages: Record<string, ImageMetadata> = {
   'Assortment 01': assortment01,
+  'Assortment 02': assortment02,
+  'Assortment 03': assortment03,
+  'Assortment 04': assortment04,
+  'Assortment 05': assortment05,
 };
 ---
 
@@ -75,7 +89,7 @@ const assortmentImages: Record<string, ImageMetadata> = {
       {KUZU_ASSORTMENTS.map((item) => (
         <li class="c-kuzuset-card">
           <div class="l-container c-kuzuset-card__inner">
-            <div class="c-kuzuset-card__image c-kuzuset-card__image--ph" role="img" aria-label={`${item.title}の商品画像`}></div>
+            <Image src={assortmentImages[item.no]} alt={`${item.title}の商品画像`} class="c-kuzuset-card__image" />
             <p class="c-kuzuset-card__no" aria-hidden="true">{item.no}</p>
             <h3 class="c-kuzuset-card__title">
               {(() => {
@@ -106,9 +120,9 @@ const assortmentImages: Record<string, ImageMetadata> = {
 
     <div class="l-container">
       <ul class="p-hyocha-set__grid" role="list">
-        {KUZU_GRID.map((item) => (
+        {KUZU_GRID.map((item, i) => (
           <li class="c-kuzu-card">
-            <div class="c-kuzu-card__image" role="img" aria-label={`${item.name}の商品画像`}></div>
+            <Image src={kuzuGridImages[i]} alt={`${item.name}の商品画像`} class="c-kuzu-card__image" />
             <h3 class="c-kuzu-card__name">{item.name}</h3>
             <p class="c-kuzu-card__price">
               <span class="c-kuzu-card__price-yen">￥</span>{item.price}<span class="c-kuzu-card__price-tax">(税込)</span>

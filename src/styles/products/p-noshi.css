@@ -55,9 +55,10 @@
 /* クリップ対象（イントロ〜カルーセル） */
 .p-noshi__body {
   position: relative;
-  max-height: 440px;
+  max-height: 370px;
   overflow: hidden;
   min-width: 0;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .p-noshi__body::after {
@@ -72,8 +73,7 @@
 }
 
 .p-noshi__body.is-open {
-  max-height: none;
-  overflow: visible;
+  max-height: 2000px;
 }
 
 .p-noshi__body.is-open::after {
@@ -140,10 +140,10 @@
 
 /* トグル（詳しく見る / 閉じる）— 最下部 */
 .p-noshi__toggle {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   width: 100%;
   margin-block-start: 28px;
   padding: 16px;
@@ -158,6 +158,10 @@
 }
 
 .p-noshi__toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 22px;
   height: 22px;
   border-radius: var(--radius-xl);
@@ -174,18 +178,27 @@
   height: 12px;
 }
 
+.p-noshi__toggle-labels {
+  display: inline-grid;
+}
+
+.p-noshi__toggle-label {
+  grid-area: 1 / 1;
+  transition: opacity 0.2s ease;
+}
+
 .p-noshi__toggle-label--close {
-  display: none;
+  opacity: 0;
 }
 
 .p-noshi__toggle[aria-expanded='true'] .p-noshi__toggle-label--more {
-  display: none;
+  opacity: 0;
 }
 
 .p-noshi__toggle[aria-expanded='true'] .p-noshi__toggle-label--close {
-  display: inline;
+  opacity: 1;
 }
 
 .p-noshi__toggle[aria-expanded='false'] .p-noshi__toggle-icon {
-  transform: rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
 }

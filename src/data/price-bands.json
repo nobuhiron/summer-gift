@@ -6,12 +6,6 @@
     "arch": "/ashirai-1000.svg",
     "items": [
       {
-        "name": "KFK(カフカ)COFFEE MEETS MILK カフェインレス ホンジュラス[18g×6P]",
-        "price": "1,500",
-        "description": "ミルクさえあれば簡単に濃厚でなめらかなミルクコーヒーが抽出できるのでお家CAFÉにはぴったりです。",
-        "href": "https://www.tea-and-coffee.shop/view/item/000000000419"
-      },
-      {
         "name": "森半 クリームサンド ヴァッフェル(抹茶・ほうじ茶)詰合せ[各5個入り]",
         "price": "1,990",
         "description": "茶師が厳選した人気のスイーツでお茶の時間をぐっと豊かに。",
@@ -26,28 +20,28 @@
     "arch": "/ashirai-2000.svg",
     "items": [
       {
-        "name": "KFK(カフカ)<ドリップコーヒー>ロマンスコーヒーセレクション ギフトセット[ガラパゴス／エチオピア 各10g×5P入り]",
-        "price": "2,268",
-        "description": "焙煎、鮮度、品質にこだわった人の心を魅了するワンランク上のコーヒーのギフトセットです。",
-        "href": "https://www.tea-and-coffee.shop/view/item/000000000770"
-      },
-      {
         "name": "MINTON(ミントン)<ティーバッグ> 和紅茶 3箱ギフトセット(京・苺・白桃)",
         "price": "2,106",
         "description": "テーブルの貴婦人といわれる本格英国紅茶「MINTON(ミントン)」の\"和紅茶\"です。",
         "href": "https://www.tea-and-coffee.shop/view/item/000000000674"
       },
       {
-        "name": "森半 宇治産 手摘み抹茶[30g缶入り]",
-        "price": "3,780",
-        "description": "京の現代名工で「宇治にこの人あり」と称される名人 吉田利一氏の茶園で手摘みされた茶葉を丁寧に石臼で挽き上げました。",
-        "href": "https://www.tea-and-coffee.shop/view/item/000000000120"
+        "name": "KFK(カフカ)<ドリップコーヒー>ロマンスコーヒーセレクション ギフトセット[ガラパゴス／エチオピア 各10g×5P入り]",
+        "price": "2,268",
+        "description": "焙煎、鮮度、品質にこだわった人の心を魅了するワンランク上のコーヒーのギフトセットです。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000770"
       },
       {
         "name": "森半 銘茶五香(ごこう)煎茶・抹茶カステラ詰合せ(WG-3)",
         "price": "3,078",
         "description": "ティータイムのお供に上級の抹茶をたっぷり使って焼き上げた極上の手作り抹茶カステラとご一緒に。",
         "href": "https://www.tea-and-coffee.shop/view/item/000000000354"
+      },
+      {
+        "name": "森半 宇治産 手摘み抹茶[30g缶入り]",
+        "price": "3,780",
+        "description": "京の現代名工で「宇治にこの人あり」と称される名人 吉田利一氏の茶園で手摘みされた茶葉を丁寧に石臼で挽き上げました。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000120"
       }
     ]
   },
@@ -57,12 +51,6 @@
     "labelEn": "4001 yen - 7000 yen",
     "arch": "/ashirai-4000.svg",
     "items": [
-      {
-        "name": "森半 お茶屋のスイーツ満足セット",
-        "price": "5,508",
-        "description": "抹茶スイーツが8種類入った詰め合わせ。ご自宅用はもちろん、ご進物にも最適です。",
-        "href": "https://www.tea-and-coffee.shop/view/item/000000000307"
-      },
       {
         "name": "KFK(カフカ)<ドリップバッグ> コーヒーギフトボックス 40PG 七宝つなぎ[40個入り]",
         "price": "4,698",
@@ -74,6 +62,12 @@
         "price": "4,980",
         "description": "厳選茶葉のみをブレンドして仕上げた「五香(ごこう)」シリーズの煎茶と五感で味わう急須「CHASTA(チャスタ)」の詰め合わせ。",
         "href": "https://www.tea-and-coffee.shop/view/item/000000000414"
+      },
+      {
+        "name": "森半 お茶屋のスイーツ満足セット",
+        "price": "5,508",
+        "description": "抹茶スイーツが8種類入った詰め合わせ。ご自宅用はもちろん、ご進物にも最適です。",
+        "href": "https://www.tea-and-coffee.shop/view/item/000000000307"
       }
     ]
   },

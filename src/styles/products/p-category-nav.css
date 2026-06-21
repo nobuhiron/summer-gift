@@ -29,7 +29,7 @@
 /* 白ボタン（枠線なし・淡い影）、ラベルは明朝 */
 .p-category-nav .c-nav-stack__btn {
   background: var(--base-bg);
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   height: 45px;
   padding: 0 10px;
@@ -53,13 +53,14 @@
 }
 
 .p-category-nav .c-nav-stack__btn:hover {
-  background-color: var(--palette-blue-pale);
-  color: var(--color-text) !important;
+  background-color: var(--color-main);
+  color: #ffffff !important;
+  border-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   transform: translateY(-1px);
 }
 
 .p-category-nav .c-nav-stack__btn:hover .c-nav-stack__icon {
-  background: var(--palette-blue-royal);
-  color: var(--base-text-on-dark);
+  background: #ffffff;
+  color: var(--color-main);
 }

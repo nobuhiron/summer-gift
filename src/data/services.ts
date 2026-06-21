@@ -20,8 +20,8 @@ export const SERVICES: Service[] = [
     body: 'お客様のご要望に合わせて、ショッピングカート内で、さまざまなパターンをお選びいただけます。',
     image: 'gift-1',
     buttons: [
-      { label: 'ギフトラッピングについて', tone: 'blue', href: LINK_BASE },
-      { label: 'のしガイド', tone: 'tan', href: LINK_BASE },
+      { label: 'ギフトラッピングについて', tone: 'blue', href: 'https://www.tea-and-coffee.shop/view/page/gift' },
+      { label: 'のしガイド', tone: 'tan', href: 'https://www.tea-and-coffee.shop/view/page/gift#noshi' },
     ],
   },
   {
@@ -30,7 +30,7 @@ export const SERVICES: Service[] = [
     title: '手提げ袋サービス',
     body: 'お客様のご要望に合わせて、手提げ袋を同封します。',
     image: 'gift-2',
-    buttons: [{ label: 'お手提げ袋について', tone: 'blue', href: LINK_BASE }],
+    buttons: [{ label: 'お手提げ袋について', tone: 'blue', href: 'https://www.tea-and-coffee.shop/view/page/gift#paperbag' }],
   },
   {
     freeIcon: '/icon-free-3.svg',

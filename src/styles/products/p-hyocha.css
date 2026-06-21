@@ -138,16 +138,27 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
+  border: 1px solid transparent;
   border-radius: var(--radius-sm);
   background: var(--color-cta);
   color: var(--base-text-on-dark);
   font-size: 15px;
   font-weight: var(--fw-bold);
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .c-hyocha-card__btn:hover {
-  background: var(--palette-blue-strong);
+  background: var(--base-bg);
+  color: var(--color-cta);
+  border-color: var(--color-cta);
+}
+
+.c-hyocha-card__btn:hover .c-hyocha-card__btn-icon {
+  background: var(--color-cta);
+  color: var(--base-bg);
 }
 
 .c-hyocha-card__btn-icon {

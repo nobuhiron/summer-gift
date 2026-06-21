@@ -54,8 +54,8 @@ export const KUZU_ASSORTMENTS: Assortment[] = [
 export type GridProduct = { name: string; price: string; href: string };
 
 export const KUZU_GRID: GridProduct[] = [
-  { name: '氷茶(水出し玉露)・くず餅(白)', price: '5,400', href: LINK_BASE },
-  { name: '氷茶(水出し玉露)・くず餅(柚子)', price: '5,400', href: LINK_BASE },
-  { name: '氷茶(水出し煎茶 プレミアム)・くず餅(白)', price: '5,400', href: LINK_BASE },
-  { name: '氷茶(水出し煎茶 プレミアム)・くず餅(柚子)', price: '5,400', href: LINK_BASE },
+  { name: '氷茶(水出し玉露)・くず餅(白)', price: '2,365', href: 'https://www.tea-and-coffee.shop/view/item/000000000496' },
+  { name: '氷茶(水出し玉露)・くず餅(柚子)', price: '2,365', href: 'https://www.tea-and-coffee.shop/view/item/000000000497' },
+  { name: '氷茶(水出し煎茶 プレミアム)・くず餅(白)', price: '1,825', href: 'https://www.tea-and-coffee.shop/view/item/000000000498' },
+  { name: '氷茶(水出し煎茶 プレミアム)・くず餅(柚子)', price: '1,825', href: 'https://www.tea-and-coffee.shop/view/item/000000000499' },
 ];

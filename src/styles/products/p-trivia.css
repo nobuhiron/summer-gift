@@ -31,8 +31,9 @@
 /* クリップ対象（全項目） */
 .p-trivia__body {
   position: relative;
-  max-height: 260px;
+  max-height: 350px;
   overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .p-trivia__body::after {
@@ -47,8 +48,7 @@
 }
 
 .p-trivia__body.is-open {
-  max-height: none;
-  overflow: visible;
+  max-height: 2000px;
 }
 
 .p-trivia__body.is-open::after {
@@ -97,10 +97,10 @@
 
 /* トグル（詳しく見る / 閉じる）— 最下部 */
 .p-trivia__toggle {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   width: 100%;
   margin-block-start: 36px;
   padding: 16px;
@@ -115,6 +115,10 @@
 }
 
 .p-trivia__toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 22px;
   height: 22px;
   border-radius: var(--radius-xl);
@@ -132,20 +136,29 @@
 }
 
 /* 既定（閉）は「詳しく見る」＋下向き矢印。開くと「閉じる」＋上向き矢印 */
+.p-trivia__toggle-labels {
+  display: inline-grid;
+}
+
+.p-trivia__toggle-label {
+  grid-area: 1 / 1;
+  transition: opacity 0.2s ease;
+}
+
 .p-trivia__toggle-label--close {
-  display: none;
+  opacity: 0;
 }
 
 .p-trivia__toggle[aria-expanded='true'] .p-trivia__toggle-label--more {
-  display: none;
+  opacity: 0;
 }
 
 .p-trivia__toggle[aria-expanded='true'] .p-trivia__toggle-label--close {
-  display: inline;
+  opacity: 1;
 }
 
 /* 閉じている時は矢印を下向きに（既定 SVG は上向き） */
 .p-trivia__toggle[aria-expanded='false'] .p-trivia__toggle-icon {
-  transform: rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
 }
 

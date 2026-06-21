@@ -6,8 +6,13 @@
  */
 import { Image } from 'astro:assets';
 import koriImage from '../assets/images/koricha-image.png';
+import koriItem1 from '../assets/images/koricha-item-1.jpg';
+import koriItem2 from '../assets/images/koricha-item-2.jpg';
+import koriItem3 from '../assets/images/koricha-item-3.jpg';
 import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
 import { splitLines } from '../utils/text';
+
+const koriItems = [koriItem1, koriItem2, koriItem3];
 ---
 
 <section id="hyocha" class="l-section p-hyocha" aria-labelledby="heading-hyocha">
@@ -32,10 +37,10 @@ import { splitLines } from '../utils/text';
     <div class="p-hyocha__carousel">
       <div class="swiper p-hyocha__swiper" data-carousel="free" data-scrollbar="#hyocha-scrollbar" aria-label="氷茶 商品一覧">
         <ul class="swiper-wrapper" role="list">
-          {HYOCHA_PRODUCTS.map((product) => (
+          {HYOCHA_PRODUCTS.map((product, i) => (
             <li class="swiper-slide p-hyocha__item">
               <article class="c-hyocha-card">
-                <div class="c-hyocha-card__image" role="img" aria-label={`${product.name}の商品画像`}></div>
+                <Image src={koriItems[i]} alt={`${product.name}の商品画像`} class="c-hyocha-card__image" />
                 <div class="c-hyocha-card__body">
                   <h3 class="c-hyocha-card__name">
                     {product.name}<span class="c-hyocha-card__unit">{product.unit}</span>

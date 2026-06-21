@@ -2,6 +2,7 @@
 
 .p-about {
   position: relative;
+  z-index: 1;
   padding-block: 44px 64px;
   background-image: var(--about-bg);
   background-size: cover;
@@ -9,7 +10,6 @@
   background-repeat: no-repeat;
   background-color: #ffffff;
   text-align: center;
-  overflow: hidden;
 }
 
 .p-about__header {
@@ -22,13 +22,9 @@
   font-weight: var(--fw-medium);
   font-size: 38px;
   line-height: 1.55;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 }
 
-.p-about__title-sm,
-.p-about__title-lg {
-  display: block;
-}
 
 /* リボン（支給 SVG・本文幅いっぱい） */
 .p-about__ribbon {
@@ -47,7 +43,7 @@
 .p-about__para {
   font-family: var(--font-jp--serif);
   font-size: 14px;
-  line-height: 2.05;
+  line-height: 2.35;
   color: var(--color-text);
 }
 
@@ -59,7 +55,8 @@
 .p-about__furin {
   position: absolute;
   left: 18px;
-  bottom: 20px;
-  width: 52px;
+  bottom: -36px;
+  width: 70px;
   height: auto;
+  z-index: 2;
 }
