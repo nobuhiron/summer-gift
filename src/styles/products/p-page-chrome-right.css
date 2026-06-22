@@ -60,8 +60,9 @@
 }
 
 .p-page-chrome-right__nav {
-  display: inline-grid;
-  justify-self: center;
+  /* stack(grid item) を stretch させて幅 287px いっぱいに。
+     inline-grid + justify-self:center だと content 幅に縮んでボタンが揃わないため block grid に。 */
+  display: grid;
   padding: 0;
   background: transparent;
   border: none;
@@ -71,14 +72,23 @@
   gap: 0;
 }
 
+/* 各ボタンを独立した白枠線のピルに（nav.jpg）。width:100% / max-width:287px で中央寄せ */
+.p-page-chrome-right .c-nav-stack--compact {
+  gap: 10px;
+}
+
 .p-page-chrome-right .c-nav-stack__btn--compact {
-  min-height: 88px;
-  padding: 10px 0;
+  width: 100%;
+  max-width: 287px;
+  justify-self: center;
+  /* 固定高さ45px・上下パディングなし。ラベル左／チェブロン右は flex の space-between（基底）で */
+  height: 45px;
+  min-height: 45px;
+  padding: 0 20px 0 15px;
   color: var(--base-text-on-dark);
   background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 4px;
   box-shadow: none;
   font-family: var(--font-jp--serif);
   font-size: 24px;
@@ -86,20 +96,22 @@
   line-height: 1.25;
   transition:
     color 0.4s ease,
-    border-bottom-color 0.4s ease,
+    border-color 0.4s ease,
     background-color 0.4s ease;
 }
 
+/* hover: 文字は白のまま、ボタン背景を --color-main に塗りつぶし。アイコンは色反転（白丸＋青矢印） */
 .p-page-chrome-right .c-nav-stack__btn--compact:hover {
-  color: #00355D;
-  background: transparent;
-  border-bottom-color: #00355D;
+  color: var(--base-text-on-dark);
+  background: var(--color-main);
+  border-color: var(--color-main);
   box-shadow: none;
   transform: none;
 }
 
 .p-page-chrome-right .c-nav-stack__btn--compact:hover .c-nav-stack__icon {
-  color: inherit;
+  background: var(--base-bg);
+  color: var(--color-main);
 }
 
 .p-page-chrome-right .c-nav-stack__label {
@@ -143,7 +155,6 @@
 
 @media (max-width: 1279px) {
   .p-page-chrome-right .c-nav-stack__btn--compact {
-    min-height: 72px;
     font-size: 19px;
   }
 
@@ -158,18 +169,8 @@
     color: #222;
   }
 
-  .l-page[data-chrome-state='time-scene'][data-chrome-tone='dark'] .p-page-chrome-right .c-nav-stack__btn--compact:hover {
-    color: #00355D;
-    border-bottom-color: #00355D;
-  }
-
   .l-page[data-chrome-state='time-scene'][data-chrome-tone='light'] .p-page-chrome-right .c-nav-stack__btn--compact {
     color: var(--base-text-on-dark);
-  }
-
-  .l-page[data-chrome-state='time-scene'][data-chrome-tone='light'] .p-page-chrome-right .c-nav-stack__btn--compact:hover {
-    color: #00355D;
-    border-bottom-color: #00355D;
   }
 
   .l-page[data-chrome-state='about'] .p-page-chrome-right__default {

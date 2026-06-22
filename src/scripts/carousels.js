@@ -29,8 +29,13 @@ export function initSlidesCarousel(el) {
   if (!el || el.swiper) return el && el.swiper;
   const sw = new Swiper(el, {
     modules: [Keyboard],
-    slidesPerView: 1.1,
+    // 見せ方は 1.1 枚。ただし slidesPerView:1.1（端数）だと slidesOffsetAfter がスライド幅計算に
+    // 巻き込まれて圧縮されるため、'auto' ＋ CSS固定幅（.p-reason__item = calc(100%/1.1 - 1px) = 1.1相当）にする。
+    slidesPerView: 'auto',
     spaceBetween: 11,
+    // 末尾カードを「右端そろえ」ではなく「左端そろえ」で止めるための末尾余白（≒ W − スライド幅 = のぞき幅+gap）。
+    // SP本体幅固定前提の定数。CSS のスライド幅と対で調整すること。
+    slidesOffsetAfter: 33,
     autoHeight: false,
     watchOverflow: true,
     keyboard: { enabled: true, onlyInViewport: true },

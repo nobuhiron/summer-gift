@@ -35,10 +35,16 @@
 .p-reason__carousel {
   position: relative;
   min-width: 0;
+  /* 右側だけコンテナのパディングを打ち消して main 本体の右端まで伸ばす（左はコンテナ内のまま） */
+  margin-inline-end: calc(-1 * var(--layout-padding-sp));
 }
 
-/* 理由カード横スクロール（slidesPerView:1。幅は Swiper が算出するので CSS 指定しない） */
+/* 理由カード横スクロール。見せ方は 1.1 枚だが、slidesPerView:1.1 直書きは
+   slidesOffsetAfter がスライド幅計算に巻き込まれて圧縮されるため 'auto' ＋ 幅をCSS固定。
+   calc(100% / 1.1 - 1px) は slidesPerView:1.1 が算出するスライド幅と同値（次カードが約0.1枚のぞく）。
+   末尾カードを左端そろえで止めるため carousels.js の slidesOffsetAfter(=33) と対。 */
 .p-reason__item.swiper-slide {
+  width: calc(100% / 1.1 - 1px);
   height: auto;
 }
 
@@ -61,7 +67,8 @@
 }
 
 .p-reason__nav-btn--next {
-  right: 4px;
+  /* カルーセルが右に 20px 伸びた分を戻して、矢印はコンテナ右端付近に保つ */
+  right: 24px;
   transform: rotate(180deg);
 }
 
@@ -154,24 +161,4 @@
 
 .c-reason-card__btn:hover {
   background: var(--palette-blue-strong);
-}
-
-.c-reason-card__btn-icon {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: var(--radius-xl);
-  background: var(--base-bg);
-  color: var(--color-cta);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.c-reason-card__btn-icon svg {
-  width: 11px;
-  height: 11px;
 }

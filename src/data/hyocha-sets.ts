@@ -18,20 +18,20 @@ export const HYOCHA_ASSORTMENTS: Assortment[] = [
     no: 'Assortment 01',
     title: '氷茶詰め合わせ',
     spec: '[氷茶(玉露) 10P入、氷茶(煎茶) 10P入]',
-    price: '5,400',
-    href: LINK_BASE,
+    price: '2,484',
+    href: 'https://www.tea-and-coffee.shop/view/item/000000000495',
   },
   {
     no: 'Assortment 02',
     title: '氷茶 詰め合わせ (IP-30U)',
-    price: '5,400',
-    href: LINK_BASE,
+    price: '3,240',
+    href: 'https://www.tea-and-coffee.shop/view/item/000000000109',
   },
   {
     no: 'Assortment 03',
     title: '氷茶 詰め合わせ 5本セット (IP-50U)',
     price: '5,400',
-    href: LINK_BASE,
+    href: 'https://www.tea-and-coffee.shop/view/item/000000000108',
   },
 ];
 
@@ -40,14 +40,14 @@ export const KUZU_ASSORTMENTS: Assortment[] = [
   {
     no: 'Assortment 04',
     title: '氷茶・くず餅詰め合わせ (IPM-30U)',
-    price: '5,400',
-    href: LINK_BASE,
+    price: '3,240',
+    href: 'https://www.tea-and-coffee.shop/view/item/000000000501',
   },
   {
     no: 'Assortment 05',
-    title: '氷茶・くず餅詰め合わせ (IP-50U)',
+    title: '氷茶・くず餅詰め合わせ (IPM-50U)',
     price: '5,400',
-    href: LINK_BASE,
+    href: 'https://www.tea-and-coffee.shop/view/item/000000000500',
   },
 ];
 
