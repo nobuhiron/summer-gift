@@ -19,7 +19,7 @@
 .p-hyocha-set__heading-banner {
   width: 100%;
   height: 515px;
-  background: url('/kuzu-bg-image.jpg') center / cover no-repeat;
+  background: url('../../assets/images/kuzu-bg-image.jpg') center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -191,7 +191,7 @@
 /* ===== 氷茶・くず餅 詰め合わせのフィーチャーカード（白カード・画像上） =====
    氷茶詰め合わせ(--tea)の c-assortment-card とはデザインが別物。 */
 .c-kuzuset-card {
-  /* 白い楕円(Ellipse 20.png)を外枠まで全幅で敷く。角は透過＝ブロック背景が見える。 */
+  /* 白い楕円(kuzuset-bg.png)を外枠まで全幅で敷く。角は透過＝ブロック背景が見える。 */
   background-image: var(--kuzuset-bg);
   background-size: 100% 100%;
   background-repeat: no-repeat;

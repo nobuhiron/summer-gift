@@ -11,6 +11,7 @@ import koriItem2 from '../assets/images/koricha-item-2.jpg';
 import koriItem3 from '../assets/images/koricha-item-3.jpg';
 import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
 import { splitLines } from '../utils/text';
+import { publicAssetPath } from '../utils/assets';
 
 const koriItems = [koriItem1, koriItem2, koriItem3];
 ---
@@ -19,7 +20,7 @@ const koriItems = [koriItem1, koriItem2, koriItem3];
   <h2 id="heading-hyocha" class="visually-hidden">森半の氷茶</h2>
 
   <div class="p-hyocha__hero">
-    <img src="/koricha-title.svg" alt="" aria-hidden="true" class="p-hyocha__hero-title" width="71" height="238" />
+    <img src={publicAssetPath('/koricha-title.svg')} alt="" aria-hidden="true" class="p-hyocha__hero-title" width="71" height="238" />
     <Image src={koriImage} alt="森半の氷茶（こおりちゃ）" class="p-hyocha__hero-image" />
   </div>
 

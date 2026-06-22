@@ -58,7 +58,7 @@
   height: 40px;
   padding: 0;
   border: none;
-  background: url('/arrow.svg') center / contain no-repeat;
+  background: url('../../assets/images/arrow.svg') center / contain no-repeat;
   cursor: pointer;
 }
 

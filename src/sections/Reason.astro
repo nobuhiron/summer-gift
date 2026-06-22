@@ -6,6 +6,7 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { LINK_BASE } from '../data/links';
+import { publicAssetPath } from '../utils/assets';
 import treatmentReasons from '../assets/images/treatment-reasons.png';
 
 const reasonEntries = await getCollection('brandCards');
@@ -33,7 +34,7 @@ const reasons = reasonEntries.map((entry) => ({
         {reasons.map((reason) => (
           <li class="swiper-slide p-reason__item">
           <article class="c-reason-card">
-            <img src="/logo.svg" alt="" aria-hidden="true" class="c-reason-card__logo" />
+            <img src={publicAssetPath('/logo.svg')} alt="" aria-hidden="true" class="c-reason-card__logo" />
             <p class="c-reason-card__eyebrow" aria-hidden="true">{reason.eyebrow}</p>
             <h3 class="c-reason-card__title">{reason.title}</h3>
             <Image src={reason.image} alt={reason.imageAlt} class="c-reason-card__image" />
