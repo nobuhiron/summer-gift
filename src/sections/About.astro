@@ -3,12 +3,10 @@
  * リード文 / about（about.jpg）
  * Hero 直後の導入。背景=about-bg.jpg、見出し＋リボン(about-ribon.svg)＋3段落＋風鈴(about-furin.svg)。
  */
-import { getImage } from 'astro:assets';
 import aboutBgSrc from '../assets/images/about-bg.jpg';
 import { publicAssetPath } from '../utils/assets';
+import SectionBg from '../components/SectionBg.astro';
 
-// 背景画像も <Image> と同じ sharp 最適化(webp)を通す
-const aboutBg = await getImage({ src: aboutBgSrc });
 
 const INTRO_PARAGRAPHS = [
   'お中元は、家族や友人、仕事関係の人々との<br />絆を深める日本の美しい文化の一端です。<br />暑い夏の季節に、日頃の感謝や健康を願う<br />気持ちを込めて贈り物をすることで、<br />お相手の心に涼やかなひとときをお届けします。',
@@ -21,8 +19,8 @@ const INTRO_PARAGRAPHS = [
   id="about"
   class="l-section p-about"
   aria-labelledby="heading-about"
-  style={`--about-bg: url("${aboutBg.src}")`}
 >
+  <SectionBg src={aboutBgSrc} position="top center" />
   <div class="l-container">
     <header class="p-about__header">
       <h2 id="heading-about" class="p-about__title">森半の<br />お中元・夏ギフト</h2>

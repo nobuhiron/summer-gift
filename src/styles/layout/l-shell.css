@@ -32,11 +32,10 @@
 .l-page__bg-layer--default {
   /* PC で中央カラムの周りに敷く固定背景（氷茶グラスの支給画像）。SP はカラムが全幅のため実質見えない */
   background-color: #cfe6fa;
-  background-image: var(--sticky-bg);
 }
 
 .l-page__bg-layer--about {
-  background-image: var(--bgline-bg);
+  background-color: #ffffff;
 }
 
 .l-page__bg-layer--gift-flow {
@@ -59,6 +58,14 @@
 }
 
 @media (--lg) {
+  .l-page__bg-layer--default {
+    background-image: var(--sticky-bg);
+  }
+
+  .l-page__bg-layer--about {
+    background-image: var(--bgline-bg);
+  }
+
   .l-page__bg-ashirai {
     display: block;
   }

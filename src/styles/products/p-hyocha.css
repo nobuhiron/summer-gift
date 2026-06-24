@@ -2,11 +2,17 @@
    全幅ヒーロー（縦書き装飾タイトル＋茶碗）→ 中央寄せ導入文 → 商品カード横スクロール。 */
 
 .p-hyocha {
+  position: relative;
+  isolation: isolate;
   padding-block-end: 48px;
-  /* 支給の水テクスチャ背景をセクション全面に敷く（getImageでwebp化、--hyocha-bg） */
-  background: var(--hyocha-bg) #eef6fd top center / cover no-repeat;
+  background-color: #eef6fd;
   /* 全幅カルーセル（負マージン）がビューポート外に出るのを抑える */
   overflow-x: clip;
+}
+
+.p-hyocha > :not(.c-section-bg) {
+  position: relative;
+  z-index: 1;
 }
 
 .p-hyocha__hero {

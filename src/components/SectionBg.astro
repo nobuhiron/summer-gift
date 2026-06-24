@@ -17,10 +17,12 @@ interface Props {
   position?: string;
   /** 画面上部の背景は 'eager'（LCPを遅らせないため）、下方は 'lazy' */
   loading?: 'lazy' | 'eager';
+  /** CSS object-fit value. Cover is the default background behavior. */
+  fit?: 'cover' | 'contain' | 'fill';
   class?: string;
 }
 
-const { src, position = 'top center', loading = 'lazy', class: className } = Astro.props;
+const { src, position = 'top center', loading = 'lazy', fit = 'cover', class: className } = Astro.props;
 ---
 
 <Image
@@ -30,5 +32,5 @@ const { src, position = 'top center', loading = 'lazy', class: className } = Ast
   loading={loading}
   decoding="async"
   class:list={['c-section-bg', className]}
-  style={`object-position: ${position}`}
+  style={`object-position: ${position}; object-fit: ${fit}`}
 />

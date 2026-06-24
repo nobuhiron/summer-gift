@@ -1,6 +1,4 @@
 /** オンラインショップの便利なサービス（Frame 212.jpg より書き起こし） */
-import { LINK_BASE } from './links';
-
 export type ServiceButton = { label: string; tone: 'blue' | 'tan'; href: string };
 export type Service = {
   freeIcon: string;

@@ -2,28 +2,43 @@
    大型フィーチャーカード縦並び＋くず餅グリッド。 */
 
 .p-hyocha-set__block {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-block: 40px;
 }
 
 .p-hyocha-set__block--tea {
-  /* 支給の水テクスチャ背景（koricha-set-bg.jpg）をブロック全面に敷く（getImage webp、--tea-bg） */
-  background: var(--tea-bg) #cfe6fa top center / cover no-repeat;
+  background-color: #cfe6fa;
 }
 
 .p-hyocha-set__block--kuzu {
   padding-block-start: 0;
-  background: var(--kuzu-block-bg) center bottom / 100% auto no-repeat;
+  background-color: #f6fbff;
+}
+
+.p-hyocha-set__block > :not(.c-section-bg) {
+  position: relative;
+  z-index: 1;
 }
 
 /* ブロック見出し */
 .p-hyocha-set__heading-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
   height: 515px;
-  background: var(--kuzu-banner-bg) center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding-block-start: 60px;
+}
+
+/* バナー内の見出しを SectionBg(z-index:0) より前面に出す */
+.p-hyocha-set__heading-banner > :not(.c-section-bg) {
+  position: relative;
+  z-index: 1;
 }
 
 .p-hyocha-set__heading {
@@ -191,13 +206,22 @@
 /* ===== 氷茶・くず餅 詰め合わせのフィーチャーカード（白カード・画像上） =====
    氷茶詰め合わせ(--tea)の c-assortment-card とはデザインが別物。 */
 .c-kuzuset-card {
-  /* 白い楕円(kuzuset-bg.png)を外枠まで全幅で敷く。角は透過＝ブロック背景が見える。 */
-  background-image: var(--kuzuset-bg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-block: 48px 40px; /* 楕円の上下カーブの内側に収める */
   text-align: center;
+}
+
+.c-kuzuset-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* カード内側は l-container(20px) で内容を内側へ */

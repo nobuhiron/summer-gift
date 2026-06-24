@@ -4,19 +4,17 @@
  */
 import { CATEGORY_NAV_ITEMS } from '../data/category-nav';
 import NavStackLink from '../components/NavStackLink.astro';
-import { getImage } from 'astro:assets';
 import navBgSrc from '../assets/images/nav-bg.jpg';
+import SectionBg from '../components/SectionBg.astro';
 
-// 背景画像も <Image> と同じ sharp 最適化(webp)を通す
-const navBg = await getImage({ src: navBgSrc });
 ---
 
 <section
   id="category"
   class="l-section l-section--bg-surface p-category-nav"
   aria-label="ページ内ナビ"
-  style={`--nav-bg: url("${navBg.src}")`}
 >
+  <SectionBg src={navBgSrc} position="center" />
   <div class="l-container">
     <nav aria-label="ページ内セクションへのジャンプ">
       <ul class="c-nav-stack">

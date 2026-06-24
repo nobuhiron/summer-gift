@@ -2,14 +2,17 @@
 
 .p-about {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   z-index: 1;
   padding-block: 44px 64px;
-  background-image: var(--about-bg);
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
   background-color: #ffffff;
   text-align: center;
+}
+
+.p-about > .l-container {
+  position: relative;
+  z-index: 1;
 }
 
 .p-about__header {

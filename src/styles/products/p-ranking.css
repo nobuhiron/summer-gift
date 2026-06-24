@@ -2,10 +2,16 @@
    王冠＋No.X の白カードを横スクロール。 */
 
 .p-ranking {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding-block: 40px 44px;
-  background-image: var(--ranking-bg);
-  background-size: cover;
-  background-position: center;
+  background-color: #eef6fd;
+}
+
+.p-ranking > .l-container {
+  position: relative;
+  z-index: 1;
 }
 
 /* 見出し（お中元 人気 ランキング ＋ 王冠あしらい） */

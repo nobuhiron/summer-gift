@@ -3,13 +3,10 @@
 
 .p-category-nav {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   padding-block: 48px;
-  /* 支給の nav-bg.jpg（青チェッカー）をそのまま背景に敷く */
-  background-image: var(--nav-bg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #3d6cb3;
 }
 
 .p-category-nav > .l-container {
