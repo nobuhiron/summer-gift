@@ -5,9 +5,9 @@
  * 王冠は支給 SVG（金/銀/銅）。商品画像は father のプレースホルダ（最終画像で差し替え）。
  * スクロールバー・ドラッグは Swiper（carousels.js）。
  */
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import rankingBg from '../assets/images/ranking-bg.jpg';
+import rankingBgSrc from '../assets/images/ranking-bg.jpg';
 import { splitLines } from '../utils/text';
 import { publicAssetPath } from '../utils/assets';
 
@@ -28,6 +28,9 @@ const rankColorByRank: Record<number, string> = {
   3: '#b0936f',
 };
 const rankColorFor = (rank: number) => rankColorByRank[rank] ?? '#3d61b1';
+
+// 背景画像も <Image> と同じ sharp 最適化(webp)を通す
+const rankingBg = await getImage({ src: rankingBgSrc });
 ---
 
 <section id="ranking" class="l-section p-ranking" aria-labelledby="heading-ranking" style={`--ranking-bg: url(${rankingBg.src})`}>

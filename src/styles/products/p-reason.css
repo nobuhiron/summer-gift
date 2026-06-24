@@ -2,10 +2,18 @@
    淡い水色背景、中央見出し＋波あしらい、理由カード横スクロール。 */
 
 .p-reason {
+  position: relative;
   padding-block: 44px 48px;
-  background: url('../../assets/images/reasons-bg.jpg') #d7ebfb top center / cover no-repeat;
+  /* 背景は SectionBg(<img loading="lazy">) で敷く。これは読込前のフォールバック色。 */
+  background-color: #d7ebfb;
   /* 全幅カルーセル（負マージン）がビューポート外に出るのを抑える */
   overflow-x: clip;
+}
+
+/* 背景 <img> の前面にコンテンツを出す */
+.p-reason > .l-container {
+  position: relative;
+  z-index: 1;
 }
 
 .p-reason__header {

@@ -7,7 +7,9 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { LINK_BASE } from '../data/links';
 import { publicAssetPath } from '../utils/assets';
+import SectionBg from '../components/SectionBg.astro';
 import treatmentReasons from '../assets/images/treatment-reasons.png';
+import reasonsBg from '../assets/images/reasons-bg.jpg';
 
 const reasonEntries = await getCollection('brandCards');
 const reasons = reasonEntries.map((entry) => ({
@@ -22,6 +24,7 @@ const reasons = reasonEntries.map((entry) => ({
 ---
 
 <section id="reason" class="l-section p-reason" aria-labelledby="heading-reason">
+  <SectionBg src={reasonsBg} position="top center" />
   <div class="l-container">
     <header class="p-reason__header">
       <h2 id="heading-reason" class="p-reason__title">森半が<br />選ばれている理由</h2>

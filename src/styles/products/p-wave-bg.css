@@ -1,10 +1,26 @@
-/* 青海波の通し背景（bg-wave.jpg）。豆知識〜便利なサービスを 1 枚の波柄で敷く。
-   パターンは縦にリピートして全高をカバー。中の各セクションは背景透過にする。 */
+/* 青海波の通し背景（seigaiha-tile.jpg）。豆知識〜便利なサービスを波柄で敷く。
+   2D シームレスタイルを縦横 repeat で全面に展開。中の各セクションは背景透過にする。 */
 .l-wave-bg {
+  position: relative;
+  isolation: isolate;
+  /* タイルのベース色を敷く。background-size:50% のサブピクセル隙間から
+     白いページが覗いて継ぎ目が白線化するのを防ぐ（隙間がこの色で埋まる）。 */
+  background-color: #d4e4ed;
+}
+
+/* 波柄は擬似要素に出して opacity をかける（中のセクションは不透明のまま、価格帯と濃さを統一） */
+.l-wave-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background-image: var(--wave-bg);
-  background-size: 100% auto;
-  background-repeat: repeat-y;
+  /* 横に2個並ぶサイズ（タイル幅=領域の50%）。縦横ともシームレス repeat */
+  background-size: 50% auto;
+  background-repeat: repeat;
   background-position: top center;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 /* 通し背景の上に乗るセクションは自前の背景を透過にして波柄を見せる */

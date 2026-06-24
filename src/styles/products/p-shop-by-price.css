@@ -7,15 +7,16 @@
   background-color: #eaf4fd;
 }
 
-/* 支給の bg-wave-price.jpg を opacity 0.6 で敷く（背景色に重ねて淡くする） */
+/* 青海波タイル(seigaiha-tile.jpg)を 2D repeat、opacity 0.6 で敷く（背景色に重ねて淡くする） */
 .p-shop-by-price::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   background-image: var(--price-bg);
-  background-size: 100% auto;
-  background-repeat: repeat-y;
+  /* 横に2個並ぶサイズ（タイル幅=領域の50%） */
+  background-size: 50% auto;
+  background-repeat: repeat;
   background-position: top center;
   opacity: 0.6;
   pointer-events: none;

@@ -4,10 +4,9 @@
  * royal-blue 背景に白の Q&A パネル。details/summary のアコーディオン（既定は開）。
  */
 import { FAQ_ITEMS } from '../data/faq';
-import { LINK_BASE } from '../data/links';
 
-// 「こちら」をリンク化する簡易ヘルパ
-const wrappingHref = `${LINK_BASE}`;
+// ギフト包装・熨斗の案内ページ（外部サイト）
+const wrappingHref = 'https://www.tea-and-coffee.shop/view/page/gift';
 ---
 
 <section id="faq" class="l-section p-faq" aria-labelledby="heading-faq">
@@ -39,7 +38,7 @@ const wrappingHref = `${LINK_BASE}`;
               ) : block === 'ギフト包装、熨斗についてはこちら' ? (
                 <p class="p-faq__para">
                   ギフト包装、熨斗については
-                  <a class="p-faq__link" href={wrappingHref}>こちら</a>
+                  <a class="p-faq__link" href={wrappingHref} target="_blank" rel="noopener noreferrer">こちら</a>
                 </p>
               ) : (
                 <p class="p-faq__para">{block}</p>

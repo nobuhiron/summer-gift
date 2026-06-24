@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE } from '../config/site';
-import bgWave from '../assets/images/bg-wave.jpg';
+import { getImage } from 'astro:assets';
+import bgWaveSrc from '../assets/images/seigaiha-tile.jpg';
 import Hero from '../sections/Hero.astro';
 import About from '../sections/About.astro';
 import CategoryNav from '../sections/CategoryNav.astro';
@@ -15,6 +16,9 @@ import HyochaSet from '../sections/HyochaSet.astro';
 import ShopByPrice from '../sections/ShopByPrice.astro';
 import Faq from '../sections/Faq.astro';
 import SiteFooter from '../sections/SiteFooter.astro';
+
+// 青海波タイル（2D シームレス）を webp 化。CSS 側で repeat 敷き。
+const bgWave = await getImage({ src: bgWaveSrc });
 ---
 
 <Layout title={SITE.defaultTitle} description={SITE.defaultDescription}>
@@ -30,7 +34,7 @@ import SiteFooter from '../sections/SiteFooter.astro';
   {/* お中元人気ランキング（横スクロール） */}
   <Ranking />
 
-  {/* 豆知識〜便利なサービスを青海波の背景(bg-wave.jpg)で通し敷き */}
+  {/* 豆知識〜便利なサービスを青海波タイル(seigaiha-tile.jpg)で通し敷き */}
   <div class="l-wave-bg" style={`--wave-bg: url("${bgWave.src}")`}>
     {/* お中元の豆知識（折りたたみ） */}
     <Trivia />

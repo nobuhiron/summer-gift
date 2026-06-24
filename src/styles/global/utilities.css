@@ -12,3 +12,17 @@
   clip: rect(0 0 0 0);
   overflow: hidden; white-space: nowrap;
 }
+
+/* セクション背景を <img>(object-fit:cover) で敷くための土台（SectionBg.astro 用）。
+   親に position:relative、コンテンツ側に z-index:1 を付けて使う。
+   背景色フォールバックは親セクションの background-color に残す（画像読込前に見える）。 */
+.c-section-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}

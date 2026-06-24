@@ -329,15 +329,9 @@
 
 .c-kuzu-card__image {
   width: 100%;
-  aspect-ratio: 580 / 405;
+  height: auto;
   margin-inline: auto;
   margin-block-end: 12px;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    repeating-linear-gradient(45deg, #f7fbff, #f7fbff 10px, #edf6fd 10px, #edf6fd 20px);
-  background-clip: padding-box, border-box;
-  border: 1px solid transparent;
-  border-radius: 2px;
 }
 
 .c-kuzu-card__name {

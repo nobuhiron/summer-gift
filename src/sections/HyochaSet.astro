@@ -4,7 +4,7 @@
  * 大型「Assortment NN」フィーチャーカードの縦並び ＋ くず餅バリエーションのグリッド。
  * NOTE: 商品画像はプレースホルダ。最終の箱写真支給後に差し替える。
  */
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import {
   HYOCHA_SET_DESC,
@@ -23,8 +23,11 @@ import assortment08 from '../assets/images/assortment-08.png';
 import assortment09 from '../assets/images/assortment-09.png';
 
 const kuzuGridImages = [assortment06, assortment07, assortment08, assortment09];
-import kuzusetBg from '../assets/images/kuzuset-bg.png';
+import kuzusetBgSrc from '../assets/images/kuzuset-bg.png';
 import treatmentKuzu from '../assets/images/treatment-kuzu.png';
+
+// 背景画像も <Image> と同じ sharp 最適化(webp)を通す
+const kuzusetBg = await getImage({ src: kuzusetBgSrc });
 
 /** Assortment 番号 → 商品画像 */
 const assortmentImages: Record<string, ImageMetadata> = {
