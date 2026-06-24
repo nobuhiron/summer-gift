@@ -1,4 +1,5 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import '../styles/style.css';
 import { FONT_LINKS, SITE } from '../config/site';
 import PageChromeLeft from '../components/PageChromeLeft.astro';
@@ -8,6 +9,12 @@ import { publicAssetPath } from '../utils/assets';
 import giftAshirai1 from '../assets/images/gift-ashirai-1.png';
 import giftAshirai2 from '../assets/images/gift-ashirai-2.png';
 import giftAshirai3 from '../assets/images/gift-ashirai-3.png';
+import stickyBgSrc from '../assets/images/sticky-bg.jpg';
+import bgLineSrc from '../assets/images/bg_line.jpg';
+
+// PCフレームの背景レイヤーも sharp 最適化(webp)を通す（CSS側は var(--*) を参照）
+const stickyBg = await getImage({ src: stickyBgSrc });
+const bgLine = await getImage({ src: bgLineSrc });
 
 interface Props {
   title?: string;
@@ -73,12 +80,12 @@ const twitterCard = ogImageUrl ? 'summary_large_image' : 'summary';
   </head>
   <body class="l-page">
     <div class="l-page__bg" aria-hidden="true" data-bg-state="default">
-      <div class="l-page__bg-layer l-page__bg-layer--default"></div>
-      <div class="l-page__bg-layer l-page__bg-layer--about"></div>
+      <div class="l-page__bg-layer l-page__bg-layer--default" style={`--sticky-bg: url("${stickyBg.src}")`}></div>
+      <div class="l-page__bg-layer l-page__bg-layer--about" style={`--bgline-bg: url("${bgLine.src}")`}></div>
       <div class="l-page__bg-layer l-page__bg-layer--gift-flow">
-        <img class="l-page__bg-ashirai l-page__bg-ashirai--tl" src={giftAshirai1.src} width={giftAshirai1.width} height={giftAshirai1.height} alt="" />
-        <img class="l-page__bg-ashirai l-page__bg-ashirai--br" src={giftAshirai2.src} width={giftAshirai2.width} height={giftAshirai2.height} alt="" />
-        <img class="l-page__bg-ashirai l-page__bg-ashirai--bl" src={giftAshirai3.src} width={giftAshirai3.width} height={giftAshirai3.height} alt="" />
+        <Image class="l-page__bg-ashirai l-page__bg-ashirai--tl" src={giftAshirai1} alt="" />
+        <Image class="l-page__bg-ashirai l-page__bg-ashirai--br" src={giftAshirai2} alt="" />
+        <Image class="l-page__bg-ashirai l-page__bg-ashirai--bl" src={giftAshirai3} alt="" />
       </div>
     </div>
     <div class="l-shell">

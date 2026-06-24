@@ -25,9 +25,16 @@ import assortment09 from '../assets/images/assortment-09.png';
 const kuzuGridImages = [assortment06, assortment07, assortment08, assortment09];
 import kuzusetBgSrc from '../assets/images/kuzuset-bg.png';
 import treatmentKuzu from '../assets/images/treatment-kuzu.png';
+import teaBgSrc from '../assets/images/koricha-set-bg.jpg';
+import kuzuBlockBgSrc from '../assets/images/kuzu-bg.jpg';
+import kuzuBannerBgSrc from '../assets/images/kuzu-bg-image.jpg';
+import ribbonBgSrc from '../assets/images/koricha-ribon.jpg';
 
-// 背景画像も <Image> と同じ sharp 最適化(webp)を通す
+// 背景画像も <Image> と同じ sharp 最適化(webp)を通す（CSS側は各 var(--*) を参照）
 const kuzusetBg = await getImage({ src: kuzusetBgSrc });
+const teaBg = await getImage({ src: teaBgSrc });
+const kuzuBlockBg = await getImage({ src: kuzuBlockBgSrc });
+const kuzuBannerBg = await getImage({ src: kuzuBannerBgSrc });
 
 /** Assortment 番号 → 商品画像 */
 const assortmentImages: Record<string, ImageMetadata> = {
@@ -41,11 +48,11 @@ const assortmentImages: Record<string, ImageMetadata> = {
 
 <section id="hyocha-set" class="p-hyocha-set" aria-labelledby="heading-hyocha-set">
   {/* ===== 氷茶 詰め合わせ ===== */}
-  <div class="p-hyocha-set__block p-hyocha-set__block--tea">
+  <div class="p-hyocha-set__block p-hyocha-set__block--tea" style={`--tea-bg: url("${teaBg.src}")`}>
     <div class="l-container">
       <header class="p-hyocha-set__heading">
         <h2 id="heading-hyocha-set" class="p-hyocha-set__heading-ja">氷茶<br />詰め合わせ</h2>
-        <span class="p-hyocha-set__heading-ribbon" aria-hidden="true"></span>
+        <Image src={ribbonBgSrc} alt="" aria-hidden="true" class="p-hyocha-set__heading-ribbon" />
       </header>
 
       <ul class="p-hyocha-set__features" role="list">
@@ -78,9 +85,9 @@ const assortmentImages: Record<string, ImageMetadata> = {
   {/* ===== 氷茶・くず餅 詰め合わせ ===== */}
   <div
     class="p-hyocha-set__block p-hyocha-set__block--kuzu"
-    style={`--kuzuset-bg: url("${kuzusetBg.src}")`}
+    style={`--kuzuset-bg: url("${kuzusetBg.src}"); --kuzu-block-bg: url("${kuzuBlockBg.src}")`}
   >
-    <div class="p-hyocha-set__heading-banner">
+    <div class="p-hyocha-set__heading-banner" style={`--kuzu-banner-bg: url("${kuzuBannerBg.src}")`}>
       <header class="p-hyocha-set__heading">
         <h2 class="p-hyocha-set__heading-ja">氷茶・くず餅<br />詰め合わせ</h2>
         <Image src={treatmentKuzu} alt="" aria-hidden="true" class="p-hyocha-set__heading-dots" />

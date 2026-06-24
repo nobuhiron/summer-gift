@@ -6,20 +6,20 @@
 }
 
 .p-hyocha-set__block--tea {
-  /* 支給の水テクスチャ背景（koricha-set-bg.jpg）をブロック全面に敷く */
-  background: url('../../assets/images/koricha-set-bg.jpg') #cfe6fa top center / cover no-repeat;
+  /* 支給の水テクスチャ背景（koricha-set-bg.jpg）をブロック全面に敷く（getImage webp、--tea-bg） */
+  background: var(--tea-bg) #cfe6fa top center / cover no-repeat;
 }
 
 .p-hyocha-set__block--kuzu {
   padding-block-start: 0;
-  background: url('../../assets/images/kuzu-bg.jpg') center bottom / 100% auto no-repeat;
+  background: var(--kuzu-block-bg) center bottom / 100% auto no-repeat;
 }
 
 /* ブロック見出し */
 .p-hyocha-set__heading-banner {
   width: 100%;
   height: 515px;
-  background: url('../../assets/images/kuzu-bg-image.jpg') center / cover no-repeat;
+  background: var(--kuzu-banner-bg) center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -46,10 +46,10 @@
 
 .p-hyocha-set__heading-ribbon {
   display: block;
-  /* l-container(20px) の外まで広げ、375px カラム幅いっぱいに敷く */
+  /* l-container(20px) の外まで広げ、375px カラム幅いっぱいに表示（リボン装飾画像） */
+  width: calc(100% + 2 * var(--layout-padding-sp));
+  height: auto;
   margin: 10px calc(-1 * var(--layout-padding-sp)) 0;
-  aspect-ratio: 750 / 98;
-  background: url('../../assets/images/koricha-ribon.jpg') center / cover no-repeat;
 }
 
 .p-hyocha-set__heading-dots {

@@ -3,8 +3,8 @@
 
 .p-hyocha {
   padding-block-end: 48px;
-  /* 支給の水テクスチャ背景をセクション全面に敷く */
-  background: url('../../assets/images/koricha-bg.jpg') #eef6fd top center / cover no-repeat;
+  /* 支給の水テクスチャ背景をセクション全面に敷く（getImageでwebp化、--hyocha-bg） */
+  background: var(--hyocha-bg) #eef6fd top center / cover no-repeat;
   /* 全幅カルーセル（負マージン）がビューポート外に出るのを抑える */
   overflow-x: clip;
 }

@@ -4,19 +4,23 @@
  * 縦書き装飾タイトル＋茶碗写真のヒーロー → 導入文 → 商品カード（横スクロール）。
  * NOTE: hyocha-hero.jpg は支給カンプ(森半の氷茶.jpg)からのスライス。商品画像はプレースホルダ。
  */
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import koriImage from '../assets/images/koricha-image.png';
 import koriItem1 from '../assets/images/koricha-item-1.jpg';
 import koriItem2 from '../assets/images/koricha-item-2.jpg';
 import koriItem3 from '../assets/images/koricha-item-3.jpg';
+import korichaBgSrc from '../assets/images/koricha-bg.jpg';
 import { HYOCHA_INTRO, HYOCHA_PRODUCTS } from '../data/hyocha-products';
 import { splitLines } from '../utils/text';
 import { publicAssetPath } from '../utils/assets';
 
 const koriItems = [koriItem1, koriItem2, koriItem3];
+
+// CSS背景も sharp 最適化(webp)を通す（CSS側は var(--hyocha-bg) を参照）
+const korichaBg = await getImage({ src: korichaBgSrc });
 ---
 
-<section id="hyocha" class="l-section p-hyocha" aria-labelledby="heading-hyocha">
+<section id="hyocha" class="l-section p-hyocha" aria-labelledby="heading-hyocha" style={`--hyocha-bg: url("${korichaBg.src}")`}>
   <h2 id="heading-hyocha" class="visually-hidden">森半の氷茶</h2>
 
   <div class="p-hyocha__hero">
