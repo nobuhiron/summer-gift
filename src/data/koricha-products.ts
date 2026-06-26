@@ -1,12 +1,12 @@
 /** 森半の氷茶（森半の氷茶.jpg より書き起こし） */
-export const HYOCHA_INTRO = [
+export const KORICHA_INTRO = [
   'ある朝のドラマにも登場したシーン。\n「笊籠（いかき）と呼ばれる竹を編んだざるに\nお茶と氷を入れる。」それだけ。',
   'ゆっくりゆっくり溶けてゆく氷と、\nじっくりじっくり開いてゆく茶葉。\nヒタヒタと笊籠から落ちてゆくのは、\nうま味たっぷりのお茶。',
   '100年以上の歴史を持つ森半の「氷茶」は\n創業当時の製法を守りながら、\n現代の技術も取り入れながら作っています。',
   '丁寧に抽出する事で実現する厳選された\n茶葉の深い味わいと爽やかな香りは\n多くのお客様に愛され続けています。',
 ];
 
-export type HyochaProduct = {
+export type KorichaProduct = {
   name: string;
   unit: string;
   price: string;
@@ -14,7 +14,7 @@ export type HyochaProduct = {
   href: string;
 };
 
-export const HYOCHA_PRODUCTS: HyochaProduct[] = [
+export const KORICHA_PRODUCTS: KorichaProduct[] = [
   {
     name: '氷茶 水出し玉露',
     unit: '[10P入り]',

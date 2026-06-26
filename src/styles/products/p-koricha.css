@@ -1,7 +1,7 @@
 /* 森半の氷茶（森半の氷茶.jpg）:
    全幅ヒーロー（縦書き装飾タイトル＋茶碗）→ 中央寄せ導入文 → 商品カード横スクロール。 */
 
-.p-hyocha {
+.p-koricha {
   position: relative;
   isolation: isolate;
   padding-block-end: 48px;
@@ -10,25 +10,25 @@
   overflow-x: clip;
 }
 
-.p-hyocha > :not(.c-section-bg) {
+.p-koricha > :not(.c-section-bg) {
   position: relative;
   z-index: 1;
 }
 
-.p-hyocha__hero {
+.p-koricha__hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-block-start: 48px;
 }
 
-.p-hyocha__hero-title {
+.p-koricha__hero-title {
   display: block;
   width: auto;
   height: 256px;
 }
 
-.p-hyocha__hero-image {
+.p-koricha__hero-image {
   display: block;
   width: 85%;
   height: auto;
@@ -36,36 +36,36 @@
 }
 
 /* 導入文（中央寄せ） */
-.p-hyocha__intro {
+.p-koricha__intro {
   margin-block: 28px 32px;
   text-align: center;
 }
 
-.p-hyocha__intro-para {
+.p-koricha__intro-para {
   font-size: var(--font-size-body-sm);
   line-height: 2;
   color: var(--color-text);
 }
 
-.p-hyocha__intro-para + .p-hyocha__intro-para {
+.p-koricha__intro-para + .p-koricha__intro-para {
   margin-block-start: 1.4em;
 }
 
 /* 商品カード横スクロール（コーディングルール: 氷茶は横スクロール / Swiper） */
-.p-hyocha__carousel {
+.p-koricha__carousel {
   min-width: 0;
 }
 
-.p-hyocha__swiper {
+.p-koricha__swiper {
   align-items: stretch;
 }
 
-.p-hyocha__item.swiper-slide {
+.p-koricha__item.swiper-slide {
   width: 240px;
   height: auto;
 }
 
-.c-hyocha-card {
+.c-koricha-card {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -75,21 +75,21 @@
   gap: 12px;
 }
 
-.c-hyocha-card__image {
+.c-koricha-card__image {
   aspect-ratio: 5 / 4;
   background: #e8eef6;
   border-radius: 8px;
   overflow: hidden;
 }
 
-.c-hyocha-card__body {
+.c-koricha-card__body {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   flex: 1;
   gap: 10px;
 }
 
-.c-hyocha-card__name {
+.c-koricha-card__name {
   font-family: var(--font-jp--serif);
   font-size: 20px;
   font-weight: var(--fw-semibold);
@@ -102,7 +102,7 @@
   overflow: hidden;
 }
 
-.c-hyocha-card__unit {
+.c-koricha-card__unit {
   display: inline-block;
   white-space: nowrap;
   font-size: 16px;
@@ -110,7 +110,7 @@
   color: var(--color-text);
 }
 
-.c-hyocha-card__price {
+.c-koricha-card__price {
   font-family: var(--font-jp--serif);
   color: var(--color-main);
   font-weight: var(--fw-medium);
@@ -119,26 +119,26 @@
   padding-block-end: 10px;
 }
 
-.c-hyocha-card__price-yen {
+.c-koricha-card__price-yen {
   font-size: 14px;
   font-weight: var(--fw-medium);
 }
 
-.c-hyocha-card__price-tax {
+.c-koricha-card__price-tax {
   font-size: 12px;
   font-weight: var(--fw-medium);
   color: var(--color-main);
   margin-inline-start: 4px;
 }
 
-.c-hyocha-card__desc {
+.c-koricha-card__desc {
   font-size: 15px;
   line-height: 1.9;
   color: var(--color-text);
   flex: 1;
 }
 
-.c-hyocha-card__btn {
+.c-koricha-card__btn {
   position: relative;
   display: flex;
   align-items: center;
@@ -156,18 +156,18 @@
     border-color 0.2s ease;
 }
 
-.c-hyocha-card__btn:hover {
+.c-koricha-card__btn:hover {
   background: var(--base-bg);
   color: var(--color-cta);
   border-color: var(--color-cta);
 }
 
-.c-hyocha-card__btn:hover .c-hyocha-card__btn-icon {
+.c-koricha-card__btn:hover .c-koricha-card__btn-icon {
   background: var(--color-cta);
   color: var(--base-bg);
 }
 
-.c-hyocha-card__btn-icon {
+.c-koricha-card__btn-icon {
   position: absolute;
   right: 12px;
   top: 50%;
@@ -182,7 +182,7 @@
   justify-content: center;
 }
 
-.c-hyocha-card__btn-icon svg {
+.c-koricha-card__btn-icon svg {
   width: 14px;
   height: 14px;
 }

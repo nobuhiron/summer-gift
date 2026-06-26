@@ -3,7 +3,9 @@
 .p-about {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
+  /* 風鈴(.p-about__furin)を bottom:-36px で次セクションに重ねるため clip しない。
+     背景(.c-section-bg)は inset:0 で収まり、ribbon は負マージンでも列幅内なのではみ出さない。 */
+  overflow: visible;
   z-index: 1;
   padding-block: 44px 64px;
   background-color: #ffffff;

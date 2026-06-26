@@ -1,5 +1,5 @@
 /** 氷茶 詰め合わせ / 氷茶・くず餅 詰め合わせ（氷茶詰め合わせ.jpg・氷茶・くず餅 詰め合わせ.jpg より） */
-export const HYOCHA_SET_DESC =
+export const KORICHA_SET_DESC =
   '氷を浮かべることで引き立つ、玉露の豊かな香りと濃厚な旨み、やさしい甘み。暑い季節に、涼やかで贅沢なお茶時間をお楽しみください。';
 
 export type Assortment = {
@@ -11,7 +11,7 @@ export type Assortment = {
 };
 
 /** 氷茶 詰め合わせ */
-export const HYOCHA_ASSORTMENTS: Assortment[] = [
+export const KORICHA_ASSORTMENTS: Assortment[] = [
   {
     no: 'Assortment 01',
     title: '氷茶詰め合わせ',

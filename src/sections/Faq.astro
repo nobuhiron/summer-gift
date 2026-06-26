@@ -13,8 +13,8 @@ const wrappingHref = 'https://www.tea-and-coffee.shop/view/page/gift';
   <div class="l-container">
     <h2 id="heading-faq" class="p-faq__title">よくある質問</h2>
     <div class="p-faq__list">
-      {FAQ_ITEMS.map((item) => (
-        <details class="p-faq__item" open>
+      {FAQ_ITEMS.map((item, index) => (
+        <details class="p-faq__item" open={index === 0}>
           <summary class="p-faq__summary">
             <span class="p-faq__q" aria-hidden="true">Q</span>
             <span class="p-faq__question">{item.question}</span>

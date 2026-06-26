@@ -1,5 +1,5 @@
 /* 全カルーセルの Swiper 初期化。
-   - data-carousel="free"   … 自由ドラッグ横スクロール＋スクロールバー（Ranking/Noshi/Hyocha）
+   - data-carousel="free"   … 自由ドラッグ横スクロール＋スクロールバー（Ranking/Noshi/Koricha）
    - data-carousel="slides" … 1枚送り＋矢印（Reason）
    スクロールバー要素は data-scrollbar="#id" で外部指定（インセット配置のため）。 */
 import Swiper from 'swiper';
